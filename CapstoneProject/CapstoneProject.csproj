@@ -68,6 +68,7 @@
     <Content Include="bootstrap\js\npm.js" />
     <Content Include="Global.asax" />
     <Content Include="Logon.aspx" />
+    <Content Include="databaseSetup.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

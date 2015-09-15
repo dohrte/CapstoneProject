@@ -25,39 +25,39 @@ namespace CapstoneProject
 
         public bool IsAuthenticated(string username, string pwd)
         {
-            string domainAndUsername = _domain + @"\" + username;
-            DirectoryEntry entry = new DirectoryEntry(_path, domainAndUsername, pwd);
+            //string domainAndUsername = _domain + @"\" + username;
+            //DirectoryEntry entry = new DirectoryEntry(_path, domainAndUsername, pwd);
 
-            try
-            {
-                //Bind to the native AdsObject to force authentication.
-                object obj = entry.NativeObject;
+            //try
+            //{
+            //    //Bind to the native AdsObject to force authentication.
+            //    object obj = entry.NativeObject;
 
-                DirectorySearcher search = new DirectorySearcher(entry);
+            //    DirectorySearcher search = new DirectorySearcher(entry);
 
-                search.Filter = "(SAMAccountName=" + username + ")";
-                search.PropertiesToLoad.Add("cn");
-                SearchResult result = search.FindOne();
+            //    search.Filter = "(SAMAccountName=" + username + ")";
+            //    search.PropertiesToLoad.Add("cn");
+            //    SearchResult result = search.FindOne();
 
-                if (null == result)
-                {
-                    return false;
-                }
+            //    if (null == result)
+            //    {
+            //        return false;
+            //    }
 
-                //Update the new path to the user in the directory.
-                _path = result.Path;
-                _filterAttribute = (string)result.Properties["cn"][0];
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error authenticating user. " + ex.Message);
-            }
+            //    //Update the new path to the user in the directory.
+            //    _path = result.Path;
+            //    _filterAttribute = (string)result.Properties["cn"][0];
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception("Error authenticating user. " + ex.Message);
+            //}
 
             return true;
         }
 
 
-        // potentially not needed
+        // potentially not needed due to use of the role provider
         public string GetGroups()
         {
             DirectorySearcher search = new DirectorySearcher(_path);

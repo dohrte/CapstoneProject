@@ -16,35 +16,35 @@ namespace CapstoneProject
         /// </summary>
         /// <param name="groupName"></param>
         /// <returns></returns>
-        public string[] GetMemberList(string groupName);
+        string[] GetMemberList(string groupName);
 
         /// <summary>
         /// Returns a list of groups the defined user is a member of
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public List<string> GetMemberOf(string userName);
+        List<string> GetMemberOf(string userName);
 
         /// <summary>
         /// Retruns a dictionary of key value attributes of the specified user.
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public Dictionary<string, string> GetUserAcctInfo(string user);
+        Dictionary<string, string> GetUserAcctInfo(string user);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="inputName"></param>
         /// <returns></returns>
-        public Dictionary<string, string> GetAdObj(string inputName);
+        Dictionary<string, string> GetAdObj(string inputName);
 
         /// <summary>
         /// Returns a list of groups managed by the specified user
         /// </summary>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public string[] GetGroupsManagedList(string userID);
+        string[] GetGroupsManagedList(string userID);
 
 
 

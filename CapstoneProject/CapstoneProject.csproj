@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +71,7 @@
     <Content Include="Global.asax" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
+    <Content Include="Requestlog.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

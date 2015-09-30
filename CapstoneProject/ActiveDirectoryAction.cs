@@ -37,8 +37,7 @@ namespace CapstoneProject
     public sealed class ActiveDirectoryAction : ActiveDirectoryInterface
     {
         private static readonly ActiveDirectoryAction instance = new ActiveDirectoryAction();
-        private string connectionPrefix = "LDAP://admnet.oakland.edu";
-        private Object lockObj = new Object();
+        private string connectionPrefix = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ActiveDirectory"].ConnectionString;
 
 
         private ActiveDirectoryAction()
@@ -159,6 +158,12 @@ namespace CapstoneProject
             return groups;
         }
 
+        /// <summary>
+        /// Find if a user is a memeber of a particular group.
+        /// </summary>
+        /// <param name="userName">Ther CN or samAccountName</param>
+        /// <param name="groupName">bool, true or false</param>
+        /// <returns></returns>
         public bool IsMemberOf(string userName, string groupName)
         {
             bool isMember = false;
@@ -174,52 +179,7 @@ namespace CapstoneProject
 
             return isMember;
         }
-        
-        /// <summary>
-        /// Generate a list of unmanaged security groups in active directory.
-        /// </summary>
-        /// <returns>list of names as an array of strings</returns>
-        public string[] GenerateUnManagedList()
-        {
-            List<string> UnManList = new List<string>();
-            DirectoryEntry entry = new DirectoryEntry(connectionPrefix);
-            DirectorySearcher mySearcher = new DirectorySearcher(entry);
-
-            mySearcher.Filter = "(&(objectClass=group)(!(ManagedBy=*)))";
-
-            SearchResultCollection result = null;
-
-            try
-            {
-                result = mySearcher.FindAll();
-            }
-            catch (Exception e)
-            {
-                Console.Write("search error. " + e.Message);
-            }
-
-            if (result != null)
-            {
-                foreach (SearchResult item in result)
-                {
-                    DirectoryEntry directoryObject = item.GetDirectoryEntry();
-                    UnManList.Add(directoryObject.Properties["CN"].Value.ToString());
-                    
-                }
-            }
-            else
-            {
-                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
-            }
-
-            entry.Close();
-            entry.Dispose();
-            mySearcher.Dispose();
-
-            UnManList.Sort();
-            return UnManList.ToArray<string>();
-        }
-
+             
         /// <summary>
         /// Get the properties for a user object in active directory. 
         /// </summary>
@@ -255,7 +215,6 @@ namespace CapstoneProject
 
             return userProps;
         }
-
 
         /// <summary>
         /// returns the distinguishedName from AD based on name. 
@@ -366,6 +325,54 @@ namespace CapstoneProject
 
             return retAdObj;
         }
+
+        /// <summary>
+        /// Get a list of roles for the web application.
+        /// </summary>
+        /// <returns>A string array of role names</returns>
+        public string[] GetWebAppRoles()
+        {
+            List<string> memberOf = new List<string>();
+
+            string queryString = "(objectClass=group)";
+            string ouDistinguishedName = this.GetDN(System.Web.Configuration.WebConfigurationManager.AppSettings["RoleContainer"]);
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true, ouDistinguishedName);
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult sResult in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = sResult.GetDirectoryEntry();
+                    memberOf.Add(directoryObject.Properties["CN"].Value.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
+            }
+            return memberOf.ToArray();
+        }
+
+        /// <summary>
+        /// Get a list of roles for a specific user.
+        /// </summary>
+        /// <param name="username">The name of the user</param>
+        /// <returns>string[] of role names</returns>
+        public string[] GetUsersWebAppRoles(string username)
+        {
+            List<string> memberOf = new List<string>();
+
+            foreach (string role in this.GetWebAppRoles())
+            {
+                if (this.IsMemberOf(username, role))
+                {
+                    memberOf.Add(role);
+                }
+            }
+            return memberOf.ToArray();
+        }
+
 
         /// <summary>
         /// Execute general search of active directory and return the results 

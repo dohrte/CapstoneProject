@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CapstoneProject
 {
     /// <summary>
-    /// Defines what ineractions are available between application and Active Directory
+    /// Defines what ineractions must be available between application and Active Directory
     /// </summary>
     interface ActiveDirectoryInterface
     {
@@ -30,7 +30,7 @@ namespace CapstoneProject
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Dictionary<string, string> GetUserAcctInfo(string user);
+        Dictionary<string, string> GetUserAcctInfo(string user, string[] properties = null);
 
         /// <summary>
         /// 

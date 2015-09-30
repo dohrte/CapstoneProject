@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,6 +74,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveDirectoryAction.cs" />
     <Compile Include="ActiveDirectoryInterface.cs" />
     <Compile Include="ActiveDirectoryRoleProvider.cs" />
     <Compile Include="Default.aspx.cs">

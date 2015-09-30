@@ -14,7 +14,7 @@ namespace CapstoneProject
     public class LdapAuthentication
     {
         //TODO: needs to be set for new domain.
-        private string _path = "LDAP://capstone.uts.edu"; // set 
+        private string _path = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ActiveDirectory"].ConnectionString;
         private string _filterAttribute;
         private string _domain = "capstone"; // test domain
 

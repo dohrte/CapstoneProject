@@ -71,7 +71,12 @@
     <Content Include="Global.asax" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
-    <Content Include="Web.config" />
+    <Content Include="page1.aspx" />
+    <Content Include="page2.aspx" />
+    <Content Include="RequestAcct.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveDirectoryAction.cs" />
@@ -102,7 +107,28 @@
     <Compile Include="MasterLayout.Master.designer.cs">
       <DependentUpon>MasterLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="page1.aspx.cs">
+      <DependentUpon>page1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page1.aspx.designer.cs">
+      <DependentUpon>page1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="page2.aspx.cs">
+      <DependentUpon>page2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="page2.aspx.designer.cs">
+      <DependentUpon>page2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestAcct.aspx.cs">
+      <DependentUpon>RequestAcct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestAcct.aspx.designer.cs">
+      <DependentUpon>RequestAcct.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap\css\bootstrap-theme.css.map" />
@@ -112,6 +138,7 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="MasterLayout.Master" />
+    <Content Include="config\location.config" />
     <None Include="Properties\PublishProfiles\publishCapstone-Local.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Remote.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Shares.pubxml" />

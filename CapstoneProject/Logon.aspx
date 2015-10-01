@@ -9,5 +9,5 @@
     <asp:TextBox ID="txtPassword" Runat="server" TextMode="Password"></asp:TextBox><br>
     <asp:Button ID="btnLogin" Runat="server" Text="Login" OnClick="Login_Click" ></asp:Button><br>
     <asp:Label ID="errorLabel" Runat="server" ForeColor="#ff3300"></asp:Label><br>
-    
+    <asp:Button ID="btnRequestAccount" runat="server" Text="Request Account" OnClick="btnRequestAccount_Click" />
 </asp:Content>

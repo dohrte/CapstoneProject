@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace CapstoneProject
+namespace CapstoneProject.Roles
 {
     /// <summary>
     /// This class will be used to set roles for users as it pertains to the web application.

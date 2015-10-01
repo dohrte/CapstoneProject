@@ -13,5 +13,16 @@ namespace CapstoneProject
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session.Abandon();
+        string cookieName = System.Web.Security.FormsAuthentication.FormsCookieName;
+        HttpCookie authCookie = Context.Request.Cookies[cookieName];
+        authCookie.Expires = DateTime.Now.AddDays(-1);
+        Response.Cookies.Add(authCookie);
+
+        Response.Redirect("Logon.aspx");
+    }
   }
 }

@@ -12,7 +12,10 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -23,7 +26,7 @@ namespace CapstoneProject
                 if (true == adAuth.IsAuthenticated(txtUsername.Text, txtPassword.Text))
                 {
                     //string groups = adAuth.GetGroups(txtDomain.Text, txtUsername.Text, txtPassword.Text);
-                    string userData = string.Empty;
+                    string userData ="";
 
                     //Create the ticket, and add the groups.
                     bool isCookiePersistent = true; // chkPersist.Checked;
@@ -35,8 +38,13 @@ namespace CapstoneProject
                     //Create a cookie, and then add the encrypted ticket to the cookie as data.
                     HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
 
-                    if (true == isCookiePersistent)
-                        authCookie.Expires = authTicket.Expiration;
+                    //if (true == isCookiePersistent)
+                     //   authCookie.Expires = authTicket.Expiration;
+
+
+                    //expire the cookie in five minutes
+                    authCookie.Expires = DateTime.Now.AddMinutes(5);
+
 
                     //Add the cookie to the outgoing cookies collection.
                     Response.Cookies.Add(authCookie);
@@ -53,6 +61,11 @@ namespace CapstoneProject
             {
                 errorLabel.Text = "Error authenticating. " + ex.Message;
             }
+        }
+
+        protected void btnRequestAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RequestAcct.aspx");
         }
 
     }

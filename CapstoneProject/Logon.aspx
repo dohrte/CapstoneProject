@@ -16,7 +16,7 @@
         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox><br />
         <asp:Label ID="Label3" runat="server">Password:</asp:Label>
         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox><br />
-        <br>
+        <br />
             <asp:Button ID="btnLogin" runat="server" class="btn btn-primary" OnClick="Login_Click" Text="Login" />
             <br />
             <br />

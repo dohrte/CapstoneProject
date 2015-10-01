@@ -13,15 +13,6 @@ namespace CapstoneProject {
     public partial class Logon {
         
         /// <summary>
-        /// panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panel1;
-        
-        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// btnRequestAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRequestAccount;
-        
-        /// <summary>
         /// errorLabel control.
         /// </summary>
         /// <remarks>
@@ -83,5 +65,14 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLabel;
+        
+        /// <summary>
+        /// chkPersist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkPersist;
     }
 }

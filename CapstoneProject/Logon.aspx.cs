@@ -30,7 +30,7 @@ namespace CapstoneProject
 
                     //Create the ticket, and add the groups.
                     bool isCookiePersistent = true; // chkPersist.Checked;
-                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(60), isCookiePersistent, userData);
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(5), isCookiePersistent, userData);
 
                     //Encrypt the ticket.
                     string encryptedTicket = FormsAuthentication.Encrypt(authTicket);

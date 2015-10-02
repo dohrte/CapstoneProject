@@ -172,7 +172,7 @@ namespace CapstoneProject
 
             string[] grpMems = this.GetMemberList(groupName);
 
-            if (grpMems.Contains(userDetail["CN"]))
+            if (grpMems.Contains(userDetail["cn"]))
             {
                 isMember = true;
             }

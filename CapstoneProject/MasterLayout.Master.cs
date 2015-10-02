@@ -14,7 +14,7 @@ namespace CapstoneProject
 
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void btnLogout_Click(object sender, EventArgs e)
     {
         Session.Abandon();
         string cookieName = System.Web.Security.FormsAuthentication.FormsCookieName;

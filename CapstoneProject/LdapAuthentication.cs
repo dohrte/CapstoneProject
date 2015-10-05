@@ -14,9 +14,9 @@ namespace CapstoneProject
     public class LdapAuthentication
     {
         //TODO: needs to be set for new domain.
-        private string _path; // set 
+        private string _path = "LDAP://capstone.uts.edu"; // set 
         private string _filterAttribute;
-        private string _domain; // set
+        private string _domain = "capstone"; // test domain
 
         public LdapAuthentication()
         {
@@ -57,7 +57,7 @@ namespace CapstoneProject
         }
 
 
-        // potentially not needed
+        // potentially not needed due to use of the role provider
         public string GetGroups()
         {
             DirectorySearcher search = new DirectorySearcher(_path);

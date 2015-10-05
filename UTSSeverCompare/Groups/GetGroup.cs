@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,34 @@ namespace WindowsService1.Groups
 {
     class GetGroup
     {
-        public void DatabaseConnect()
+        SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
+                                                           "password=Abc123!!;" +
+                                                           "server=SQLSERVER480;" +
+                                                           "Trusted_Connection=yes;" +
+                                                           "database=UTSDB; " +
+                                                           "connection timeout=10");
+
+        public DataTable GetUTSGroups()
         {
-            using (SqlConnection conn = new SqlConnection())
+            DataTable dt = new DataTable();
+
+            try
             {
-                conn.ConnectionString = "Server=[server_name];Database=[database_name];Trusted_Connection=true";
-                // using the code here...
+                SqlCommand getUsers = new SqlCommand("SELECT * FROM Groups", sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataReader myReader = getUsers.ExecuteReader();
+                dt.Load(myReader);
+
+                sqlConnection.Close();
             }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+
+            return dt;
         }
     }
 }

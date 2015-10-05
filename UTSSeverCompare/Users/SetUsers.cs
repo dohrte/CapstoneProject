@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsService1.Groups
+namespace WindowsService1.Users
 {
-    class GetGroupUser
+    class SetUsers
     {
         SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
                                                            "password=Abc123!!;" +
@@ -16,28 +16,21 @@ namespace WindowsService1.Groups
                                                            "Trusted_Connection=yes;" +
                                                            "database=UTSDB; " +
                                                            "connection timeout=10");
-
-        public DataTable GetUTSGroupsUser()
+        public void SetUTSUsers()
         {
-            DataTable dt = new DataTable();
+            GetUser g = new GetUser();
 
-            try
-            {
-                SqlCommand getUsers = new SqlCommand("SELECT * FROM Groups_User", sqlConnection);
+            //GetADUsers
 
-                sqlConnection.Open();
+            //GetUTSUsers
 
-                SqlDataReader myReader = getUsers.ExecuteReader();
-                dt.Load(myReader);
+            DataTable utsUsers = new DataTable();
+            utsUsers = g.GetUTSUsers();
 
-                sqlConnection.Close();
-            }
-            catch (Exception e)
-            {
-                throw (e);
-            }
+            //Compare
 
-            return dt;
+            //SetUTSUsers
         }
+
     }
 }

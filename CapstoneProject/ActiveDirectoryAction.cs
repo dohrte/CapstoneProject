@@ -326,6 +326,8 @@ namespace CapstoneProject
             return retAdObj;
         }
 
+
+        // **** used by role provider ***********************************
         /// <summary>
         /// Get a list of roles for the web application.
         /// </summary>
@@ -372,7 +374,7 @@ namespace CapstoneProject
             }
             return memberOf.ToArray();
         }
-
+        //
 
         /// <summary>
         /// Execute general search of active directory and return the results 
@@ -446,7 +448,159 @@ namespace CapstoneProject
             return execResult;
         }
 
-   
+        // **** used by create computer object ******************************
+
+        /// <summary>
+        /// returns the distinguished name of the OU that is provided as a parameter
+        /// </summary>
+        /// <param name="ouName">Name of OU</param>
+        /// <returns>Distinguished Name of the OU</returns>
+        private string GetComputerOrganizationalUnit(string ouName)
+        {
+            string queryString = "(&(Name=" + ouName + ")(objectClass=organizationalUnit))";
+            string ouDistinguishedName = string.Empty;
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true);
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult sResult in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = sResult.GetDirectoryEntry();
+
+                    string distName = directoryObject.Properties["distinguishedName"].Value.ToString();
+                    //Console.WriteLine(distName);
+                    if (distName.Contains("Capstone Computers"))
+                    {
+                        ouDistinguishedName = directoryObject.Properties["distinguishedName"].Value.ToString();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
+            }
+            return ouDistinguishedName;
+        }
+
+        /// <summary>
+        /// Check if a computer name exists in the defined OU in active directory.
+        /// </summary>
+        /// <param name="compName">Computer name to check for.</param>
+        /// <param name="ouName">OU to check with in.</param>
+        /// <returns>Bool value, true if the name does exist else false.</returns>
+        private bool DoesComputerNameExist(string compName, string ouName)
+        {
+            bool exist = false;
+            compName = compName.ToUpperInvariant();
+            DirectoryEntry dirEntry = new DirectoryEntry("LDAP://" + this.GetComputerOrganizationalUnit(ouName));
+
+            DirectorySearcher ds = new DirectorySearcher(dirEntry);
+
+            ds.Filter = @"(&(cn=" + compName + ")(objectClass=computer))";
+
+            SearchResult singleResult = null;
+            try
+            {
+                singleResult = ds.FindOne();
+            }
+            catch (Exception e)
+            {
+                //errFlag = true;
+                //Console.Write("search error. " + e.Message); //log file for errors
+            }
+
+            if (singleResult != null)
+            {
+                exist = true;
+            }
+
+            return exist;
+        }
+
+        public string[] GetUtsWebAppRoles()
+        {
+            List<string> memberOf = new List<string>();
+
+            string queryString = "(objectClass=group)";
+            string ouDistinguishedName = this.GetDN("UTSWebApp");
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true, ouDistinguishedName);
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult sResult in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = sResult.GetDirectoryEntry();
+                    memberOf.Add(directoryObject.Properties["CN"].Value.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
+            }
+            return memberOf.ToArray();
+        }
+
+        public string[] GetUsersWebAppRoles(string username)
+        {
+            List<string> memberOf = new List<string>();
+
+            foreach (string role in this.GetUtsWebAppRoles())
+            {
+                if (this.IsMemberOf(username, role))
+                {
+                    memberOf.Add(role);
+                }
+            }
+            return memberOf.ToArray();
+        }
+
+        private void SetSecurityRights(string compName, string ouContainer)
+        {
+            string qString = "(&(name=" + compName + ")(objectClass=computer))";
+            ExecuteResult result = this.ExecuteSearch(qString, false, ouContainer);
+            //TODO: add group to security 
+            var computer = result.singleResult.GetDirectoryEntry();
+            ActiveDirectorySecurity sdc = computer.ObjectSecurity;
+            NTAccount Account = new NTAccount("admnet", "JoinMachine");//@"admnet.oakland.edu/User Groups/UTSWebApp/JoinMachine"
+            SecurityIdentifier sid = (SecurityIdentifier)Account.Translate(typeof(SecurityIdentifier));
+
+
+            Guid userSchemaGuid = new Guid("BF967ABA-0DE6-11D0-A285-00AA003049E2");
+            Guid computerSchemaGuid = new Guid("bf967a86-0de6-11d0-a285-00aa003049e2");
+
+            Guid UserForceChangePassword = new Guid("00299570-246d-11d0-a768-00aa006e0529"); // ‘Reset password’ 
+            Guid dnsHostNameGuid = new Guid("72e39547-7b18-11d1-adef-00c04fd8d5cd");  // ‘Validated write to DNS host name’
+            Guid rwAccountRestrictions = new Guid("4c164200-20c0-11d0-a768-00aa006e0529"); // ‘Read and write account restrictions’
+            Guid wServicePrincipalName = new Guid("f3a64788-5306-11d1-a9c5-0000f80367c1");   // ‘Validated write to service principal name’ 
+
+            ActiveDirectoryAccessRule acctRestrictionsRW = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.ReadProperty | ActiveDirectoryRights.WriteProperty, AccessControlType.Allow, rwAccountRestrictions, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(acctRestrictionsRW);
+
+            ActiveDirectoryAccessRule dnsHostNameEdit = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.Self, AccessControlType.Allow, dnsHostNameGuid, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(dnsHostNameEdit);
+            ActiveDirectoryAccessRule valSPN = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.Self, AccessControlType.Allow, wServicePrincipalName, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(valSPN);
+
+            ExtendedRightAccessRule erarResetPwd = new ExtendedRightAccessRule(Account, AccessControlType.Allow, UserForceChangePassword, ActiveDirectorySecurityInheritance.None, userSchemaGuid);
+            sdc.AddAccessRule(erarResetPwd);
+
+            /* may require the below line
+             * 
+             * Guid userAccountControlGuid = GUID('bf967a68-0de6-11d0-a285-00aa003049e2');
+             *  ActiveDirectoryAccessRule userAccountControlEdit = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.ReadProperty | ActiveDirectoryRights.WriteProperty, AccessControlType.Allow, userAccountControlGuid, ActiveDirectorySecurityInheritance.None);
+             * sdc.AddAccessRule(userAccountControlEdit);
+             * 
+             * */
+
+            //commit and cleanup
+            computer.CommitChanges();
+            computer.Close();
+            computer.Dispose();
+
+
+        }
 
     }
 }

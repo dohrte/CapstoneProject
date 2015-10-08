@@ -11,6 +11,7 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="custom.css"/>
   
   
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -18,7 +19,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div> <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
+        <asp:Panel ID="pnl1" CssClass="panel color-black" HorizontalAlign="Center" runat="server" >
+             <h1>UTS Web Application </h1><h3>Share Manager</h3>
+            <div> <asp:Panel ID="pnl2" CssClass="panel color-black" runat="server" HorizontalAlign="Left">
+                <asp:Button ID="btnLogout" CssClass="btn color-black" runat="server" OnClick="btnLogout_Click" Text="Logout"/>
+                  </asp:Panel>
+            </div>
+        </asp:Panel>
+    <div> 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
            

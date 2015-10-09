@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin.aspx" />
     <Content Include="bootstrap\css\bootstrap-theme.css" />
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -75,6 +76,7 @@
     <Content Include="page1.aspx" />
     <Content Include="page2.aspx" />
     <Content Include="RequestAcct.aspx" />
+    <Content Include="UserDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -83,6 +85,13 @@
     <Compile Include="ActiveDirectoryAction.cs" />
     <Compile Include="ActiveDirectoryInterface.cs" />
     <Compile Include="ActiveDirectoryRoleProvider.cs" />
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreateComp.aspx.cs">
       <DependentUpon>CreateComp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,6 +145,13 @@
     </Compile>
     <Compile Include="RequestAcct.aspx.designer.cs">
       <DependentUpon>RequestAcct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetail.aspx.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDetail.aspx.designer.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

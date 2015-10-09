@@ -16,6 +16,17 @@ namespace CapstoneProject
         helloMsg.Text = msg;
     }
 
+    /// <summary>
+    /// show buttons based on users roles
+    /// </summary>
+    //protected void showButtons()
+    //{
+    //    var ad = ActiveDirectoryAction.Instance;
+    //    string[] roles = ad.GetUsersWebAppRoles(Context.User.Identity.Name);
+
+
+    //}
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         Response.Redirect("page1.aspx");
@@ -26,14 +37,19 @@ namespace CapstoneProject
         Response.Redirect("page2.aspx");
     }
 
-    protected void Button3_Click(object sender, EventArgs e)
+    protected void btnAdmin_Click(object sender, EventArgs e)
     {
         Response.Redirect("Admin.aspx");
     }
 
-    protected void Button4_Click(object sender, EventArgs e)
+    protected void btnCreatComp_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CompAdd.aspx");
+        Response.Redirect("CreateComp.aspx");
+    }
+
+    protected void btnAcctDetail_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("UserDetail.aspx");
     }
 
   }

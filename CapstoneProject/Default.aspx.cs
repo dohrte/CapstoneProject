@@ -25,5 +25,16 @@ namespace CapstoneProject
     {
         Response.Redirect("page2.aspx");
     }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Admin.aspx");
+    }
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CompAdd.aspx");
+    }
+
   }
 }

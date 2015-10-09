@@ -12,6 +12,9 @@
     <br />
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Page1" />
     <br />
-    <br />
     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Page2" />
+    <br />
+    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Admin Page" />
+    <br />
+    <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Create Comp" />
 </asp:Content>

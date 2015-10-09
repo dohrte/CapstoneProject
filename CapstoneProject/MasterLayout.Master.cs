@@ -11,7 +11,16 @@ namespace CapstoneProject
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (HttpContext.Current.Request.Url.AbsolutePath.ToLowerInvariant().Contains("logon"))
+        {
+           btnLogout.Visible = false;
+           btnHome.Visible = false;
+        }
+        else
+        {
+            btnLogout.Visible = true;
+            btnHome.Visible = true;
+        }
     }
 
     protected void btnLogout_Click(object sender, EventArgs e)
@@ -23,6 +32,11 @@ namespace CapstoneProject
         Response.Cookies.Add(authCookie);
 
         Response.Redirect("Logon.aspx");
+    }
+
+    protected void btnHome_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Default.aspx");
     }
   }
 }

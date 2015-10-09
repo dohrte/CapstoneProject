@@ -19,6 +19,7 @@
 <body>
     <form id="form1" runat="server">
     <div> <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
+        <asp:Button ID="btnHome" runat="server" OnClick="btnHome_Click" Text="Home" />
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
            

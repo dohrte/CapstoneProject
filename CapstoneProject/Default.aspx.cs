@@ -42,15 +42,15 @@ namespace CapstoneProject
         Response.Redirect("Admin.aspx");
     }
 
-    protected void btnCreatComp_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CreateComp.aspx");
-    }
 
     protected void btnAcctDetail_Click(object sender, EventArgs e)
     {
         Response.Redirect("UserDetail.aspx");
     }
 
-  }
+        protected void btnCreateComp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateComp.aspx");
+        }
+    }
 }

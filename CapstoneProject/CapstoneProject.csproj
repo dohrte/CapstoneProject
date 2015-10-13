@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserDetail.aspx.designer.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>

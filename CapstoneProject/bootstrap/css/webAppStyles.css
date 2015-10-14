@@ -1,5 +1,21 @@
 ﻿.webAppNavBtn {
+    color: white;
     border: none;
     background: none;
     box-shadow: none;
+}
+
+body{
+    background-color: black;
+    color:white;
+}
+
+nav{
+    
+    background-color:#B59A57;
+}
+.navbar-default{
+    background-image:none;
+    background-color:#B59A57;
+    border:none;
 }

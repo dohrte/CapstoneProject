@@ -6,33 +6,49 @@
 <head runat="server">
 
     <title>Capstone Project</title>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="custom.css"/>
-  
-  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="custom.css" />
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Panel ID="pnl1" CssClass="panel color-black" HorizontalAlign="Center" runat="server" >
-             <h1>UTS Web Application </h1><h3>Share Manager</h3>
-            <div> <asp:Panel ID="pnl2" CssClass="panel color-black" runat="server" HorizontalAlign="Left">
-                <asp:Button ID="btnLogout" CssClass="btn color-black" runat="server" OnClick="btnLogout_Click" Text="Logout"/>
-                  </asp:Panel>
+        <div class="container">
+            <div class="row">
+                <h1>UTS Web Application </h1>
+
+                <!-- begin navbar -->
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <%--<li><asp:Button ID="btnHome" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Home"/></li>--%
+                                %--<li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>--%>
+                                <li><asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
+                                <li><asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" ><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
+                                
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+                <!-- end navbar -->
+
+                
+                
             </div>
-        </asp:Panel>
-    <div> 
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-           
-        
-        </asp:ContentPlaceHolder>
-    </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
     </form>
 </body>
 </html>

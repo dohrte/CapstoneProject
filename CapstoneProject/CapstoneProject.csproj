@@ -65,6 +65,7 @@
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\css\webAppStyles.css" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
@@ -118,6 +119,13 @@
     <Compile Include="Logon.aspx.designer.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LogonMaster.Master.cs">
+      <DependentUpon>LogonMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogonMaster.Master.designer.cs">
+      <DependentUpon>LogonMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterLayout.Master.cs">
       <DependentUpon>MasterLayout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +172,7 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="MasterLayout.Master" />
     <Content Include="config\location.config" />
+    <Content Include="LogonMaster.Master" />
     <None Include="Properties\PublishProfiles\publishCapstone-Local.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Remote.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Shares.pubxml" />

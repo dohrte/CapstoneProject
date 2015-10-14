@@ -10,7 +10,7 @@
 namespace CapstoneProject {
     
     
-    public partial class MasterLayout {
+    public partial class LogonMaster {
         
         /// <summary>
         /// head control.
@@ -31,22 +31,13 @@ namespace CapstoneProject {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnHome control.
+        /// btnRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnHome;
-        
-        /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnRequest;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

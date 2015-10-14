@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace CapstoneProject
@@ -16,8 +17,38 @@ namespace CapstoneProject
             {
                 Response.Redirect("Default.aspx");
             }
+
+            //MasterLayout site = this.Master as MasterLayout;
+            //if (site != null)
+            //{
+            //    LinkButton btnRequestAccount = new LinkButton();
+            //    btnRequestAccount.Click += btnRequestAccount_Click;
+            //    btnRequestAccount.CssClass = "btn webAppNavBtn";
+            //    btnRequestAccount.Text = "New Account";
+            //    btnRequestAccount.ID = "btnRequest";
+
+            //    HtmlGenericControl liRequestAccount = new HtmlGenericControl("li");
+            //    liRequestAccount.Controls.Add(btnRequestAccount);
+
+            //    HtmlGenericControl liLogin = new HtmlGenericControl("li");
+            //    liLogin.InnerHtml = "<button class='btn webAppNavBtn' data-toggle='modal' data-target='#loginPage' >Login</button>";
+               
+                
+            //    HtmlGenericControl liForgot = new HtmlGenericControl("li");
+            //    liForgot.InnerHtml = "<button class='btn webAppNavBtn' data-toggle='modal' data-target='#forgotPage' >Forgot Password</button>";
+                
+            //    HtmlGenericControl ul = new HtmlGenericControl("ul");
+            //    ul.Attributes.Add("class", "nav navbar-nav navbar-right");
+            //    ul.Controls.Add(liLogin);
+            //    ul.Controls.Add(liForgot);
+            //    ul.Controls.Add(liRequestAccount);
+                
+            //    Panel navPanel = site.FindControl("navBtns") as Panel;
+            //    navPanel.Controls.Add(ul);                
+            //}
         }
 
+       
         protected void Login_Click(object sender, EventArgs e)
         {
             LdapAuthentication adAuth = new LdapAuthentication();

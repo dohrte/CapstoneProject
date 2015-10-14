@@ -1,12 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterLayout.Master" AutoEventWireup="true" CodeBehind="Logon.aspx.cs" Inherits="CapstoneProject.Logon" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LogonMaster.Master" AutoEventWireup="true" CodeBehind="Logon.aspx.cs" Inherits="CapstoneProject.Logon" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel id="pnl1" CssClass="panel color-gold" runat="server" HorizontalAlign="Center">
-        <asp:button ID="btnLogin" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#loginPage" Text="Login"></asp:button>
-        <asp:button id="btnForgot" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#forgotPage" Text="Forgot Password"></asp:button>
-        <asp:button id="btnRequest" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#requestPage" Text="New Account"></asp:button>
-    </asp:Panel>
-    <asp:Panel ID="pnl2" CssClass="panel color-light" runat="server" HorizontalAlign="Center">
+   <%-- <asp:Panel id="pnl1" CssClass="panel color-gold" runat="server" HorizontalAlign="Center">--%>
+        <%--<asp:button ID="btnLogin" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#loginPage" Text="Login"></asp:button>
+        <asp:button id="btnForgot" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#forgotPage" Text="Forgot Password"></asp:button>--%>
+        <%--<button type="button" class="btn modal-gold btn-lg" data-toggle="modal" data-target="#loginPage" >Login</button>
+        <button type="button" class="btn modal-gold btn-lg" data-toggle="modal" data-target="#forgotPage">Forgot Password</button>
+        --%><%--<asp:button id="btnRequest" runat="server" cssclass="btn modal-gold btn-lg" OnClick="btnRequestAccount_Click" Text="New Account"></asp:button>--%>
+    <%--</asp:Panel>--%>
+    <%--<asp:Panel ID="pnl2" CssClass="panel color-light" runat="server" HorizontalAlign="Center">--%>
         <h4>Welcome to the UTS Share Management Web Application</h4>
         <h5>Please login or create an account to begin</h5>
 
@@ -54,13 +56,15 @@
                     <div class="modal-body modal-gold">
                             <div class="form-group">
                                 <label class="control-label">User Name</label>
-                                <input id="userNameBox" name="userNameBox" type="text" placeholder="User Name" class="form-control input-md" required="" />
+                                <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control input-md" placeholder="User Name"></asp:TextBox>
+                                <%--<input id="userNameBox" name="userNameBox" type="text" placeholder="User Name" class="form-control input-md" required="" />--%>
                                 <label class="control-label" for="passwordBox">Password</label>
-                                <input id="passwordBox" name="passwordBox" type="text" placeholder="Password" class="form-control input-md" required="" />
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control input-md" placeholder="Password"></asp:TextBox>
+                                <%--<input id="passwordBox" name="passwordBox" type="text" placeholder="Password" class="form-control input-md" required="" />--%>
                             </div>
                     </div>
                     <div class="modal-footer modal-black">
-                        <asp:button id="btnLoginlogin" cssclass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:button>
+                        <asp:button id="btnLogin" OnClick="Login_Click" cssclass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:button>
                         <asp:label id="errorLabel" cssclass="label" Text="eror" runat="server"></asp:label>
                         <asp:button id="btnCloselogin" cssclass="btn btn-default" data-dismiss="modal" Text="close" runat="server"></asp:button>
                     </div>
@@ -92,7 +96,7 @@
 
             </div>
         </div>
-     </asp:Panel>
+     <%--</asp:Panel>--%>
     <asp:Panel ID="pnl3" runat="server" cssclass="panel color-black" HorizontalAlign="center">
         <h4>About</h4><h5>Made for Senior Capstone Project</h5><h6> Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h6>
     </asp:Panel>

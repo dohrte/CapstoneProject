@@ -68,5 +68,14 @@ namespace CapstoneProject
             Response.Redirect("RequestAcct.aspx");
         }
 
+        protected void btnLoginModal_Click(object sender, EventArgs e)
+        {
+            logPanel.Visible =true;
+        }
+
+        protected void btnCloselogin_Click(object sender, EventArgs e)
+        {
+            logPanel.Visible = false;
+        }
     }
 }

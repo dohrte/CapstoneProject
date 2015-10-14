@@ -2,13 +2,33 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel id="pnl1" CssClass="panel color-gold" runat="server" HorizontalAlign="Center">
-        <asp:button ID="btnLogin" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#loginPage" Text="Login"></asp:button>
+        <asp:button ID="btnLoginModal" runat="server" cssclass="btn modal-gold btn-lg" Text="Login" OnClick="btnLoginModal_Click"></asp:button>
         <asp:button id="btnForgot" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#forgotPage" Text="Forgot Password"></asp:button>
-        <asp:button id="btnRequest" runat="server" cssclass="btn modal-gold btn-lg" data-toggle="modal" data-target="#requestPage" Text="New Account"></asp:button>
+        <asp:button id="btnRequest" runat="server" cssclass="btn modal-gold btn-lg"  Text="New Account"></asp:button>
     </asp:Panel>
     <asp:Panel ID="pnl2" CssClass="panel color-light" runat="server" HorizontalAlign="Center">
         <h4>Welcome to the UTS Share Management Web Application</h4>
         <h5>Please login or create an account to begin</h5>
+
+        <asp:panel ID="logPanel" runat="server" Visible="false">
+             <div class="modal-header modal-black">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Login to account</h3>
+            </div>
+            <div class="modal-body modal-gold">
+                <div class="form-group">
+                     <label class="control-label">User Name</label>
+                     <asp:textbox id="txtUsername" runat="server" placeholder="User Name" class="form-control input-md" required="" />
+                     <label class="control-label" for="passwordBox">Password</label>
+                     <asp:textbox id="txtPassword" runat="server" placeholder="Password" class="form-control input-md" required="" />
+                </div>
+            </div>
+            <div class="modal-footer modal-black">
+              <asp:button id="btnLogin" cssclass="btn btn-success" Text="Login" runat="server"  OnClick="Login_Click"></asp:button>
+              <asp:label id="errorLabel" cssclass="label" Text="eror" runat="server"></asp:label>
+              <asp:button id="btnCloselogin" cssclass="btn btn-default" data-dismiss="modal" Text="close" runat="server" OnClick="btnCloselogin_Click"></asp:button>
+            </div>
+      </asp:panel>
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -43,31 +63,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <div id="loginPage" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header modal-black">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">Login to account</h3>
-                    </div>
-                    <div class="modal-body modal-gold">
-                            <div class="form-group">
-                                <label class="control-label">User Name</label>
-                                <input id="userNameBox" name="userNameBox" type="text" placeholder="User Name" class="form-control input-md" required="" />
-                                <label class="control-label" for="passwordBox">Password</label>
-                                <input id="passwordBox" name="passwordBox" type="text" placeholder="Password" class="form-control input-md" required="" />
-                            </div>
-                    </div>
-                    <div class="modal-footer modal-black">
-                        <asp:button id="btnLoginlogin" cssclass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:button>
-                        <asp:label id="errorLabel" cssclass="label" Text="eror" runat="server"></asp:label>
-                        <asp:button id="btnCloselogin" cssclass="btn btn-default" data-dismiss="modal" Text="close" runat="server"></asp:button>
-                    </div>
-                </div>
 
-            </div>
-        </div> <!-- Close light panel-->
         <div id="forgotPage" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->

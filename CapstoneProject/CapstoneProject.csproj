@@ -75,6 +75,10 @@
     <Content Include="CreateComp.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\Aerial.jpg" />
+    <Content Include="images\bridge.png" />
+    <Content Include="images\computers.jpg" />
+    <Content Include="images\enter.jpg" />
     <Content Include="images\iteration1.png" />
     <Content Include="images\Iteration2.png" />
     <Content Include="images\iteration3.png" />

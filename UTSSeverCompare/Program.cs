@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsService1.Groups;
 using WindowsService1.Users;
 
 namespace WindowsService1
@@ -18,34 +20,38 @@ namespace WindowsService1
         /// </summary>
         static void Main()
         {
-            //SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
-            //                                               "password=Abc123!!;" +
-            //                                               "server=SQLSERVER480;" +
-            //                                               "Trusted_Connection=yes;" +
-            //                                               "database=UTSDB; " +
-            //                                               "connection timeout=10");
-            //try
-            //{
-            //    sqlConnection.Open();
-            //    //SqlCommand mySetCommand = new SqlCommand("insert into Groups (GroupsManager, GroupsName) values ('test', 'test2');", sqlConnection);
-            //    //mySetCommand.ExecuteNonQuery();
+            SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
+                                                           "password=Abc123!!;" +
+                                                           "server=SQLSERVER480;" +
+                                                           "Trusted_Connection=yes;" +
+                                                           "database=UTSDB; " +
+                                                           "connection timeout=10");
+            try
+            {
+                //sqlConnection.Open();
+                ////SqlCommand mySetCommand = new SqlCommand("insert into Groups (GroupsManager, GroupsName) values ('test', 'test2');", sqlConnection);
+                //SqlCommand mySetCommand = new SqlCommand("insert into Department (DepartmentName, DepartmentAbbreviation) values ('test', 'test2');", sqlConnection);
 
-            //    SqlDataReader myReader = null;
-            //    SqlCommand myGetCommand = new SqlCommand("select * from Groups", sqlConnection);
-            //    myReader = myGetCommand.ExecuteReader();
+                //mySetCommand.ExecuteNonQuery();
 
-            //    DataTable dt = new DataTable();
-            //    dt.Load(myReader);
+                //SqlDataReader myReader = null;
+                //SqlCommand myGetCommand = new SqlCommand("select * from Groups", sqlConnection);
+                //myReader = myGetCommand.ExecuteReader();
 
-            //    sqlConnection.Close();
-            //}
-            //catch (Exception e)
-            //{
-            //    System.Diagnostics.Debug.Write(e.ToString());
-            //}
+                //DataTable dt = new DataTable();
+                //dt.Load(myReader);
+
+                //sqlConnection.Close();
+
+
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.Write(e.ToString());
+            }
 
             GetUser t = new GetUser();
-            DataTable t2 = t.GetUTSUsers();
+            t.GetGroups();
             string t3 = null;
             //ServiceBase[] ServicesToRun;
             //ServicesToRun = new ServiceBase[]
@@ -54,6 +60,8 @@ namespace WindowsService1
             //};
             //ServiceBase.Run(ServicesToRun);
         }
+
+        
 
 
     }

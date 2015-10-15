@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 namespace UTSServerCompare
 {
     [RunInstaller(true)]
-    public partial class Installer1 : System.Configuration.Install.Installer
+    public partial class Installer : System.Configuration.Install.Installer
     {
         private ServiceInstaller serviceInstaller;
         private ServiceProcessInstaller processInstaller;
 
-        public Installer1()
+        public Installer()
         {
             InitializeComponent();
 
@@ -47,7 +47,7 @@ namespace UTSServerCompare
 
         private EventLogInstaller FindInstaller(InstallerCollection installers)
         {
-            foreach (Installer installer in installers)
+            foreach (System.Configuration.Install.Installer installer in installers)
             {
                 if (installer is EventLogInstaller)
                 {

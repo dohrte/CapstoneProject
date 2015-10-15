@@ -1,6 +1,6 @@
 ﻿namespace UTSServerCompare
 {
-    partial class Installer1
+    partial class Installer
     {
         /// <summary>
         /// Required designer variable.

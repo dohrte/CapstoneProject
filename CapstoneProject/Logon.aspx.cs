@@ -15,7 +15,7 @@ namespace CapstoneProject
 
         }
 
-        void Login_Click(object sender, EventArgs e)
+        protected void Login_Click(object sender, EventArgs e)
         {
             LdapAuthentication adAuth = new LdapAuthentication();
             try
@@ -26,7 +26,7 @@ namespace CapstoneProject
                     string userData = string.Empty;
 
                     //Create the ticket, and add the groups.
-                    bool isCookiePersistent = chkPersist.Checked;
+                    bool isCookiePersistent = true; // chkPersist.Checked;
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(60), isCookiePersistent, userData);
 
                     //Encrypt the ticket.

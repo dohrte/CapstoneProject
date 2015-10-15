@@ -87,7 +87,6 @@
     <Content Include="page1.aspx" />
     <Content Include="page2.aspx" />
     <Content Include="RequestAcct.aspx" />
-    <Content Include="Requestlog.aspx" />
     <Content Include="UserDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

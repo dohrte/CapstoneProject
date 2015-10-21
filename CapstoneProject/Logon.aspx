@@ -26,13 +26,13 @@
  
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item">	<img src="images/enter.jpg"  alt="Entrance"/>	</div>
-                <div class="item">  <img src="images/bridge.png" alt="Bridge"/>   </div>
-                <div class="item active">   <img src="images/computers.jpg" alt="Main"/>        </div>
-				<div class="item">	<img src="images/Aerial.jpg" alt="Sky"/>	  </div>
-				<div class="item">	<img src="images/iteration1.png" alt="Sky"/>	  </div>
-				<div class="item">	<img src="images/iteration2.png" alt="Sky"/>	  </div>
-				<div class="item">	<img src="images/iteration3.png" alt="Sky"/>	  </div>
+                <div class="item">	<img src="images/enter.jpg"  alt="Entrance" class="img"/>	</div>
+                <div class="item">  <img src="images/bridge.png" alt="Bridge" class="img"/>   </div>
+                <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
+				<div class="item">	<img src="images/Aerial.jpg" alt="Sky" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration1.png" alt="Sky" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration2.png" alt="Sky" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration3.png" alt="Sky" class="img"/>	  </div>
             </div>
 
             <!-- Left and right controls -->
@@ -53,7 +53,7 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 class="modal-title">Login to account</h3>
                     </div>
-                    <div class="modal-body modal-gold">
+                    <asp:panel ID="LogonPanel" runat="server" class="modal-body modal-gold" DefaultButton="btnLogin">
                             <div class="form-group">
                                 <label class="control-label">User Name</label>
                                 <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control input-md" placeholder="User Name"></asp:TextBox>
@@ -62,7 +62,7 @@
                                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control input-md" placeholder="Password"></asp:TextBox>
                                 <%--<input id="passwordBox" name="passwordBox" type="text" placeholder="Password" class="form-control input-md" required="" />--%>
                             </div>
-                    </div>
+                    </asp:panel>
                     <div class="modal-footer modal-black">
                         <asp:button id="btnLogin" OnClick="Login_Click" cssclass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:button>
                         <asp:label id="errorLabel" cssclass="label" Text="eror" runat="server"></asp:label>

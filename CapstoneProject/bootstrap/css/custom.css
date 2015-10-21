@@ -16,8 +16,8 @@ margin: 0;
 
 .color-black {
     background: #000000;
+    padding: 0px;
     font-family: Dauphin;
-    margin: 0;
     color: #FFFFFF;
     }
 
@@ -31,10 +31,11 @@ margin: 0;
     background: #000000;
 }
 
-.img-ht .img{
-    height: 450px;
-    overflow: auto;
-}
+.img{
+    height: 350px;
+    min-height: 350px;
+   }
+
 .carousel {
   max-height: 100%;
   max-height: 350px;

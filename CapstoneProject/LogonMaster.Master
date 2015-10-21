@@ -19,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
-            <div class="row">
+            <div class="row color-black">
                 <h1>UTS Web Application </h1>
 
                 <!-- begin navbar -->

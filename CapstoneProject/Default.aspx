@@ -6,13 +6,13 @@
   <asp:Label ID="helloMsg" runat="server" />
     <br />
     <br />
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Page1" />
+    <asp:Button ID="Button1" runat="server" CssClass="btn modal-gold" OnClick="Button1_Click" Text="Page1" />
     <br />
-    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Page2" />
+    <asp:Button ID="Button2" runat="server" CssClass="btn modal-gold" OnClick="Button2_Click" Text="Page2" />
     <br />
-    <asp:Button ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" />
+    <asp:Button ID="btnAdmin" runat="server" CssClass="btn modal-gold" OnClick="btnAdmin_Click" Text="Admin Page" />
     <br />
-    <asp:Button ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" />
+    <asp:Button ID="btnCreateComp" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Create Comp" />
     <br />
-    <asp:Button ID="btnAcctDetail" runat="server" Text="Acct Details" OnClick="btnAcctDetail_Click" />
+    <asp:Button ID="btnAcctDetail" runat="server" CssClass="btn modal-gold" Text="Acct Details" OnClick="btnAcctDetail_Click" />
 </asp:Content>

@@ -30,9 +30,9 @@
                 <div class="item">  <img src="images/bridge.png" alt="Bridge" class="img"/>   </div>
                 <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
 				<div class="item">	<img src="images/Aerial.jpg" alt="Sky" class="img"/>	  </div>
-				<div class="item">	<img src="images/iteration1.png" alt="Sky" class="img"/>	  </div>
-				<div class="item">	<img src="images/iteration2.png" alt="Sky" class="img"/>	  </div>
-				<div class="item">	<img src="images/iteration3.png" alt="Sky" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration1.png" alt="it1" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
+				<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
             </div>
 
             <!-- Left and right controls -->

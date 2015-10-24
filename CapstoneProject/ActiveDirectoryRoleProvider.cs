@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace CapstoneProject
+namespace CapstoneProject.Roles
 {
     /// <summary>
     /// This class will be used to set roles for users as it pertains to the web application.
@@ -13,6 +13,7 @@ namespace CapstoneProject
     /// </summary>
     public class ActiveDirectoryRoleProvider : RoleProvider 
     {
+
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
             throw new NotImplementedException();
@@ -46,16 +47,18 @@ namespace CapstoneProject
             throw new NotImplementedException();
         }
 
-        //need
+        
         public override string[] GetAllRoles()
         {
-            throw new NotImplementedException();
+            var ad = ActiveDirectoryAction.Instance;
+            return ad.GetWebAppRoles();
         }
 
-        //need
+        
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            var ad = ActiveDirectoryAction.Instance;
+            return ad.GetUsersWebAppRoles(username);
         }
 
         public override string[] GetUsersInRole(string roleName)
@@ -63,10 +66,15 @@ namespace CapstoneProject
             throw new NotImplementedException();
         }
 
-        //need
+        
         public override bool IsUserInRole(string username, string roleName)
         {
-            throw new NotImplementedException();
+            var adAction = ActiveDirectoryAction.Instance;
+
+            bool result = false;
+
+            result = adAction.IsMemberOf(username, roleName);
+            return result;
         }
 
         public override void RemoveUsersFromRoles(string[] usernames, string[] roleNames)
@@ -74,10 +82,20 @@ namespace CapstoneProject
             throw new NotImplementedException();
         }
 
-        //need
+        
         public override bool RoleExists(string roleName)
         {
-            throw new NotImplementedException();
+            var adAction = ActiveDirectoryAction.Instance;
+            string[] list = adAction.GetWebAppRoles();
+
+            if (list.Contains(roleName))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

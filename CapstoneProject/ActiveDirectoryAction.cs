@@ -37,9 +37,8 @@ namespace CapstoneProject
     public sealed class ActiveDirectoryAction : ActiveDirectoryInterface
     {
         private static readonly ActiveDirectoryAction instance = new ActiveDirectoryAction();
-        private string connectionPrefix = "LDAP://admnet.oakland.edu";
+        private string connectionPrefix = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ActiveDirectory"].ConnectionString;
         private Object lockObj = new Object();
-
 
         private ActiveDirectoryAction()
         {
@@ -65,46 +64,7 @@ namespace CapstoneProject
         }
 
         /// <summary>
-        /// Recursively populates list of group memebers.
-        /// Will list all memebers, even those from subgroups.
-        /// Used by GetMemberList
-        /// </summary>
-        /// <param name="grpName"></param>
-        /// <param name="memList"></param>
-        private void GenerateMemberList(string grpName, List<string> memList)
-        {
-          string queryString = "(&(memberOf=" + this.GetDN(grpName) + ")(|(objectClass=user)(objectClass=group)))";
-
-          ExecuteResult result = this.ExecuteSearch(queryString, true);
-
-          if (result.collectionResult != null)
-          {
-            foreach (SearchResult item in result.collectionResult)
-            {
-              DirectoryEntry directoryObject = item.GetDirectoryEntry();
-
-              string classType = directoryObject.SchemaClassName;
-              if (classType.Equals("group"))
-              {
-                this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
-              }
-              else
-              {
-                if (!memList.Contains(directoryObject.Properties["CN"].Value.ToString()))
-                {
-                  memList.Add(directoryObject.Properties["CN"].Value.ToString());
-                }
-              }
-            }
-          }
-          else
-          {
-            memList.Add("Unable to find a match for the name entered. Please check and retry.");
-          }
-        }
-
-        /// <summary>
-        /// Get a list of groups managed by a user.
+        /// Get a list of shares managed by a user.
         /// </summary>
         /// <param name="userID">string, user name</param>
         /// <returns>list of groups as an array of strings</returns>
@@ -131,6 +91,44 @@ namespace CapstoneProject
 
             
             return groupList.ToArray<string>();
+        }
+
+        /// <summary>
+        /// Recursively populates list of group memebers.
+        /// Will list all memebers, even those from subgroups.
+        /// </summary>
+        /// <param name="grpName"></param>
+        /// <param name="memList"></param>
+        private void GenerateMemberList(string grpName, List<string> memList)
+        {
+            string queryString = "(&(memberOf=" + this.GetDN(grpName) + ")(|(objectClass=user)(objectClass=group)))";
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true);
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult item in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = item.GetDirectoryEntry();
+
+                    string classType = directoryObject.SchemaClassName;
+                    if (classType.Equals("group"))
+                    {
+                        this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
+                    }
+                    else
+                    {
+                        if (!memList.Contains(directoryObject.Properties["CN"].Value.ToString()))
+                        {
+                            memList.Add(directoryObject.Properties["CN"].Value.ToString());
+                        }
+                    }
+                }
+            }
+            else
+            {
+                memList.Add("Unable to find a match for the name entered. Please check and retry.");
+            }
         }
 
         /// <summary>
@@ -161,11 +159,11 @@ namespace CapstoneProject
         }
 
         /// <summary>
-        /// Find out if a user is a member of a particular group.
+        /// Find if a user is a memeber of a particular group.
         /// </summary>
-        /// <param name="userName">the users id</param>
-        /// <param name="groupName">The group name</param>
-        /// <returns>bbol, true or false</returns>
+        /// <param name="userName">Ther CN or samAccountName</param>
+        /// <param name="groupName">bool, true or false</param>
+        /// <returns></returns>
         public bool IsMemberOf(string userName, string groupName)
         {
             bool isMember = false;
@@ -174,59 +172,14 @@ namespace CapstoneProject
 
             string[] grpMems = this.GetMemberList(groupName);
 
-            if (grpMems.Contains(userDetail["CN"]))
+            if (grpMems.Contains(userDetail["cn"]))
             {
                 isMember = true;
             }
 
             return isMember;
         }
-        
-        /// <summary>
-        /// Generate a list of unmanaged security groups in active directory.
-        /// </summary>
-        /// <returns>list of names as an array of strings</returns>
-        public string[] GenerateUnManagedList()
-        {
-            List<string> UnManList = new List<string>();
-            DirectoryEntry entry = new DirectoryEntry(connectionPrefix);
-            DirectorySearcher mySearcher = new DirectorySearcher(entry);
-
-            mySearcher.Filter = "(&(objectClass=group)(!(ManagedBy=*)))";
-
-            SearchResultCollection result = null;
-
-            try
-            {
-                result = mySearcher.FindAll();
-            }
-            catch (Exception e)
-            {
-                Console.Write("search error. " + e.Message);
-            }
-
-            if (result != null)
-            {
-                foreach (SearchResult item in result)
-                {
-                    DirectoryEntry directoryObject = item.GetDirectoryEntry();
-                    UnManList.Add(directoryObject.Properties["CN"].Value.ToString());
-                    
-                }
-            }
-            else
-            {
-                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
-            }
-
-            entry.Close();
-            entry.Dispose();
-            mySearcher.Dispose();
-
-            UnManList.Sort();
-            return UnManList.ToArray<string>();
-        }
-
+             
         /// <summary>
         /// Get the properties for a user object in active directory. 
         /// </summary>
@@ -262,7 +215,6 @@ namespace CapstoneProject
 
             return userProps;
         }
-
 
         /// <summary>
         /// returns the distinguishedName from AD based on name. 
@@ -446,7 +398,296 @@ namespace CapstoneProject
             return execResult;
         }
 
-   
+
+
+        // **** used by role provider ***********************************
+
+        /// <summary>
+        /// Get a list of roles for the web application.
+        /// </summary>
+        /// <returns>A string array of role names</returns>
+        public string[] GetWebAppRoles()
+        {
+            List<string> memberOf = new List<string>();
+
+            string queryString = "(objectClass=group)";
+            string ouDistinguishedName = this.GetDN(System.Web.Configuration.WebConfigurationManager.AppSettings["RoleContainer"]);
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true, ouDistinguishedName);
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult sResult in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = sResult.GetDirectoryEntry();
+                    memberOf.Add(directoryObject.Properties["CN"].Value.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
+            }
+            return memberOf.ToArray();
+        }
+
+        /// <summary>
+        /// Get a list of roles for a specific user.
+        /// </summary>
+        /// <param name="username">The name of the user</param>
+        /// <returns>string[] of role names</returns>
+        public string[] GetUsersWebAppRoles(string username)
+        {
+            List<string> memberOf = new List<string>();
+
+            foreach (string role in this.GetWebAppRoles())
+            {
+                if (this.IsMemberOf(username, role))
+                {
+                    memberOf.Add(role);
+                }
+            }
+            return memberOf.ToArray();
+        }
+
+       
+
+        // **** used by create computer object action ***********************************
+
+        public string CreateComputerObject(string compName, string deptName, bool isCustom, out bool errFlag)
+        {
+            string fullCompName = string.Empty;
+            string errMsg = string.Empty;
+            errFlag = false;
+
+
+            //Lock the check if exists and create function to confirm that duplicate entries will not happen.
+            lock (lockObj)
+            {
+
+                if (this.DoesComputerNameExist(compName, deptName))
+                {
+                    //return already exists message
+                    errFlag = true;
+                    errMsg = "The computer name already exists.";
+                }
+                else
+                {
+                    if (isCustom)
+                    {
+                        //use custom name
+                        fullCompName = compName;
+                    }
+                    else
+                    {
+                        //create computer name
+                        //check current names
+                        int compNum = this.GetComputerNumber(compName);
+
+                        if (compNum.Equals(-1))
+                        {
+                            //report not successful
+                            errFlag = true;
+                            errMsg = "There was an error in creation of new computer object.";
+                        }
+                        else
+                        {
+                            fullCompName = compName + compNum;
+                        }
+                    }
+                }
+
+                if (errFlag)
+                {
+                    return errMsg;
+                }
+                else
+                {
+                    //get the OU dsName
+                    //create adobject
+                    DirectoryEntry dirEntry = new DirectoryEntry("LDAP://" + this.GetComputerOrganizationalUnit(deptName));
+                    DirectoryEntry newComputer = dirEntry.Children.Add("CN=" + fullCompName, "computer");
+                    newComputer.Properties["sAMAccountName"].Value = fullCompName + "$";
+                    newComputer.Properties["UserAccountControl"].Value = 0x1000;
+
+                    //commit and cleanup
+                    newComputer.CommitChanges();
+                    newComputer.Close();
+                    newComputer.Dispose();
+                    dirEntry.Close();
+                    dirEntry.Dispose();
+
+                    this.SetSecurityRights(fullCompName, this.GetComputerOrganizationalUnit(deptName));
+
+                    return fullCompName;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Check if a computer name exists in the defined OU in active directory.
+        /// </summary>
+        /// <param name="compName">Computer name to check for.</param>
+        /// <param name="ouName">OU to check with in.</param>
+        /// <returns>Bool value, true if the name does exist else false.</returns>
+        private bool DoesComputerNameExist(string compName, string ouName)
+        {
+            bool exist = false;
+            compName = compName.ToUpperInvariant();
+            DirectoryEntry dirEntry = new DirectoryEntry("LDAP://" + this.GetComputerOrganizationalUnit(ouName));
+
+            DirectorySearcher ds = new DirectorySearcher(dirEntry);
+
+            ds.Filter = @"(&(cn=" + compName + ")(objectClass=computer))";
+
+            SearchResult singleResult = null;
+            try
+            {
+                singleResult = ds.FindOne();
+            }
+            catch (Exception e)
+            {
+                //errFlag = true;
+                //Console.Write("search error. " + e.Message); //log file for errors
+            }
+
+            if (singleResult != null)
+            {
+                exist = true;
+            }
+
+            return exist;
+        }
+
+        /// <summary>
+        /// Generates a number based on the numbers already used in the computer object container.
+        /// </summary>
+        /// <param name="compName">The 3 part prefix to the computer number</param>
+        /// <returns>-1 if error or positive integer value</returns>
+        private int GetComputerNumber(string compName)
+        {
+            string queryString = "(& (name=" + compName + "*)(objectClass=computer) )";
+            Regex regx = new Regex("" + compName + @"(?<extractedVal>\w+)", RegexOptions.IgnoreCase); ;
+            int intVal;
+            List<int> numList = new List<int>();
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true);
+
+            if (result.collectionResult != null)
+            {
+                if (result.collectionResult.Count > 0)
+                {
+                    foreach (SearchResult item in result.collectionResult)
+                    {
+                        DirectoryEntry directoryObject = item.GetDirectoryEntry();
+
+                        Match match = regx.Match(directoryObject.Properties["name"].Value.ToString());
+
+                        if (Int32.TryParse(match.Groups["extractedVal"].Value, out intVal))
+                        {
+                            Console.WriteLine(intVal);
+                            numList.Add(intVal);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("no existing computers");
+                    numList.Add(0);
+                }
+
+                return numList.Max() + 1;
+            }
+            else
+            {
+                return -1;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Set the security rights on a computer object to allow users in the JoinToComputer group to join to computer objects.
+        /// </summary>
+        /// <param name="compName">The computer object name to set permissions on</param>
+        /// <param name="ouContainer">The container where the computer object resides.</param>
+        private void SetSecurityRights(string compName, string ouContainer)
+        {
+            string qString = "(&(name=" + compName + ")(objectClass=computer))";
+            ExecuteResult result = this.ExecuteSearch(qString, false, ouContainer);
+            //TODO: add group to security 
+            var computer = result.singleResult.GetDirectoryEntry();
+            ActiveDirectorySecurity sdc = computer.ObjectSecurity;
+            NTAccount Account = new NTAccount("capstone", "JoinToComputer");
+            SecurityIdentifier sid = (SecurityIdentifier)Account.Translate(typeof(SecurityIdentifier));
+
+
+            Guid userSchemaGuid = new Guid("BF967ABA-0DE6-11D0-A285-00AA003049E2");
+            Guid computerSchemaGuid = new Guid("bf967a86-0de6-11d0-a285-00aa003049e2");
+
+            Guid UserForceChangePassword = new Guid("00299570-246d-11d0-a768-00aa006e0529"); // ‘Reset password’ 
+            Guid dnsHostNameGuid = new Guid("72e39547-7b18-11d1-adef-00c04fd8d5cd");  // ‘Validated write to DNS host name’
+            Guid rwAccountRestrictions = new Guid("4c164200-20c0-11d0-a768-00aa006e0529"); // ‘Read and write account restrictions’
+            Guid wServicePrincipalName = new Guid("f3a64788-5306-11d1-a9c5-0000f80367c1");   // ‘Validated write to service principal name’ 
+
+            ActiveDirectoryAccessRule acctRestrictionsRW = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.ReadProperty | ActiveDirectoryRights.WriteProperty, AccessControlType.Allow, rwAccountRestrictions, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(acctRestrictionsRW);
+
+            ActiveDirectoryAccessRule dnsHostNameEdit = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.Self, AccessControlType.Allow, dnsHostNameGuid, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(dnsHostNameEdit);
+            ActiveDirectoryAccessRule valSPN = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.Self, AccessControlType.Allow, wServicePrincipalName, ActiveDirectorySecurityInheritance.None);
+            sdc.AddAccessRule(valSPN);
+
+            ExtendedRightAccessRule erarResetPwd = new ExtendedRightAccessRule(Account, AccessControlType.Allow, UserForceChangePassword, ActiveDirectorySecurityInheritance.None, userSchemaGuid);
+            sdc.AddAccessRule(erarResetPwd);
+
+            /* may require the below line
+             * 
+             * Guid userAccountControlGuid = GUID('bf967a68-0de6-11d0-a285-00aa003049e2');
+             *  ActiveDirectoryAccessRule userAccountControlEdit = new ActiveDirectoryAccessRule(Account, ActiveDirectoryRights.ReadProperty | ActiveDirectoryRights.WriteProperty, AccessControlType.Allow, userAccountControlGuid, ActiveDirectorySecurityInheritance.None);
+             * sdc.AddAccessRule(userAccountControlEdit);
+             * 
+             * */
+
+            //commit and cleanup
+            computer.CommitChanges();
+            computer.Close();
+            computer.Dispose();
+
+
+        }
+
+        /// <summary>
+        /// returns the distinguished name of the OU that is provided as a parameter
+        /// </summary>
+        /// <param name="ouName">Name of OU</param>
+        /// <returns>Distinguished Name of the OU</returns>
+        private string GetComputerOrganizationalUnit(string ouName)
+        {
+            string queryString = "(&(Name=" + ouName + ")(objectClass=organizationalUnit))";
+            string ouDistinguishedName = string.Empty;
+
+            ExecuteResult result = this.ExecuteSearch(queryString, true, this.GetDN("Capstone Computers"));
+
+            if (result.collectionResult != null)
+            {
+                foreach (SearchResult sResult in result.collectionResult)
+                {
+                    DirectoryEntry directoryObject = sResult.GetDirectoryEntry();
+
+                    string distName = directoryObject.Properties["distinguishedName"].Value.ToString();
+                    //Console.WriteLine(distName);
+                    if (distName.Contains("Capstone Computers"))
+                    {
+                        ouDistinguishedName = directoryObject.Properties["distinguishedName"].Value.ToString();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
+            }
+            return ouDistinguishedName;
+        }
 
     }
 }

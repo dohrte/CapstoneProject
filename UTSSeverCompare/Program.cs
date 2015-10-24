@@ -51,7 +51,11 @@ namespace WindowsService1
             }
 
             GetUser t = new GetUser();
-            t.GetGroups();
+            GetGroup a = new GetGroup();
+            GetGroupUser k = new GetGroupUser();
+            a.UpdateGroups();
+            t.UpdateUsers();
+            k.GroupsUsersXrefUpdate();
             string t3 = null;
             //ServiceBase[] ServicesToRun;
             //ServicesToRun = new ServiceBase[]

@@ -52,6 +52,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,7 +83,6 @@
     <Compile Include="Shares\GetShareGroup.cs" />
     <Compile Include="Shares\GetShareServer.cs" />
     <Compile Include="Users\GetUser.cs" />
-    <Compile Include="Users\SetUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

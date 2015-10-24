@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,103 +22,30 @@ namespace WindowsService1.Users
         string _path = "LDAP://capstone.uts.edu";
         private string _filterAttribute;
 
-        public List<string> GetGroups()
+        public List<string> GetAdUsers()
         {
-            DirectorySearcher search = new DirectorySearcher(_path);
-            search.Filter = "(&(objectCategory=person)(objectClass=user)(memberOf=*))";
-            //search.Filter = "(objectClass=group)";
-            search.PropertiesToLoad.Add("memberOf");
-            search.PropertiesToLoad.Add("name");
-            StringBuilder groupNames = new StringBuilder();
-            List<string> users = new List<string>();
+            UserPrincipal current_user = UserPrincipal.Current;
 
-            try
-            {
-                SearchResultCollection result = search.FindAll();
+            PrincipalContext current_context = current_user.Context;
 
-                foreach(SearchResult r in result)
-                {
-                    users.Add(r.Properties["memberOf"][0].ToString());
-                    //users.Add(r.Properties["name"][0].ToString());
-                    
-                }
-            }
-            catch (Exception ex)
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, "capstone.uts.edu");
+            
+            GroupPrincipal group = GroupPrincipal.FindByIdentity(ctx, "Domain Users");
+            
+            List<string> allUsers = new List<string>();
+            
+            foreach (Principal p in group.GetMembers())
             {
-                throw new Exception(ex.Message);
+                allUsers.Add(p.Name);
             }
-            return users;
+
+            return allUsers;
         }
 
-     //   public ArrayList AttributeValuesMultiString(string attributeName,
-     //string objectDn, ArrayList valuesCollection, bool recursive)
-     //   {
-     //       DirectoryEntry ent = new DirectoryEntry(objectDn);
-     //       PropertyValueCollection ValueCollection = ent.Properties[attributeName];
-     //       IEnumerator en = ValueCollection.GetEnumerator();
-
-     //       while (en.MoveNext())
-     //       {
-     //           if (en.Current != null)
-     //           {
-     //               if (!valuesCollection.Contains(en.Current.ToString()))
-     //               {
-     //                   valuesCollection.Add(en.Current.ToString());
-     //                   if (recursive)
-     //                   {
-     //                       AttributeValuesMultiString(attributeName, "LDAP://" +
-     //                       en.Current.ToString(), valuesCollection, true);
-     //                   }
-     //               }
-     //           }
-     //       }
-     //       ent.Close();
-     //       ent.Dispose();
-     //       return valuesCollection;
-     //   }
-        //public List<Users> GetADUsers()
-        //{
-        //    //try
-        //    //{
-        //    //    List<Users> lstADUsers = new List<Users>();
-        //    //    string DomainPath = "LDAP://DC=xxxx,DC=com"
-        //    //    DirectoryEntry searchRoot = new DirectoryEntry(DomainPath);
-        //    //    DirectorySearcher search = new DirectorySearcher(searchRoot);
-        //    //    search.Filter = "(&(objectClass=user)(objectCategory=person))";
-        //    //    search.PropertiesToLoad.Add("samaccountname");
-        //    //    search.PropertiesToLoad.Add("mail");
-        //    //    search.PropertiesToLoad.Add("usergroup");
-        //    //    search.PropertiesToLoad.Add("displayname");//first name
-        //    //    SearchResult result;
-        //    //    SearchResultCollection resultCol = search.FindAll();
-        //    //    if (resultCol != null)
-        //    //    {
-        //    //        for (int counter = 0; counter < resultCol.Count; counter++)
-        //    //        {
-        //    //            string UserNameEmailString = string.Empty;
-        //    //            result = resultCol[counter];
-        //    //            if (result.Properties.Contains("samaccountname") &&
-        //    //                     result.Properties.Contains("mail") &&
-        //    //                result.Properties.Contains("displayname"))
-        //    //            {
-        //    //                Users objSurveyUsers = new Users();
-        //    //                objSurveyUsers.Email = (String)result.Properties["mail"][0] +
-        //    //                  "^" + (String)result.Properties["displayname"][0];
-        //    //                objSurveyUsers.UserName = (String)result.Properties["samaccountname"][0];
-        //    //                objSurveyUsers.DisplayName = (String)result.Properties["displayname"][0];
-        //    //                lstADUsers.Add(objSurveyUsers);
-        //    //            }
-        //    //        }
-        //    //    }
-        //    //    return lstADUsers;
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-
-        //}
-        public DataTable GetUTSUsers()
+        public List<string> GetUTSUsers()
         {
             DataTable dt = new DataTable();
+            List<string> allUsers = new List<string>();
 
             try
             {
@@ -135,15 +63,70 @@ namespace WindowsService1.Users
                 throw (e);
             }
 
-            return dt;
-        }
-    }
+            foreach (DataRow row in dt.Rows)
+            {
+                allUsers.Add(row.ItemArray[1].ToString());
+            }
 
-    public class Users
-    {
-        public string Email { get; set; }
-        public string UserName { get; set; }
-        public string DisplayName { get; set; }
-        public bool isMapped { get; set; }
+            return allUsers;
+        }
+
+        public Dictionary<int, string> GetUTSUsersDictonary()
+        {
+            DataTable dt = new DataTable();
+            Dictionary<int, string> allUsers = new Dictionary<int, string>();
+
+            try
+            {
+                SqlCommand getUsers = new SqlCommand("SELECT * FROM Users", sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataReader myReader = getUsers.ExecuteReader();
+                dt.Load(myReader);
+
+                sqlConnection.Close();
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+
+            foreach (DataRow row in dt.Rows)
+            {
+                allUsers.Add(Convert.ToInt32(row.ItemArray[0]), row.ItemArray[1].ToString());
+            }
+
+            return allUsers;
+        }
+
+        public bool SetUsers(string userName)
+        {
+            try
+            {
+                sqlConnection.Open();
+                SqlCommand mySetCommand = new SqlCommand("INSERT INTO Users (UsersName) VALUES ('" + userName + "');", sqlConnection);
+                mySetCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void UpdateUsers()
+        {
+            List<string> utsUsers = GetUTSUsers();
+            List<string> adUsers = GetAdUsers();
+
+            List<string> updatedUsersData = adUsers.Except(utsUsers).ToList();
+
+            foreach (string user in updatedUsersData)
+            {
+                SetUsers(user);
+            }
+        }
     }
 }

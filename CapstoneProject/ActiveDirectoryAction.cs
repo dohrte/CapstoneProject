@@ -65,7 +65,46 @@ namespace CapstoneProject
         }
 
         /// <summary>
-        /// Get a list of shares managed by a user.
+        /// Recursively populates list of group memebers.
+        /// Will list all memebers, even those from subgroups.
+        /// Used by GetMemberList
+        /// </summary>
+        /// <param name="grpName"></param>
+        /// <param name="memList"></param>
+        private void GenerateMemberList(string grpName, List<string> memList)
+        {
+          string queryString = "(&(memberOf=" + this.GetDN(grpName) + ")(|(objectClass=user)(objectClass=group)))";
+
+          ExecuteResult result = this.ExecuteSearch(queryString, true);
+
+          if (result.collectionResult != null)
+          {
+            foreach (SearchResult item in result.collectionResult)
+            {
+              DirectoryEntry directoryObject = item.GetDirectoryEntry();
+
+              string classType = directoryObject.SchemaClassName;
+              if (classType.Equals("group"))
+              {
+                this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
+              }
+              else
+              {
+                if (!memList.Contains(directoryObject.Properties["CN"].Value.ToString()))
+                {
+                  memList.Add(directoryObject.Properties["CN"].Value.ToString());
+                }
+              }
+            }
+          }
+          else
+          {
+            memList.Add("Unable to find a match for the name entered. Please check and retry.");
+          }
+        }
+
+        /// <summary>
+        /// Get a list of groups managed by a user.
         /// </summary>
         /// <param name="userID">string, user name</param>
         /// <returns>list of groups as an array of strings</returns>
@@ -95,44 +134,6 @@ namespace CapstoneProject
         }
 
         /// <summary>
-        /// Recursively populates list of group memebers.
-        /// Will list all memebers, even those from subgroups.
-        /// </summary>
-        /// <param name="grpName"></param>
-        /// <param name="memList"></param>
-        private void GenerateMemberList(string grpName, List<string> memList)
-        {
-            string queryString = "(&(memberOf=" + this.GetDN(grpName) + ")(|(objectClass=user)(objectClass=group)))";
-
-            ExecuteResult result = this.ExecuteSearch(queryString, true);
-
-            if (result.collectionResult != null)
-            {
-                foreach (SearchResult item in result.collectionResult)
-                {
-                    DirectoryEntry directoryObject = item.GetDirectoryEntry();
-
-                    string classType = directoryObject.SchemaClassName;
-                    if (classType.Equals("group"))
-                    {
-                        this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
-                    }
-                    else
-                    {
-                        if (!memList.Contains(directoryObject.Properties["CN"].Value.ToString()))
-                        {
-                            memList.Add(directoryObject.Properties["CN"].Value.ToString());
-                        }
-                    }
-                }
-            }
-            else
-            {
-                memList.Add("Unable to find a match for the name entered. Please check and retry.");
-            }
-        }
-
-        /// <summary>
         /// Get the list of groups that the user is a member of
         /// </summary>
         /// <param name="userName">The users sAMAccountName</param>
@@ -159,6 +160,12 @@ namespace CapstoneProject
             return groups;
         }
 
+        /// <summary>
+        /// Find out if a user is a member of a particular group.
+        /// </summary>
+        /// <param name="userName">the users id</param>
+        /// <param name="groupName">The group name</param>
+        /// <returns>bbol, true or false</returns>
         public bool IsMemberOf(string userName, string groupName)
         {
             bool isMember = false;

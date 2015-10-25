@@ -26,13 +26,13 @@
  
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item">	<img src="images/enter.jpg"  alt="Entrance" class="img"/>	</div>
-                <div class="item">  <img src="images/bridge.png" alt="Bridge" class="img"/>   </div>
+                <div class="item">	<img src="images/comp-server-1.jpg"  alt="comps1" class="img"/>	</div>
+                <div class="item">  <img src="images/comp-server-2.jpg" alt="comps2" class="img"/>   </div>
                 <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
-				<div class="item">	<img src="images/Aerial.jpg" alt="Sky" class="img"/>	  </div>
 				<div class="item">	<img src="images/iteration1.png" alt="it1" class="img"/>	  </div>
 				<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
 				<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
+                <div class="item">	<img src="images/iteration4.jpg" alt="it4" class="img"/>	  </div>
             </div>
 
             <!-- Left and right controls -->
@@ -65,7 +65,7 @@
                     </asp:panel>
                     <div class="modal-footer modal-black">
                         <asp:button id="btnLogin" OnClick="Login_Click" cssclass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:button>
-                        <asp:label id="errorLabel" cssclass="label" Text="eror" runat="server"></asp:label>
+                        <asp:label id="errorLabel" cssclass="label" Text="" runat="server"></asp:label>
                         <asp:button id="btnCloselogin" cssclass="btn btn-default" data-dismiss="modal" Text="close" runat="server"></asp:button>
                     </div>
                 </div>

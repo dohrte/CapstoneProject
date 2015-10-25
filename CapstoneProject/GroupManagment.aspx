@@ -11,7 +11,7 @@
         <h3 class="panel-title">Groups Managed</h3>
       </div>
       <div class="panel-body">
-        <asp:ListBox ID="groupsListBox" runat="server"></asp:ListBox>
+        <asp:ListBox ID="groupsListBox" runat="server" OnSelectedIndexChanged="groupsListBox_SelectedIndexChanged" AutoPostBack="false"></asp:ListBox>
       </div>
     </div>
   </div>
@@ -29,6 +29,13 @@
             <br />
             Group Members:
             <asp:ListBox ID="memeberListBox" runat="server"></asp:ListBox>
+          </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:UpdatePanel ID="addUser" runat="server">
+          <ContentTemplate>
+            Enter userid to add to access group:<br /> &nbsp;<asp:TextBox ID="addUserID_textBox" runat="server" placeholder="Userid to add" Width="208px"/>
+            <br />
+            <asp:Button ID="adUser_btn" runat="server" Text="Submit" OnClick="adUser_btn_Click"/>
           </ContentTemplate>
         </asp:UpdatePanel>
       </div>

@@ -73,6 +73,7 @@
     <Content Include="CreateComp.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="GroupManagment.aspx" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
     <Content Include="page1.aspx" />
@@ -111,6 +112,13 @@
     <Compile Include="Emailer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GroupManagment.aspx.cs">
+      <DependentUpon>GroupManagment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GroupManagment.aspx.designer.cs">
+      <DependentUpon>GroupManagment.aspx</DependentUpon>
     </Compile>
     <Compile Include="LdapAuthentication.cs" />
     <Compile Include="Logon.aspx.cs">

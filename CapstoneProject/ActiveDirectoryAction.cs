@@ -73,7 +73,7 @@ namespace CapstoneProject
         {
             List<string> groupList = new List<string>();
 
-            string queryString = "(&(objectClass=group)(ManagedBy=CN=" + userID + ",CN=Users,DC=admnet,DC=oakland,DC=edu))";
+            string queryString = "(&(objectClass=group)(ManagedBy=" + this.GetUserAcctInfo(userID)["distinguishedName"] + "))";
 
             ExecuteResult result = this.ExecuteSearch(queryString, true);
 
@@ -110,6 +110,7 @@ namespace CapstoneProject
                     string classType = directoryObject.SchemaClassName;
                     if (classType.Equals("group"))
                     {
+                        memList.Add(directoryObject.Properties["CN"].Value.ToString());
                         this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
                     }
                     else
@@ -694,7 +695,7 @@ namespace CapstoneProject
                 using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
                 {
                     GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Add(pc, IdentityType.UserPrincipalName, userId);
+                    group.Members.Add(pc, IdentityType.SamAccountName, userId);
                     group.Save();
                 }
             }

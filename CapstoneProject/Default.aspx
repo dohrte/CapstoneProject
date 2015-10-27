@@ -15,4 +15,6 @@
     <asp:Button ID="btnCreateComp" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Create Comp" />
     <br />
     <asp:Button ID="btnAcctDetail" runat="server" CssClass="btn modal-gold" Text="Acct Details" OnClick="btnAcctDetail_Click" />
+    <br />
+    <asp:Button ID="btnGrpManagement" runat="server" CssClass="btn modal-gold"  Text="Group Mgmt" OnClick="btnGrpManagement_Click" />
 </asp:Content>

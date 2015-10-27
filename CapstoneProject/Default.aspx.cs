@@ -52,5 +52,10 @@ namespace CapstoneProject
         {
             Response.Redirect("CreateComp.aspx");
         }
+
+        protected void btnGrpManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GroupManagment.aspx");
+        }
     }
 }

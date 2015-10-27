@@ -13,13 +13,31 @@ namespace CapstoneProject {
     public partial class Logon {
         
         /// <summary>
-        /// LogonPanel control.
+        /// scrptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel LogonPanel;
+        protected global::System.Web.UI.ScriptManager scrptManager1;
+        
+        /// <summary>
+        /// logonUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel logonUpdatePanel;
+        
+        /// <summary>
+        /// logonInputPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel logonInputPanel;
         
         /// <summary>
         /// txtUsername control.

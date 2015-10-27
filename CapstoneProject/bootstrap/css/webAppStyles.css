@@ -19,3 +19,7 @@ nav{
     background-color:#B59A57;
     border:none;
 }
+
+.list-group-item{
+    color:black;
+}

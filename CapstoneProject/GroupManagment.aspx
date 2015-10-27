@@ -7,16 +7,20 @@
       </asp:ScriptManager>
   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Groups Managed</h3>
-      </div>
-      <div class="panel-body">
-        <asp:ListBox ID="groupsListBox" runat="server" OnSelectedIndexChanged="groupsListBox_SelectedIndexChanged" AutoPostBack="false" OnInit="groupsListBox_Init"></asp:ListBox>
-      </div>
+        <div class="panel-heading">
+            <h3 class="panel-title">Groups Managed</h3>
+        </div>
+        <div class="panel-body">
+            <asp:UpdatePanel ID="gUpdatePanel" runat="server">
+                <ContentTemplate>
+                    <asp:ListBox ID="groupsListBox" runat="server" OnSelectedIndexChanged="groupsListBox_SelectedIndexChanged" OnInit="groupsListBox_Init" AutoPostBack="True"></asp:ListBox>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </div>
   </div>
 
-  <div class="col-md-6">
+    <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Group Details</h3>

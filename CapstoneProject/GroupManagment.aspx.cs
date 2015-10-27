@@ -14,6 +14,10 @@ namespace CapstoneProject
     {
       //populate groupmanaged list
       //this will come from AD
+
+        var ad = ActiveDirectoryAction.Instance;
+
+
     }
 
     protected void adUser_btn_Click(object sender, EventArgs e)
@@ -34,40 +38,29 @@ namespace CapstoneProject
       //if user is memeber of other group that is not managed be viewing user remove functionality should be disabled
     }
 
-    public void AddUserToGroup(string userId, string groupName)
+    protected void groupsListBox_Init(object sender, EventArgs e)
     {
-      try
-      {
-        using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "COMPANY"))
-        {
-          GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-          group.Members.Add(pc, IdentityType.UserPrincipalName, userId);
-          group.Save();
-        }
-      }
-      catch (System.DirectoryServices.DirectoryServicesCOMException E)
-      {
-        //doSomething with E.Message.ToString(); 
+        groupsListBox.Items.Clear();
+        List<ListItem> grpList = new List<ListItem>();
+        var ad = ActiveDirectoryAction.Instance;
+        string[] mangList = ad.GetGroupsManagedList(Context.User.Identity.Name);
 
-      }
+        if (mangList.Length > 0)
+        {
+            foreach (string group in mangList)
+            {
+                ListItem grp = new ListItem(group, group);
+                grp.Attributes.Add("class", "list-group-item");
+                grpList.Add(grp);
+            }
+
+            groupsListBox.Items.AddRange(grpList.ToArray());
+            groupsListBox.SelectionMode = ListSelectionMode.Single;
+        }
+
+        
     }
 
-    public void RemoveUserFromGroup(string userId, string groupName)
-    {
-      try
-      {
-        using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "COMPANY"))
-        {
-          GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-          group.Members.Remove(pc, IdentityType.UserPrincipalName, userId);
-          group.Save();
-        }
-      }
-      catch (System.DirectoryServices.DirectoryServicesCOMException E)
-      {
-        //doSomething with E.Message.ToString(); 
-
-      }
-    }
+    
   }
 }

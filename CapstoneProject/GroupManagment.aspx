@@ -11,7 +11,7 @@
         <h3 class="panel-title">Groups Managed</h3>
       </div>
       <div class="panel-body">
-        <asp:ListBox ID="groupsListBox" runat="server" OnSelectedIndexChanged="groupsListBox_SelectedIndexChanged" AutoPostBack="false"></asp:ListBox>
+        <asp:ListBox ID="groupsListBox" runat="server" OnSelectedIndexChanged="groupsListBox_SelectedIndexChanged" AutoPostBack="false" OnInit="groupsListBox_Init"></asp:ListBox>
       </div>
     </div>
   </div>

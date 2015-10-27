@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -84,12 +85,7 @@ namespace CapstoneProject
                     groupList.Add(directoryObject.Properties["CN"].Value.ToString());
                 }
             }
-            else
-            {
-                groupList.Add("No groups found.");
-            }
-
-            
+                        
             return groupList.ToArray<string>();
         }
 
@@ -687,6 +683,44 @@ namespace CapstoneProject
                 Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
             }
             return ouDistinguishedName;
+        }
+
+
+        // **** used by group management ***********************************
+        public void AddUserToGroup(string userId, string groupName)
+        {
+            try
+            {
+                using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
+                {
+                    GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Add(pc, IdentityType.UserPrincipalName, userId);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            {
+                //doSomething with E.Message.ToString(); 
+
+            }
+        }
+
+        public void RemoveUserFromGroup(string userId, string groupName)
+        {
+            try
+            {
+                using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
+                {
+                    GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Remove(pc, IdentityType.UserPrincipalName, userId);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            {
+                //doSomething with E.Message.ToString(); 
+
+            }
         }
 
     }

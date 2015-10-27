@@ -30,9 +30,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><asp:Button ID="btnHome" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Home"/></li>
                                 <li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>--%>
-                                <li><button type="button" class='btn webAppNavBtn' data-toggle='modal' data-target='#loginPage' >Login</button></li>
-                                <li><button type="button" class='btn webAppNavBtn' data-toggle='modal' data-target='#forgotPage' >Forgot Password</button></li>
-                                <li><asp:button ID="btnRequest" runat="server" CssClass="btn webAppNavBtn" OnClick="btnRequestAccount_Click" Text="New Account"></asp:button></li>
+                                <li><a data-toggle='modal' data-target='#loginPage' >Login</a></li>
+                                <li><a data-toggle='modal' data-target='#forgotPage' >Forgot Password</a></li>
+                                <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->

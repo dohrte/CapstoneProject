@@ -19,27 +19,13 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item">
-                <img src="images/enter.jpg" alt="Entrance" class="img" />
-            </div>
-            <div class="item">
-                <img src="images/bridge.png" alt="Bridge" class="img" />
-            </div>
-            <div class="item active">
-                <img src="images/computers.jpg" alt="Main" class="img" />
-            </div>
-            <div class="item">
-                <img src="images/Aerial.jpg" alt="Sky" class="img" />
-            </div>
-            <div class="item">
-                <img src="images/iteration1.png" alt="Sky" class="img" />
-            </div>
-            <div class="item">
-                <img src="images/iteration2.png" alt="Sky" class="img" />
-            </div>
-            <div class="item">
-                <img src="images/iteration3.png" alt="Sky" class="img" />
-            </div>
+            <div class="item">	<img src="images/comp-server-1.jpg"  alt="comps1" class="img"/>	</div>
+            <div class="item">  <img src="images/comp-server-2.jpg" alt="comps2" class="img"/>   </div>
+            <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
+	        <div class="item">	<img src="images/iteration1.png" alt="it1" class="img"/>	  </div>
+			<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
+			<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
+            <div class="item">	<img src="images/iteration4.jpg" alt="it4" class="img"/>	  </div>
         </div>
 
         <!-- Left and right controls -->
@@ -75,7 +61,7 @@
                         </div>
                         <div class="modal-footer modal-black">
                             <asp:Button ID="btnLogin" OnClick="Login_Click" CssClass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:Button>
-                            <asp:Label ID="errorLabel" CssClass="label" Text="eror" runat="server"></asp:Label>
+                            <asp:Label ID="errorLabel" CssClass="label" Text="" runat="server"></asp:Label>
                             <asp:Button ID="btnCloselogin" CssClass="btn btn-default" data-dismiss="modal" Text="close" runat="server"></asp:Button>
                         </div>
                     </div>

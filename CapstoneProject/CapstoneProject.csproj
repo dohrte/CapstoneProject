@@ -75,6 +75,8 @@
     <Content Include="CreateComp.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\admin mock1.png" />
+    <Content Include="images\admin mock2.png" />
     <Content Include="images\blue-screen.png" />
     <Content Include="images\comp-server-1.jpg" />
     <Content Include="images\comp-server-2.jpg" />

@@ -5,4 +5,11 @@
     you are in page 2
 
     this is for admins
+    <div>
+    <p>making a wireframe for this page. Need to figure out how to best visualize the functions of this group</p>
+    <div class="panel-body">
+        <img src="images/admin mock1.png"/>
+        <img src="images/admin mock2.png"/>
+    </div>
+    </div>
 </asp:Content>

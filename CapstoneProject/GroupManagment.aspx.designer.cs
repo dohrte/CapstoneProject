@@ -85,6 +85,15 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.TextBox addUserID_textBox;
         
         /// <summary>
+        /// txtUsernameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUsernameValidator;
+        
+        /// <summary>
         /// adUser_btn control.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,14 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button adUser_btn;
+        
+        /// <summary>
+        /// addUser_Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addUser_Error;
     }
 }

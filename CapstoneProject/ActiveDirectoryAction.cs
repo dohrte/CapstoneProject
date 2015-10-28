@@ -324,6 +324,23 @@ namespace CapstoneProject
         }
 
         /// <summary>
+        /// Check to see if a user exists in Active Directory. Uses cn or samaccountname.
+        /// </summary>
+        /// <param name="username">username to check for existance.</param>
+        /// <returns>bool, true if exists otherwise false.</returns>
+        public bool UserExist(string username)
+        {
+            bool exists = false;
+
+            if(this.GetUserAcctInfo(username).Keys.Count > 0)
+            {
+                exists = true;
+            }
+
+            return exists;
+        }
+
+        /// <summary>
         /// Execute general search of active directory and return the results 
         /// in the form of an ExecuteResult struct. Optional parameter to specify the 
         /// location to search in.
@@ -688,6 +705,11 @@ namespace CapstoneProject
 
 
         // **** used by group management ***********************************
+        /// <summary>
+        /// Add a user to a group in active directory.
+        /// </summary>
+        /// <param name="userId">SamAccountName of the user to be added</param>
+        /// <param name="groupName">Active directory group to add user to.</param>
         public void AddUserToGroup(string userId, string groupName)
         {
             try
@@ -713,7 +735,7 @@ namespace CapstoneProject
                 using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
                 {
                     GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Remove(pc, IdentityType.UserPrincipalName, userId);
+                    group.Members.Remove(pc, IdentityType.SamAccountName, userId);
                     group.Save();
                 }
             }

@@ -5,6 +5,7 @@ using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Web.UI;
 
 namespace CapstoneProject
 {
@@ -13,7 +14,16 @@ namespace CapstoneProject
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            string jQueryPath = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery";
+            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
+            {
+                Path = jQueryPath + ".min.js",
+                DebugPath = jQueryPath + ".js",
+                CdnPath = jQueryPath + ".min.js",
+                CdnDebugPath = jQueryPath + ".js",
+                CdnSupportsSecureConnection = true,
+                LoadSuccessExpression = "window.jQuery"
+            });
         }
 
         protected void Session_Start(object sender, EventArgs e)

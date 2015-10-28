@@ -14,7 +14,7 @@ namespace CapstoneProject
     {
             //populate groupmanaged list
             //this will come from AD      
-
+            string x = "what";
             //bind groupslistbox.selectindexchange to manageDetail updatePanel
             //manageDetail.Triggers.Add(new AsyncPostBackTrigger()
             //{
@@ -30,12 +30,16 @@ namespace CapstoneProject
     {
             var ad = ActiveDirectoryAction.Instance;
 
-
             //validate user
-
-            //adduser
-            ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
-
+            if (ad.UserExist(addUserID_textBox.Text))
+            {
+                //adduser
+                ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
+            }
+            else
+            {
+                addUser_Error.Text = "Invalid userID.";
+            }
     }
 
     protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)

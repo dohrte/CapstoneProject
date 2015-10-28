@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -72,7 +73,7 @@ namespace CapstoneProject
         {
             List<string> groupList = new List<string>();
 
-            string queryString = "(&(objectClass=group)(ManagedBy=CN=" + userID + ",CN=Users,DC=admnet,DC=oakland,DC=edu))";
+            string queryString = "(&(objectClass=group)(ManagedBy=" + this.GetUserAcctInfo(userID)["distinguishedName"] + "))";
 
             ExecuteResult result = this.ExecuteSearch(queryString, true);
 
@@ -84,12 +85,7 @@ namespace CapstoneProject
                     groupList.Add(directoryObject.Properties["CN"].Value.ToString());
                 }
             }
-            else
-            {
-                groupList.Add("No groups found.");
-            }
-
-            
+                        
             return groupList.ToArray<string>();
         }
 
@@ -114,6 +110,7 @@ namespace CapstoneProject
                     string classType = directoryObject.SchemaClassName;
                     if (classType.Equals("group"))
                     {
+                        memList.Add(directoryObject.Properties["CN"].Value.ToString());
                         this.GenerateMemberList(directoryObject.Properties["CN"].Value.ToString(), memList);
                     }
                     else
@@ -324,6 +321,23 @@ namespace CapstoneProject
             }
 
             return retAdObj;
+        }
+
+        /// <summary>
+        /// Check to see if a user exists in Active Directory. Uses cn or samaccountname.
+        /// </summary>
+        /// <param name="username">username to check for existance.</param>
+        /// <returns>bool, true if exists otherwise false.</returns>
+        public bool UserExist(string username)
+        {
+            bool exists = false;
+
+            if(this.GetUserAcctInfo(username).Keys.Count > 0)
+            {
+                exists = true;
+            }
+
+            return exists;
         }
 
         /// <summary>
@@ -687,6 +701,49 @@ namespace CapstoneProject
                 Console.WriteLine("Unable to find a match for the name entered. Please check and retry.");
             }
             return ouDistinguishedName;
+        }
+
+
+        // **** used by group management ***********************************
+        /// <summary>
+        /// Add a user to a group in active directory.
+        /// </summary>
+        /// <param name="userId">SamAccountName of the user to be added</param>
+        /// <param name="groupName">Active directory group to add user to.</param>
+        public void AddUserToGroup(string userId, string groupName)
+        {
+            try
+            {
+                using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
+                {
+                    GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Add(pc, IdentityType.SamAccountName, userId);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            {
+                //doSomething with E.Message.ToString(); 
+
+            }
+        }
+
+        public void RemoveUserFromGroup(string userId, string groupName)
+        {
+            try
+            {
+                using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
+                {
+                    GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Remove(pc, IdentityType.SamAccountName, userId);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            {
+                //doSomething with E.Message.ToString(); 
+
+            }
         }
 
     }

@@ -10,87 +10,105 @@
 namespace CapstoneProject {
     
     
-    public partial class Logon {
+    public partial class GroupManagment {
         
         /// <summary>
-        /// scrptManager1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scrptManager1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// logonUpdatePanel control.
+        /// gUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel logonUpdatePanel;
+        protected global::System.Web.UI.UpdatePanel gUpdatePanel;
         
         /// <summary>
-        /// logonInputPanel control.
+        /// groupsListBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel logonInputPanel;
+        protected global::System.Web.UI.WebControls.ListBox groupsListBox;
         
         /// <summary>
-        /// txtUsername control.
+        /// manageDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.UpdatePanel manageDetail;
         
         /// <summary>
-        /// txtPassword control.
+        /// sharesAccesible control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Label sharesAccesible;
         
         /// <summary>
-        /// btnLogin control.
+        /// memeberListBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.ListBox memeberListBox;
         
         /// <summary>
-        /// errorLabel control.
+        /// addUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.UpdatePanel addUser;
         
         /// <summary>
-        /// btnCloselogin control.
+        /// addUserID_textBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCloselogin;
+        protected global::System.Web.UI.WebControls.TextBox addUserID_textBox;
         
         /// <summary>
-        /// pnl3 control.
+        /// txtUsernameValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUsernameValidator;
+        
+        /// <summary>
+        /// adUser_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button adUser_btn;
+        
+        /// <summary>
+        /// addUser_Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label addUser_Error;
     }
 }

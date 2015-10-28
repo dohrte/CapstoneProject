@@ -12,45 +12,47 @@ namespace CapstoneProject
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (HttpContext.Current.Request.Url.AbsolutePath.ToLowerInvariant().Contains("logon"))
+        if (HttpContext.Current.Request.Url.AbsolutePath.ToLowerInvariant().Contains("logon") ||
+                HttpContext.Current.Request.Url.AbsolutePath.ToLowerInvariant().Contains("requestacct"))
         {
-                //btnLogout.Visible = false;
-                //btnHome.Visible = false;
+                btnLogout.Visible = false;
+                btnHome.Visible = false;
 
                 
             }
         else
         {
-                //btnLogout.Visible = true;
-                //btnHome.Visible = true;
-                MasterLayout site = this.Master as MasterLayout;
-                if (site != null)
-                {
+                btnLogout.Visible = true;
+                btnHome.Visible = true;
+                //MasterLayout site = this.Master as MasterLayout;
+                //if (site != null)
+                //{
 
-                    LinkButton btnLogout = new LinkButton();
-                    btnLogout.Click += btnLogout_Click;
-                    btnLogout.CssClass = "btn webAppNavBtn";
-                    btnLogout.Text = "Logout";
+                //    LinkButton btnLogout = new LinkButton();
+                //    btnLogout.Click += btnLogout_Click;
+                //    btnLogout.CssClass = "btn webAppNavBtn";
+                //    btnLogout.Text = "Logout";
 
-                    HtmlGenericControl liLogout = new HtmlGenericControl("li");
-                    liLogout.Controls.Add(btnLogout);
+                //    HtmlGenericControl liLogout = new HtmlGenericControl("li");
+                //    liLogout.Controls.Add(btnLogout);
 
-                    LinkButton btnHome = new LinkButton();
-                    btnHome.Click += btnHome_Click;
-                    btnHome.CssClass = "btn webAppNavBtn";
-                    btnHome.Text = "Home";
+                //    LinkButton btnHome = new LinkButton();
+                //    btnHome.Click += btnHome_Click;
+                //    btnHome.CssClass = "btn webAppNavBtn";
+                //    btnHome.Text = "Home";
+                    
 
-                    HtmlGenericControl liHome = new HtmlGenericControl("li");
-                    liHome.Controls.Add(btnHome);
+                //    HtmlGenericControl liHome = new HtmlGenericControl("li");
+                //    liHome.Controls.Add(btnHome);
 
-                    HtmlGenericControl ul = new HtmlGenericControl("ul");
-                    ul.Attributes.Add("class", "nav navbar-nav navbar-right");
-                    ul.Controls.Add(liLogout);
-                    ul.Controls.Add(liHome);
+                //    HtmlGenericControl ul = new HtmlGenericControl("ul");
+                //    ul.Attributes.Add("class", "nav navbar-nav navbar-right");
+                //    ul.Controls.Add(liLogout);
+                //    ul.Controls.Add(liHome);
 
-                    Panel navPanel = site.FindControl("navBtns") as Panel;
-                    navPanel.Controls.Add(ul);
-                }
+                //    Panel navPanel = site.FindControl("navBtns") as Panel;
+                //    navPanel.Controls.Add(ul);
+                //}
 
             }
     }

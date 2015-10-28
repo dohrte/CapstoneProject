@@ -19,3 +19,21 @@ nav{
     background-color:#B59A57;
     border:none;
 }
+
+.list-group-item{
+    color:black;
+}
+
+.panel > .panel-heading{
+    background-image: none;
+    background-color: #B59A57;
+    color: white;
+}
+
+.panel-default{
+    border: none;
+}
+
+.panel > .panel-body{
+    color: black;
+}

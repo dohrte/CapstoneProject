@@ -31,6 +31,15 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// ButtonFacWiki control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonFacWiki;
+        
+        /// <summary>
         /// Button2 control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// btnAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmin;
-        
-        /// <summary>
         /// btnCreateComp control.
         /// </summary>
         /// <remarks>
@@ -56,6 +56,24 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateComp;
+        
+        /// <summary>
+        /// ButtonTechWiki control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonTechWiki;
+        
+        /// <summary>
+        /// btnAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdmin;
         
         /// <summary>
         /// btnAcctDetail control.

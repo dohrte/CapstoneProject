@@ -13,66 +13,66 @@ namespace CapstoneProject {
     public partial class Logon {
         
         /// <summary>
-        /// LogonPanel control.
+        /// helloMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel LogonPanel;
+        protected global::System.Web.UI.WebControls.Label helloMsg;
         
         /// <summary>
-        /// txtUsername control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// txtPassword control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// btnLogin control.
+        /// btnAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnAdmin;
         
         /// <summary>
-        /// errorLabel control.
+        /// btnCreateComp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.WebControls.Button btnCreateComp;
         
         /// <summary>
-        /// btnCloselogin control.
+        /// btnAcctDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCloselogin;
+        protected global::System.Web.UI.WebControls.Button btnAcctDetail;
         
         /// <summary>
-        /// pnl3 control.
+        /// MessageBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl3;
+        protected global::System.Web.UI.WebControls.TextBox MessageBox;
     }
 }

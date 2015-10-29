@@ -1,39 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterLayout.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="CapstoneProject.Admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="jquery-1.11.3.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    this will be the admin page
-  <div>
-    <ul class="nav nav-tabs color-gold">
-    <li class="active"><a href="#message">Message of the Day</a></li>
-    <li><a href="#comps">Manage Computers</a></li>
-    <li><a href="#wiki">Wiki settings</a></li>
-    </ul>
-      <br />
-    <div class="tab-content">
-        <div class="tab-pane fade in active cent" id="message">
-            <h5>Modify Message of the Day</h5>
-            <div class="row">
-            <div class="col-md-6">
-                <label> New Message</label>
-                <asp:TextBox ID="newMessage" runat="server"></asp:TextBox>
-                <asp:button id="messageBtn" CssClass="color-gold" runat="server" Text="Publish Message" />
-            </div>
-            <div class="col-md-6">
-                <label>Current Message</label>
-                <asp:panel ID="messagePanel" runat="server"></asp:panel>
-            </div>
-        </div>
-        </div>
-        <div class="tab-pane fade" id="comps">
-            <h5>Here you modify computers</h5>
-             <div class="form-group">
-                <label for="buildingDropList">Building:</label>
-                <asp:DropDownList CssClass="form-control" ID="buildingDropList" runat="server"></asp:DropDownList>
-                <asp:Table runat="server" ID="compTable"></asp:Table>   
-             </div>
-        </div>
-        <div class="tab-pane fade" id="wiki">Wiki settings</div>
-    </div>
+ <div class="container">
+<div id="content">
+	<ul id="tabs" class="nav nav-tabs color-gold" data-tabs="tabs">
+		<li class="active"><a data-toggle="tab" href="#message">Message of the Day</a></li>
+	<li><a data-toggle="tab" href="#comps">Manage Computers</a></li>
+  <li><a data-toggle="tab" href="#wiki">Manage Wiki</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="message" class="tab-pane fade in active">
+    <h3>Modify Message of the Day</h3>
+    <div class="row">
+	<div class="col-md-4">
+	<label>New Message</label>
+	<input type="text" class="form-control" id="newMessage" placeholder="Message"/>
+	 <button type="submit" class="btn btn-default">Publish Message</button>
+	</div>
+	<div class="col-md-2"></div>
+	 <div class="col-md-4">
+     <label>Current Message</label>
+	 <p> <p>
+     <label>This is the old message</label>
+     </div>
+	</div>
+	</div>
+	 
+  <div id="comps" class="tab-pane">
+    <h3>Menu 1</h3>
+    <p>Some content in menu 1.</p>
   </div>
+  <div id="wiki" class="tab-pane">
+    <h3>Menu 2</h3>
+    <p>Some content in menu 2.</p>
+  </div>
+</div>
+</div>
+</div> <!-- container -->
 </asp:Content>

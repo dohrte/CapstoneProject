@@ -7,6 +7,7 @@
 
 body{
     background-color: black;
+    background-image: url(../../images/black_lozenge.png);
     color:white;
 }
 
@@ -38,8 +39,6 @@ nav{
 .panel > .panel-body{
     color: black;
 }
-
-
 
 .white-pb{
     background-color: white;
@@ -78,4 +77,10 @@ nav{
 
 .navbar-default .navbar-nav > li > a{
     color:white;
+}
+
+
+.panel-title{
+    font-size: xx-large;
+    font-family: DaunPenh;
 }

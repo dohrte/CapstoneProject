@@ -36,7 +36,7 @@
             <asp:ListBox ID="memeberListBox" runat="server"></asp:ListBox>
                     </ContentTemplate>
                     <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="groupsListBox" />
+                        <asp:AsyncPostBackTrigger ControlID="groupsListBox"  />
                     </Triggers>
                 </asp:UpdatePanel>
                 <asp:UpdatePanel ID="addUser" runat="server" >

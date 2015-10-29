@@ -7,6 +7,7 @@
 
 body{
     background-color: black;
+    background-image: url(../../images/black_lozenge.png);
     color:white;
 }
 
@@ -18,6 +19,7 @@ nav{
     background-image:none;
     background-color:#B59A57;
     border:none;
+    color: white;
 }
 
 .list-group-item{
@@ -36,4 +38,49 @@ nav{
 
 .panel > .panel-body{
     color: black;
+}
+
+.white-pb{
+    background-color: white;
+    color: #282828;
+    font-size: large;
+ 
+}
+
+.panel > .grey-panel-heading{
+    background-image: none;
+    background-color: #282828;
+    border: groove; 
+    border-color: #181818;
+    color: white;
+   
+}
+
+.glyphicon{
+    color:white;
+}
+
+.webappbtn{
+    color: white;
+}
+
+.modal-black{
+    background: none;
+    background-image: url(../../images/black_lozenge.png);
+}
+
+.color-black{
+    background: none;
+    background-image: url(../../images/black_lozenge.png);
+}
+
+
+.navbar-default .navbar-nav > li > a{
+    color:white;
+}
+
+
+.panel-title{
+    font-size: xx-large;
+    font-family: DaunPenh;
 }

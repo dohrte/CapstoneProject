@@ -75,10 +75,14 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GroupManagment.aspx" />
+    <Content Include="images\black_lozenge.png" />
+    <Content Include="images\comp-server-1.jpg" />
+    <Content Include="images\comp-server-2.jpg" />
     <Content Include="images\computers.jpg" />
     <Content Include="images\iteration1.png" />
     <Content Include="images\Iteration2.png" />
     <Content Include="images\iteration3.png" />
+    <Content Include="images\iteration4.JPG" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
     <Content Include="page1.aspx" />

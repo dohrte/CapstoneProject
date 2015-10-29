@@ -46,8 +46,11 @@ namespace CapstoneProject
     {
             //on selected item in groups managed list update the other displays
             ListBox input = (ListBox)sender;
-           
+
             //shares that the group has access to will come from DB
+
+            //clear list
+            memeberListBox.Items.Clear();
 
             //members will come from AD
             var ad = ActiveDirectoryAction.Instance;
@@ -74,7 +77,7 @@ namespace CapstoneProject
             groupsListBox.Items.AddRange(this.CreateListItems(mangList).ToArray());
             groupsListBox.SelectionMode = ListSelectionMode.Single;
         }
-        groupsListBox.SelectedIndex = -1;
+        //groupsListBox.SelectedIndex = -1;
         
     }
 

@@ -32,7 +32,7 @@
                     <div id="collapse1" class="pannel-collapse collapse">
             <div class="panel-body">
               <div class="btn-group">
-                <asp:Button ID="Button1" runat="server" CssClass="btn modal-gold" OnClick="Button1_Click" Text="View Groups" />
+                <asp:Button ID="Button1" runat="server" CssClass="btn modal-gold" OnClick="btnGrpManagement_Click" Text="View Groups" />
                  <asp:Button ID="ButtonFacWiki" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
                  </div>
                    </div>

@@ -75,6 +75,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GroupManagment.aspx" />
+    <Content Include="images\black_lozenge.png" />
     <Content Include="images\comp-server-1.jpg" />
     <Content Include="images\comp-server-2.jpg" />
     <Content Include="images\iteration1.png" />

@@ -8,6 +8,22 @@ using System.Web.UI.WebControls;
 
 namespace CapstoneProject
 {
+    struct MemberItem
+    {
+        public string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { }
+        }
+
+        public MemberItem(string n)
+        {
+            name = n;
+        }
+        
+    }
   public partial class GroupManagment : System.Web.UI.Page
   {
     protected void Page_Load(object sender, EventArgs e)
@@ -35,37 +51,45 @@ namespace CapstoneProject
             {
                 //adduser
                 ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
+                addUserID_textBox.Text = string.Empty;
             }
             else
             {
                 addUser_Error.Text = "Invalid userID.";
             }
-    }
+
+            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
+            memberListView.DataBind();
+        }
 
     protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)
     {
             //on selected item in groups managed list update the other displays
             ListBox input = (ListBox)sender;
 
-            //shares that the group has access to will come from DB
-
-            //clear list
-            memeberListBox.Items.Clear();
-
-            //members will come from AD
             var ad = ActiveDirectoryAction.Instance;
-            string[] grpMems = ad.GetMemberList(input.SelectedItem.Text);
+            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(input.SelectedItem.Text));
+            memberListView.DataBind();
 
-            if(grpMems.Length > 0)
-            {
-                memeberListBox.Items.AddRange(this.CreateListItems(grpMems).ToArray());
-            }
-            
+            addUserID_textBox.Text = string.Empty;
+
             //show groups that are members?
             //if user is memeber of other group that is not managed be viewing user remove functionality should be disabled
         }
 
-    protected void groupsListBox_Init(object sender, EventArgs e)
+        private List<MemberItem> GenerateListData(string[] mems)
+        {
+            List<MemberItem> list = new List<MemberItem>();
+
+            foreach (string mem in mems)
+            {
+                list.Add(new MemberItem(mem));
+            }
+
+            return list;
+        }
+
+        protected void groupsListBox_Init(object sender, EventArgs e)
     {
         groupsListBox.Items.Clear();
         List<ListItem> grpList = new List<ListItem>();
@@ -95,6 +119,19 @@ namespace CapstoneProject
 
             return list;
         }
-    
+
+        protected void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            var ad = ActiveDirectoryAction.Instance;
+            LinkButton s = (LinkButton) sender;
+            if (s.CommandName.Equals("Remove"))
+            {
+               ad.RemoveUserFromGroup(s.CommandArgument, groupsListBox.SelectedItem.Text);
+            }
+
+            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
+            memberListView.DataBind();
+        }
+
   }
 }

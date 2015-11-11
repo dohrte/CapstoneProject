@@ -712,12 +712,14 @@ namespace CapstoneProject
         /// <param name="groupName">Active directory group to add user to.</param>
         public void AddUserToGroup(string userId, string groupName)
         {
+            string userSAN = this.GetUserAcctInfo(userId)["sAMAccountName"];
+
             try
             {
                 using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
                 {
                     GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Add(pc, IdentityType.SamAccountName, userId);
+                    group.Members.Add(pc, IdentityType.SamAccountName, userSAN);
                     group.Save();
                 }
             }
@@ -730,12 +732,15 @@ namespace CapstoneProject
 
         public void RemoveUserFromGroup(string userId, string groupName)
         {
+           Dictionary<string, string> x = this.GetUserAcctInfo(userId);
+            string userSAN = this.GetUserAcctInfo(userId)["sAMAccountName"];
+
             try
             {
                 using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "capstone"))
                 {
                     GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Remove(pc, IdentityType.SamAccountName, userId);
+                    group.Members.Remove(pc, IdentityType.SamAccountName, userSAN);
                     group.Save();
                 }
             }

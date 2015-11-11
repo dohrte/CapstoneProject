@@ -4,8 +4,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <asp:Panel ID="requestForm" runat="server">
-  <fieldset>
-        <legend>Capstone Domain Account Request</legend>
+  
+      
+      
+       <div class="container div-collapseForms">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title nick-panel-title">
+                        <a data-toggle="collapse" href="#collapse5">Domain Account Request Form</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="pannel-collapse collapse">
+                    <div class="panel-body">
+                        
+      
+       
         <div>
             <label>First Name</label>
             <div>
@@ -15,6 +29,7 @@
 
 
         <div>
+       
             <label>Last Name</label>
             <div>
                 <asp:textbox runat="server" ID="lNamebox" />
@@ -134,9 +149,52 @@
             </div>
         </div>
 
-    </fieldset>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      
+      
     </asp:Panel>  
   <asp:Panel ID="messagePanel" runat="server">
     Your request has been submitted. You will recieve an email response within 24 hours.
   </asp:Panel>
+
+     <div class="container div-collapseForms">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title nick-panel-title">
+                        <a data-toggle="collapse" href="#collapse6">File Share Request</a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="pannel-collapse collapse">
+                    <div class="panel-body">
+                       <p>Request form will go here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="container div-collapseForms">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title nick-panel-title">
+                        <a data-toggle="collapse" href="#collapse7">Password Change Request</a>
+                    </h4>
+                </div>
+                <div id="collapse7" class="pannel-collapse collapse">
+                    <div class="panel-body">
+                       <p>Request form will go here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>

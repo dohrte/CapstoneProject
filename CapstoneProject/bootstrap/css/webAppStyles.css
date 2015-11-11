@@ -84,3 +84,10 @@ nav{
     font-size: xx-large;
     font-family: DaunPenh;
 }
+
+.div-collapseForms{
+    color: black;
+    font-family: DaunPenh;
+    font-size: large;
+    text-align:center;
+}

@@ -189,6 +189,7 @@
     <Compile Include="UserDetail.aspx.designer.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UTSDatabaseInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap\css\bootstrap-theme.css.map" />

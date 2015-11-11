@@ -34,6 +34,20 @@
                         <br />
                         Group Members:
             <asp:ListBox ID="memeberListBox" runat="server"></asp:ListBox>
+                        <asp:ListView ID="memberListView" runat="server">
+                            <LayoutTemplate>
+                                <table>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>remove?</th>
+                                    </tr>
+                                    <tr id="itemPlaceholder" runat="server"></tr>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+
+                            </ItemTemplate>
+                        </asp:ListView>
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="groupsListBox"  />

@@ -12,9 +12,9 @@ namespace CapstoneProject
     protected void Page_Load(object sender, EventArgs e)
     {
             //string msg = "Hello, " + Context.User.Identity.Name + " you have been authenticated! You are now allowed to use this application.";
-
-        helloMsg.Text = ;
-    }
+            MessageOfTheDay motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+            msgOfTheDay.Text = motd.getMessage();
+        }
 
     /// <summary>
     /// show buttons based on users roles

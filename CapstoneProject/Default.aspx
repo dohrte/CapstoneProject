@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <asp:Label ID="helloMsg" runat="server" />
+    <%--<asp:Label ID="helloMsg" runat="server" />--%>
 
     <div class="container">
         <div class="panel-group">

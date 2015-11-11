@@ -89,6 +89,7 @@
     <Content Include="images\iteration5.png" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
+    <Content Include="motd\motdFile.txt" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />
     <Content Include="Service References\ServiceReference1\CapstoneProject.ServiceReference1.CompositeType.datasource">
@@ -164,6 +165,7 @@
     <Compile Include="MasterLayout.Master.designer.cs">
       <DependentUpon>MasterLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="MessageOfTheDay.cs" />
     <Compile Include="page1.aspx.cs">
       <DependentUpon>page1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

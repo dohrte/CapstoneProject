@@ -10,47 +10,63 @@ namespace CapstoneProject
 {
     public partial class Admin : System.Web.UI.Page
     {
-        string split = "-----";
-        string str = "";
-        string updateTxt = "";
+        MessageOfTheDay motd;// = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+
+        //string split = "-----";
+        //string str = "";
+        //string updateTxt = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
         }
 
         protected void publishBtn_Click(object sender, EventArgs e)
         {
+            //get input
             string theText = Textbox1.Text;
-            int index = updateTxt.IndexOf(split);
 
-            if (index > 0)
-                updateTxt = updateTxt.Substring(0, index);
+            //write to motd file
+            motd.setMessage(theText);
 
-            str = theText + "\n" + split + "\n" + updateTxt;
-            System.IO.File.WriteAllText(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"], str);
-            updateTxt = str;
-            Label1.Text = updateTxt;
+            Label1.Text = motd.getMessage();;
 
 
         }
-        public string getMessage() {
-            string txt = "";
 
-            using (var reader = new StreamReader(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (reader.ReadLine() == "-----")
-                    {
-                        break;
-                    }
-                    txt += line + "\n";
-                }
-                reader.Close();
-            }
-            return txt;
+        //protected void publishBtn_Click(object sender, EventArgs e)
+        //{
+        //    string theText = Textbox1.Text;
+        //    int index = updateTxt.IndexOf(split);
 
-        }
+        //    if (index > 0)
+        //        updateTxt = updateTxt.Substring(0, index);
+
+        //    str = theText + "\n" + split + "\n" + updateTxt;
+        //    System.IO.File.WriteAllText(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]), str);
+        //    updateTxt = str;
+        //    Label1.Text = updateTxt;
+
+
+        //}
+        //public string getMessage() {
+        //    string txt = "";
+
+        //    using (var reader = new StreamReader(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"])))
+        //    {
+        //        string line;
+        //        while ((line = reader.ReadLine()) != null)
+        //        {
+        //            if (reader.ReadLine() == "-----")
+        //            {
+        //                break;
+        //            }
+        //            txt += line + "\n";
+        //        }
+        //        reader.Close();
+        //    }
+        //    return txt;
+
+        //}
     }
 }

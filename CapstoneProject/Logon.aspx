@@ -26,6 +26,7 @@
 			<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
 			<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
             <div class="item">	<img src="images/iteration4.jpg" alt="it4" class="img"/>	  </div>
+            <div class="item">  <img src="images/iteration5.png" alt="it5" class="img"/>      </div>
         </div>
 
         <!-- Left and right controls -->

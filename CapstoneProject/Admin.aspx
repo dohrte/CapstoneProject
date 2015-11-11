@@ -1,43 +1,70 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterLayout.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="CapstoneProject.Admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="jquery-1.11.3.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse1">Modify Message of the Day</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="pannel-collapse collapse">
+                <div class="panel-body">
+                    <div class="col-md-4 color-black">
+	                    <label>New Message</label>
+                        <br />
+	                    <asp:textbox id="Textbox1" mode="multiline" runat="server" placeholder="Type Message"/>
+                        <br />
+	                    <asp:button ID="Button1" runat="server" cssclass="btn btn-default" OnClick="publishBtn_Click" Text="Publish Message"></asp:button>
+	                </div>
+	                <div class="col-md-2"></div>
+	                    <div class="col-md-4 color-black">
+                            <label>Current Message</label>
+	                        <br />
+                            <asp:label ID="Label1" runat="server"></asp:label>
+                        </div>
+	                </div>
+	            </div>
+            </div> 
+        </div>
+    </div>
  <div class="container">
-<div id="content">
-	<ul id="tabs" class="nav nav-tabs color-gold" data-tabs="tabs">
-		<li class="active"><a data-toggle="tab" href="#message">Message of the Day</a></li>
-	<li><a data-toggle="tab" href="#comps">Manage Computers</a></li>
-  <li><a data-toggle="tab" href="#wiki">Manage Wiki</a></li>
-</ul>
+     <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse2">Manage Computer</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="pannel-collapse collapse">
+                <div class="panel color-gold">
+                    <h3>Manage Computer</h3>
+                    <div class="form-group">
+                        <label for="buildingDropList">Building:</label>
+                        <asp:DropDownList CssClass="form-control" ID="buildingDropList" runat="server"></asp:DropDownList>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div class="tab-content">
-  <div id="message" class="tab-pane fade in active">
-    <h3>Modify Message of the Day</h3>
-    <div class="row">
-	<div class="col-md-4">
-	<label>New Message</label>
-	<input type="text" class="form-control" id="newMessage" placeholder="Message"/>
-	 <button type="submit" class="btn btn-default">Publish Message</button>
-	</div>
-	<div class="col-md-2"></div>
-	 <div class="col-md-4">
-     <label>Current Message</label>
-	 <p> <p>
-     <label>This is the old message</label>
-     </div>
-	</div>
-	</div>
-	 
-  <div id="comps" class="tab-pane">
-    <h3>Menu 1</h3>
-    <p>Some content in menu 1.</p>
-  </div>
-  <div id="wiki" class="tab-pane">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
-  </div>
+<div class="container">
+     <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapse3">Wiki Controls</a>
+                </h4>
+            </div>
+             <div id="collapse3" class="pannel-collapse collapse">
+             <p>This is where the Wiki Controls wil go</p>
+             </div>
+        </div>
+    </div>
 </div>
-</div>
-</div> <!-- container -->
+
+
 </asp:Content>

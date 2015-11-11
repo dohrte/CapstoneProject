@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterLayout.master.cs" Inherits="CapstoneProject.MasterLayout" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
@@ -19,6 +18,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <style>
+        h1{font-family: Dauphin;}
+    </style>
     <form id="form1" runat="server">
         <div class="container">
             <div class="row">

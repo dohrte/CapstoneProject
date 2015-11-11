@@ -14,7 +14,7 @@
                 <div class="panel-heading grey-panel-heading">
                     <h2 class="panel-title">Message of The Day</h2>
                     <div class="panel-body white-pb">
-                        <p>Hello World! </p>
+                        <p><asp:Label ID="msgOfTheDay" runat="server" /></p>
                     </div>
                 </div>
             </div>

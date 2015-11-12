@@ -5,4 +5,8 @@
     your in page 1 
 
     this is for faculty only
+    <br />
+    <asp:TextBox ID="input" runat="server"></asp:TextBox>
+        <asp:Button ID="submitBtn" runat="server" Text="submit" OnClick="submitBtn_Click" />
+        <asp:Label ID="display" runat="server"></asp:Label>
 </asp:Content>

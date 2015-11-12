@@ -43,6 +43,8 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -89,6 +91,16 @@
     <Content Include="databaseSetup.sql" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />
+    <Content Include="Service References\ServiceReference1\CapstoneProject.ServiceReference1.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReference1\Service1.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="UserDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -167,6 +179,11 @@
     <Compile Include="RequestAcct.aspx.designer.cs">
       <DependentUpon>RequestAcct.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,6 +191,7 @@
     <Compile Include="UserDetail.aspx.designer.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UTSDatabaseInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bootstrap\css\bootstrap-theme.css.map" />
@@ -188,6 +206,16 @@
     <None Include="Properties\PublishProfiles\publishCapstone-Local.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Remote.pubxml" />
     <None Include="Properties\PublishProfiles\publishCapstone-Shares.pubxml" />
+    <None Include="Service References\ServiceReference1\Service1.wsdl" />
+    <None Include="Service References\ServiceReference1\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +223,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

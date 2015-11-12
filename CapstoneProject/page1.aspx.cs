@@ -13,5 +13,12 @@ namespace CapstoneProject
         {
 
         }
+
+        protected void submitBtn_Click(object sender, EventArgs e)
+        {
+            ServiceReference1.Service1Client svc = new ServiceReference1.Service1Client();
+            int num = Convert.ToInt32(input.Text);
+            display.Text = svc.GetData(num);
+        }
     }
 }

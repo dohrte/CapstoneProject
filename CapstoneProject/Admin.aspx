@@ -1,8 +1,47 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterLayout.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="CapstoneProject.Admin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+            <li role="presentation"><a href="#createComp" aria-controls="createComp" role="tab" data-toggle="tab">Create Computer</a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="message">
+
+                <label>Current Message</label>
+                <asp:Panel ID="curMsgPanel" runat="server">
+                    <%--<asp:Label ID="currentMessageLabel" runat="server"></asp:Label>--%>
+                </asp:Panel>
+                
+                <label>New Message</label>
+                <asp:TextBox ID="Textbox1" mode="multiline" runat="server" placeholder="Type Message" />
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" OnClick="publishBtn_Click" Text="Publish Message"></asp:Button>
+
+                <asp:RadioButtonList ID="mTypeRadioButtonList" runat="server">
+                    <asp:ListItem Value="1">Message (green)</asp:ListItem>
+                    <asp:ListItem Selected="True" Value="2">Info (blue)</asp:ListItem>
+                    <asp:ListItem Value="3">Warning (yellow)</asp:ListItem>
+                    <asp:ListItem Value="4">Danger (red)</asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">...</div>
+            <div role="tabpanel" class="tab-pane" id="createComp">...</div>
+            <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        </div>
+    </div>
+
+
+
+ <%--   <div class="container">
     <div class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -64,7 +103,7 @@
              </div>
         </div>
     </div>
-</div>
+</div>--%>
 
 
 </asp:Content>

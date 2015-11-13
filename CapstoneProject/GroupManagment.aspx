@@ -63,7 +63,7 @@
                                 <tr>
                                     <td><%#Eval("Name") %></td>
                                     <td>
-                                        <asp:LinkButton ID="btnRemoveUser" runat="server" CommandName="Remove" CommandArgument='<%#Eval("Name") %>' OnClick="btnRemoveUser_Click" CausesValidation="false">remove</asp:LinkButton></td>
+                                        <asp:LinkButton ID="btnRemoveUser" runat="server" CommandName="Remove" CommandArgument='<%#Eval("Name") %>' OnClick="btnRemoveUser_Click" CausesValidation="false"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>remove</asp:LinkButton></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>

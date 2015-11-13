@@ -4,54 +4,142 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace CapstoneProject
 {
     class MessageOfTheDay
     {
-        string split = "-----";
-        string str = "";
-        string updateTxt = "";
-        string filePath;
+        private string filePath;
 
         public MessageOfTheDay(string path)
         {
             filePath = path;
         }
 
-        public void setMessage(string msg)
+        public Panel GetMotdPanel()
         {
-            int index = updateTxt.IndexOf(split);
+            Panel mPanel = new Panel();
 
-            if (index > 0)
-                updateTxt = updateTxt.Substring(0, index);
+            Label msgText = new Label();
+            var msg = this.GetCurrentMessageFromFile();
 
-            str = msg + "\n" + split + "\n" + updateTxt;
-            System.IO.File.WriteAllText(filePath, str);
-            updateTxt = str;
-            //Label1.Text = updateTxt;
+            if (msg != null)
+            {
+                switch (msg.Item2)
+                {
+                    case 1:
+                        mPanel.CssClass = "alert alert-success";
+                        mPanel.Attributes.Add("role", "alert");
+                        msgText.Text = msg.Item1.ToString();
+                        break;
+                    case 2:
+                        mPanel.CssClass = "alert alert-info";
+                        mPanel.Attributes.Add("role", "alert");
+                        msgText.Text = msg.Item1.ToString();
+                        break;
+                    case 3:
+                        mPanel.CssClass = "alert alert-warning";
+                        mPanel.Attributes.Add("role", "alert");
+                        msgText.Text = msg.Item1.ToString();
+                        break;
+                    case 4:
+                        mPanel.CssClass = "alert alert-danger";
+                        mPanel.Attributes.Add("role", "alert");
+                        msgText.Text = msg.Item1.ToString();
+                        break;
+                }
+            }
 
+            mPanel.Controls.Add(msgText);
+
+            return mPanel;
+        }
+
+        public void SetMessage(string msg, int typeID)
+        {
+            XmlDocument xmlFile = GetResourceXmlFile(filePath);
+
+            XmlNodeList nodes = xmlFile.DocumentElement.ChildNodes;
+
+            foreach (XmlNode node in nodes)
+            {
+                if (node.SelectSingleNode("current").InnerText.Trim().Equals("true"))
+                {
+                    node.SelectSingleNode("current").InnerText = "false";
+                }
+            }
+
+
+            XmlElement msgElem = xmlFile.CreateElement("message");
+
+            //add current node to message node
+            XmlElement msgCurrentNode = xmlFile.CreateElement("current");
+            XmlText trueMsgNode = xmlFile.CreateTextNode("true");
+            msgCurrentNode.AppendChild(trueMsgNode);
+            msgElem.AppendChild(msgCurrentNode);
+            xmlFile.DocumentElement.AppendChild(msgElem);
+
+            //add text node to message node
+            XmlElement messageTextNode = xmlFile.CreateElement("text");
+            XmlText xmlMsg = xmlFile.CreateTextNode(msg.Trim());
+            messageTextNode.AppendChild(xmlMsg);
+            msgElem.AppendChild(messageTextNode);
+            xmlFile.DocumentElement.AppendChild(msgElem);
+
+            //add type node to message node
+            XmlElement messageTypeNode = xmlFile.CreateElement("msgType");
+            XmlText xmlmsgType = xmlFile.CreateTextNode(typeID.ToString());
+            messageTypeNode.AppendChild(xmlmsgType);
+            msgElem.AppendChild(messageTypeNode);
+            xmlFile.DocumentElement.AppendChild(msgElem);
+
+            xmlFile.Save(filePath);
 
         }
-        public string getMessage()
+
+        //public Tuple<string, int> GetMessage()
+        //{
+        //    return this.GetCurrentMessageFromFile();
+        //}
+
+
+        private Tuple<string, int> GetCurrentMessageFromFile()
         {
-            string txt = "";
+            Tuple<string, int> msgObj = null; //null tuple for msg
 
-            using (var reader = new StreamReader(filePath))
+            //read from xml file
+            //generate list
+
+            XmlDocument resultXml = new XmlDocument();
+            resultXml = this.GetResourceXmlFile(filePath);
+
+            XmlNodeList nodes = resultXml.DocumentElement.ChildNodes;
+
+            foreach (XmlNode node in nodes)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (line.Equals("-----"))
-                    {
-                        break;
-                    }
-                    txt += line + "\n";
-                }
-                reader.Close();
-            }
-            return txt;
+                //list.Add(new ListItem("Text", "Value"));
+                //list.Add(new ListItem(node.SelectSingleNode("text").InnerText.Trim(), node.SelectSingleNode("value").InnerText.Trim()));
 
+                if (node.SelectSingleNode("current").InnerText.Trim().Equals("true"))
+                {
+                    string msgText = node.SelectSingleNode("text").InnerText.Trim();
+                    int typeID = Convert.ToInt32(node.SelectSingleNode("msgType").InnerText.Trim());
+                    msgObj = new Tuple<string, int>(msgText, typeID);
+                }
+                //msgObj = new Tuple<bool, string, int>()
+
+            }
+
+            return msgObj;
+        }
+
+        private XmlDocument GetResourceXmlFile(string filePath)
+        {
+            XmlDocument resultXml = new XmlDocument();
+            resultXml.Load(filePath);
+            return resultXml;
         }
     }
 }

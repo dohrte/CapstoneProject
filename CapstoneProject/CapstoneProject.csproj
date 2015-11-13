@@ -90,6 +90,7 @@
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
     <Content Include="motd\motdFile.txt" />
+    <Content Include="motd\motdFileX.xml" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />
     <Content Include="Service References\ServiceReference1\CapstoneProject.ServiceReference1.CompositeType.datasource">
@@ -118,6 +119,7 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Building.cs" />
     <Compile Include="CreateComp.aspx.cs">
       <DependentUpon>CreateComp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +134,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Department.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

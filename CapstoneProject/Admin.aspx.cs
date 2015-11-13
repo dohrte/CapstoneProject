@@ -12,61 +12,34 @@ namespace CapstoneProject
     {
         MessageOfTheDay motd;// = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
 
-        //string split = "-----";
-        //string str = "";
-        //string updateTxt = "";
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+            this.SetCurrentMsg();
+
+            //this.SetCurrentMsg();
+            //currentMessageLabel.Text = motd.getMessage();
         }
 
         protected void publishBtn_Click(object sender, EventArgs e)
         {
             //get input
-            string theText = Textbox1.Text;
+            string mText = Textbox1.Text;
+            Textbox1.Text = string.Empty;
+
+            int mType = Convert.ToInt32(mTypeRadioButtonList.SelectedItem.Value);
+            //int mType = 2;
 
             //write to motd file
-            motd.setMessage(theText);
-
-            Label1.Text = motd.getMessage();;
-
-
+            motd.SetMessage(mText, mType);
+            this.SetCurrentMsg();
+            
         }
 
-        //protected void publishBtn_Click(object sender, EventArgs e)
-        //{
-        //    string theText = Textbox1.Text;
-        //    int index = updateTxt.IndexOf(split);
-
-        //    if (index > 0)
-        //        updateTxt = updateTxt.Substring(0, index);
-
-        //    str = theText + "\n" + split + "\n" + updateTxt;
-        //    System.IO.File.WriteAllText(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]), str);
-        //    updateTxt = str;
-        //    Label1.Text = updateTxt;
-
-
-        //}
-        //public string getMessage() {
-        //    string txt = "";
-
-        //    using (var reader = new StreamReader(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"])))
-        //    {
-        //        string line;
-        //        while ((line = reader.ReadLine()) != null)
-        //        {
-        //            if (reader.ReadLine() == "-----")
-        //            {
-        //                break;
-        //            }
-        //            txt += line + "\n";
-        //        }
-        //        reader.Close();
-        //    }
-        //    return txt;
-
-        //}
+        protected void SetCurrentMsg()
+        {
+            curMsgPanel.Controls.Clear();
+            motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+            curMsgPanel.Controls.Add(motd.GetMotdPanel());
+        }
     }
 }

@@ -9,12 +9,13 @@ namespace CapstoneProject
 {
     public class Department
     {
-        SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
-                                                           "password=Abc123!!;" +
-                                                           "server=SQLSERVER480;" +
-                                                           "Trusted_Connection=yes;" +
-                                                           "database=UTSDB; " +
-                                                           "connection timeout=10");
+        //SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
+        //                                                   "password=Abc123!!;" +
+        //                                                   "server=SQLSERVER480;" +
+        //                                                   "Trusted_Connection=yes;" +
+        //                                                   "database=UTSDB; " +
+        //                                                   "connection timeout=10");
+        SqlConnection sqlConnection = new SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["DBconnection"].ConnectionString);
 
         public bool SetDepartment(string departmentName, string departmentAbbreviation)
         {

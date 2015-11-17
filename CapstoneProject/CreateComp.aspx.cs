@@ -101,17 +101,26 @@ namespace CapstoneProject
         private void InitLists()
         {
             Department dept = new Department();
+            Building bldg = new Building();
 
             deptDropList.DataSource = dept.GetDepartment();
+            deptDropList.DataTextField = "DepartmentName";
+            deptDropList.DataValueField = "DepartmentAbbreviation";
             deptDropList.DataBind();
 
+            custDeptDropList.DataSource = dept.GetDepartment();
+            custDeptDropList.DataTextField = "DepartmentName";
+            custDeptDropList.DataValueField = "DepartmentAbbreviation";
+            custDeptDropList.DataBind();
 
-            //    List<ListItem> buildingArray = new List<ListItem>();
-            //    List<ListItem> deptList = new List<ListItem>();
-
-            //    buildingDropList.Items.AddRange(buildingArray.ToArray());
-            //    deptDropList.Items.AddRange(deptList.ToArray());
+            buildingDropList.DataSource = bldg.GetBuilding();
+            buildingDropList.DataTextField = "BuildingName";
+            buildingDropList.DataValueField = "BuildingAbbreviation";
+            buildingDropList.DataBind();
+            
         }
+
+
 
         //used for testing and dev, not for production
         //private void InitLists()

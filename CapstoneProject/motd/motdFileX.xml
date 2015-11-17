@@ -41,8 +41,14 @@
     <msgType>4</msgType>
   </message>
   <message>
-    <current>true</current>
+    <current>false</current>
     <text>warned bitch</text>
+    <msgType>2</msgType>
+  </message>
+  <message>
+    <current>true</current>
+    <text>
+    </text>
     <msgType>2</msgType>
   </message>
 </messages>

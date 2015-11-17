@@ -3,13 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManagerAdmin" runat="server" EnablePartialRendering="true" ></asp:ScriptManager>
     <div>
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">Message</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#createComp" aria-controls="createComp" role="tab" data-toggle="tab">Create Computer</a></li>
+            <li role="presentation"><a href="#department" aria-controls="department" role="tab" data-toggle="tab">Department List</a></li>
+            <li role="presentation"><a href="#building" aria-controls="building" role="tab" data-toggle="tab">Building List</a></li>
             <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
         </ul>
 
@@ -33,8 +34,36 @@
                     <asp:ListItem Value="4">Danger (red)</asp:ListItem>
                 </asp:RadioButtonList>
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">...</div>
-            <div role="tabpanel" class="tab-pane" id="createComp">...</div>
+            <div role="tabpanel" class="tab-pane" id="department">
+                <asp:UpdatePanel ID="deptTab" runat="server" UpdateMode="Conditional" ClientIDMode="AutoID">
+                    <ContentTemplate>
+                        <asp:ListView ID="deptListView" runat="server">
+                            <LayoutTemplate>
+                                <table class="table">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th></th>
+                                    </tr>
+                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td><%#Eval("DepartmentName") %></td>
+                                    <td>
+                                        <asp:LinkButton ID="btnUpdateDept" runat="server" CommandName="UpdateDept" CommandArgument='<%#Eval("DepartmentName") %>' OnClick="btnUpdateDept_Click" CausesValidation="false"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></asp:LinkButton>
+                                        <asp:LinkButton ID="btnRemoveDept" runat="server" CommandName="RemoveDept" CommandArgument='<%#Eval("DepartmentName") %>' OnClientClick="return confirm('Are you sure you want to delete this item?')" OnClick="btnRemoveDept_Click" CausesValidation="false"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </ContentTemplate>
+
+                </asp:UpdatePanel>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="building">
+
+            </div>
             <div role="tabpanel" class="tab-pane" id="settings">...</div>
         </div>
     </div>

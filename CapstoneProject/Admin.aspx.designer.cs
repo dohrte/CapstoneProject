@@ -13,6 +13,15 @@ namespace CapstoneProject {
     public partial class Admin {
         
         /// <summary>
+        /// ScriptManagerAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManagerAdmin;
+        
+        /// <summary>
         /// curMsgPanel control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,23 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList mTypeRadioButtonList;
+        
+        /// <summary>
+        /// deptTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel deptTab;
+        
+        /// <summary>
+        /// deptListView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView deptListView;
     }
 }

@@ -16,6 +16,11 @@ namespace CapstoneProject
         {
             this.SetCurrentMsg();
 
+            Department dept = new Department();
+            deptListView.DataSource = dept.GetDepartment();
+            deptListView.DataBind();
+
+
             //this.SetCurrentMsg();
             //currentMessageLabel.Text = motd.getMessage();
         }
@@ -40,6 +45,15 @@ namespace CapstoneProject
             curMsgPanel.Controls.Clear();
             motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
             curMsgPanel.Controls.Add(motd.GetMotdPanel());
+        }
+
+        protected void btnRemoveDept_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void btnUpdateDept_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

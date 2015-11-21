@@ -5,21 +5,46 @@
     box-shadow: none;
 }
 
-body{
-    background-color: black;
-    background-image: url(../../images/black_lozenge.png);
-    color:white;
+@font-face{
+    font-family: futarastandard;
+    src: url(../fonts/Vollkorn-Regular.ttf)
 }
 
+
+body{
+ 
+  background-color: white;  
+  color: black;
+  font-family: Arvo;
+}
+
+.padded-form{
+    padding-top: 97px;
+    position: relative;
+}
+
+.default-body{
+  background-color: white;  
+  background: url(../../images/maxresdefault.jpg) center center fixed;
+  background-size: auto;
+  color: white;
+  font-family: Arvo;
+ 
+
+  
+}
+        
 nav{
     
     background-color:#B59A57;
 }
+
 .navbar-default{
     background-image:none;
     background-color:#B59A57;
     border:none;
     color: white;
+   
 }
 
 .list-group-item{
@@ -34,9 +59,12 @@ nav{
 
 .panel-default{
     border: none;
+    position: relative;
+    
 }
 
 .panel > .panel-body{
+    background-color: #B59A57;
     color: black;
 }
 
@@ -45,6 +73,11 @@ nav{
     color: #282828;
     font-size: large;
  
+}
+
+.bg-1{
+    font-family: Arvo;
+    font-size: xx-large;
 }
 
 .panel > .grey-panel-heading{
@@ -56,6 +89,12 @@ nav{
    
 }
 
+.navbar-header{
+    font-size: x-large;
+    font-family: arvo;
+    color: white;
+}
+
 .glyphicon{
     color:white;
 }
@@ -64,14 +103,11 @@ nav{
     color: white;
 }
 
-.modal-black{
-    background: none;
-    background-image: url(../../images/black_lozenge.png);
-}
 
-.color-black{
-    background: none;
-    background-image: url(../../images/black_lozenge.png);
+
+.color-black, .modal-black{
+  background-color: white;  
+ 
 }
 
 
@@ -82,12 +118,29 @@ nav{
 
 .panel-title{
     font-size: xx-large;
-    font-family: DaunPenh;
+    font-family: Arvo;
 }
 
 .div-collapseForms{
     color: black;
-    font-family: DaunPenh;
+    font-family: Arvo;
     font-size: large;
-    text-align:center;
+    text-align: center;
 }
+
+.jumbotron-welcome{
+    background: none;
+    background-color: transparent;
+    background-image: none;
+    color: white;
+}
+
+#content{
+    background-color: #B59A57;
+    color: black;
+    font-family: arvo;
+    border: outset;
+    border-color: #B59A57;
+  
+}
+

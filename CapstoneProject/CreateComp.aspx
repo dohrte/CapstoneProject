@@ -3,6 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-md-7">
+        
+       
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Complete to create a new computer object.</h3>
@@ -61,4 +63,5 @@
             </div>
         </div>
     </div>
+
 </asp:Content>

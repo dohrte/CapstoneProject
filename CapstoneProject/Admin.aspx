@@ -3,7 +3,7 @@
     <script src="jquery-1.11.3.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <div class="container">
+ <div class="tabs">
 <div id="content">
 	<ul id="tabs" class="nav nav-tabs color-gold" data-tabs="tabs">
 		<li class="active"><a data-toggle="tab" href="#message">Message of the Day</a></li>

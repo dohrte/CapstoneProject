@@ -13,38 +13,112 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/custom.css" />
     <link href="bootstrap/css/webAppStyles.css" rel="stylesheet" />
+    <link href="bootstrap/css/simple-sidebar.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'/>
+   
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div class="container">
-            <div class="row">
-                <h1>UTS Web Application </h1>
+<body class="default-body">
+      <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <p>
+                        Services
+                    </p>
+                </li>
+                <li>
+                    <a href="GroupManagment.aspx">Manage Groups</a>
+                </li>
+                <li>
+                    <a href="CreateComp.aspx">Create Computers</a>
+                </li>
+                <li>
+                    <a href="#">View File Shares</a>
+                </li>
+                <li>
+                    <a href="Admin.aspx">Administration</a>
+                </li>
+                <li>
+                    <a href="UserDetail.aspx">Account Details</a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#formsModal">Request Forms</a>
+       
+                     
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-                <!-- begin navbar -->
-                <nav class="navbar navbar-default">
+    <form id="form1" class="padded-form" runat="server">
+        <div class="container">
+ <!-- begin navbar --> 
+            <div class="row">
+                   <div class="row">
+           
+                <nav class="navbar navbar-fixed-top">
                     <div class="container-fluid">
-                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="navbar-header">
+                            <p>UTS Web Application</p>
+                        </div>
+                      
                             <ul class="nav navbar-nav navbar-right">
                                 <li><asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
                                 <li><asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
                                 
                             </ul>
-                        </div>
+                        
                         <!-- /.navbar-collapse -->
                     </div>
                     <!-- /.container-fluid -->
                 </nav>
-                <!-- end navbar -->
+               
             </div>
+        </div>
+            <div id="wrapper">
+ <div id="formsModal" class="modal fade" role="dialog">
+                        
+                             <!--modal content-->
+                             <div class="modal-content">
+                                 <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                             <h4 class="modal-title">Web Forms</h4>
+                                 </div>
+                                 <div class="modal-body">
+                                     <p><a href="#">Domain Account Request</a></p>
+                                     <p><a href="#">File Share Request</a></p>
+                                     <p><a href="#">Virtual Machine Request</a></p>
+                                 </div>
+                                    <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>                            
+
+                             </div>
+                         </div>
+
+
+
+
+      
+
+    </div>
+
             <div class="row">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
         </div>
+
+      
     </form>
+       <!-- forms modal -->
+                    
 </body>
 </html>

@@ -29,14 +29,29 @@ body{
   background-size: auto;
   color: white;
   font-family: Arvo;
- 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+
+.logon-body{
+  background-color: white;  
+  background: url(../../images/grizzBG2.jpg) center center fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: Arvo;
+  background-size: cover;
   
 }
         
 nav{
     
     background-color:#B59A57;
+}
+
+.nav-link{
+    color:white;
 }
 
 .navbar-default{
@@ -128,11 +143,26 @@ nav{
     text-align: center;
 }
 
-.jumbotron-welcome{
-    background: none;
-    background-color: transparent;
-    background-image: none;
+.navbar-top-fixed{
     color: white;
+    font-family: arvo;
+}
+
+.modal-header, .modal-footer, .modal-dialog{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.modal-content{
+    background-color: #B59A57;
+}
+
+.form-link{
+    color: black;
+    font-size: large;
+    
+
 }
 
 #content{
@@ -144,3 +174,6 @@ nav{
   
 }
 
+#btnRequest, btnhome, btnlogout{
+    color: white;
+}

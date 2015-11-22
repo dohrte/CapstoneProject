@@ -12,40 +12,44 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/custom.css" />
     <link href="bootstrap/css/webAppStyles.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'/>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body class="logon-body">
+    <form id="form1" class="padded-form" runat="server">
     <div class="container">
-            <div class="row color-black">
-                <h1>UTS Web Application </h1>
-
-                <!-- begin navbar -->
-                <nav class="navbar navbar-default">
+            <!-- begin navbar --> 
+            <div class="row">
+                   <div class="row">
+           
+                <nav class="navbar navbar-fixed-top">
                     <div class="container-fluid">
-
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <%--<li><asp:Button ID="btnHome" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Home"/></li>
-                                <li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>--%>
-                                <li><a data-toggle='modal' data-target='#loginPage' >Login</a></li>
-                                <li><a data-toggle='modal' data-target='#forgotPage' >Forgot Password</a></li>
-                                <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
-                            </ul>
+                        <div class="navbar-header">
+                            <p>UTS Web Application</p>
                         </div>
+                      
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="nav-link" data-toggle='modal' data-target='#loginPage' >Login</a></li>
+                                <li><a class="nav-link" data-toggle='modal' data-target='#forgotPage' >Forgot Password</a></li>
+                                <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
+                                
+                            </ul>
+                        
                         <!-- /.navbar-collapse -->
                     </div>
                     <!-- /.container-fluid -->
                 </nav>
-                <!-- end navbar -->
+               
+            </div>
+        </div>
         </div>
             <div class="row">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </div>
+        
     </form>
 </body>
 </html>

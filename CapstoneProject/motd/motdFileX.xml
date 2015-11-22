@@ -1,54 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<messages>
-  <message>
-    <current>false</current>
-    <text><![CDATA["hello from xml"]]></text>
-    <msgType>1</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>new motd for everyone to see</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>nothing now</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>motd is working</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>nnew motd for test</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>nnew motd for test</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>another test</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>danger</text>
-    <msgType>4</msgType>
-  </message>
-  <message>
-    <current>false</current>
-    <text>warned bitch</text>
-    <msgType>2</msgType>
-  </message>
-  <message>
-    <current>true</current>
-    <text>
-    </text>
-    <msgType>2</msgType>
-  </message>
-</messages>
+<motd>
+  <show>true</show>
+  <messages>
+    <message>
+      <current>false</current>
+      <text><![CDATA["hello from xml"]]></text>
+      <msgType>1</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>new motd for everyone to see</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nothing now</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>motd is working</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>another test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>danger</text>
+      <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>warned bitch</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>
+      </text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>true</current>
+      <text>WElcome to the uts web application</text>
+      <msgType>1</msgType>
+    </message>
+  </messages>
+</motd>

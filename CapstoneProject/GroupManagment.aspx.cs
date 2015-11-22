@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,46 +27,60 @@ namespace CapstoneProject
     }
   public partial class GroupManagment : System.Web.UI.Page
   {
-    protected void Page_Load(object sender, EventArgs e)
-    {
+        private UTSDatabaseInterface IDatabase;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            IDatabase = new UTSDatabaseInterface();    
             //populate groupmanaged list
-            //this will come from AD      
-            string x = "what";
-            //bind groupslistbox.selectindexchange to manageDetail updatePanel
-            //manageDetail.Triggers.Add(new AsyncPostBackTrigger()
-            //{
-            //    ControlID = groupsListBox.UniqueID,
-            //    EventName = "SelectedIndexChanged"
-            //});
+                //this will come from AD      
+                string x = "what";
+                //bind groupslistbox.selectindexchange to manageDetail updatePanel
+                //manageDetail.Triggers.Add(new AsyncPostBackTrigger()
+                //{
+                //    ControlID = groupsListBox.UniqueID,
+                //    EventName = "SelectedIndexChanged"
+                //});
 
-            //bind submit button to manageDetail updatePanel
+                //bind submit button to manageDetail updatePanel
 
-        }
-
-    protected void adUser_btn_Click(object sender, EventArgs e)
-    {
-            var ad = ActiveDirectoryAction.Instance;
-
-            //validate user
-            if (ad.UserExist(addUserID_textBox.Text))
-            {
-                //adduser
-                ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
-                addUserID_textBox.Text = string.Empty;
-            }
-            else
-            {
-                addUser_Error.Text = "Invalid userID.";
             }
 
-            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
-            memberListView.DataBind();
-        }
+        protected void adUser_btn_Click(object sender, EventArgs e)
+        {
+                var ad = ActiveDirectoryAction.Instance;
 
-    protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
+                //validate user
+                if (ad.UserExist(addUserID_textBox.Text))
+                {
+                    //adduser
+                    ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
+                    addUserID_textBox.Text = string.Empty;
+                }
+                else
+                {
+                    addUser_Error.Text = "Invalid userID.";
+                }
+
+                memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
+                memberListView.DataBind();
+            }
+
+        protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             //on selected item in groups managed list update the other displays
             ListBox input = (ListBox)sender;
+
+            StringBuilder sharesText = new StringBuilder();
+            foreach(Tuple<string,string> share in IDatabase.GetUTSGroups(input.SelectedItem.Text).shares)
+            {
+                sharesText.Append(share.Item1);
+                sharesText.Append(":");
+                sharesText.Append(share.Item2);
+                sharesText.Append(", ");
+            }
+
+            sharesAccesible.Text = sharesText.ToString();
 
             var ad = ActiveDirectoryAction.Instance;
             memberListView.DataSource = this.GenerateListData(ad.GetMemberList(input.SelectedItem.Text));

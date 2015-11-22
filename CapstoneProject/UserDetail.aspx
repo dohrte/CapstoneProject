@@ -5,6 +5,27 @@
 
     Here we see the users account details
 
+    <p>
+        Roles:
+        <asp:BulletedList ID="roleList" runat="server">
+
+        </asp:BulletedList>
+    </p>
+
+    <p>
+        shares accessible:
+        <asp:Table ID="shareTable" runat="server">
+
+        </asp:Table>
+    </p>
+
+    <p>
+        group membership:
+        <asp:BulletedList ID="membershipList" runat="server">
+
+        </asp:BulletedList>
+    </p>
+
 
     <asp:Label ID="display1" runat="server"></asp:Label>
     <asp:Label ID="display2" runat="server"></asp:Label>

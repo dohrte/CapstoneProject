@@ -12,11 +12,37 @@ namespace CapstoneProject
     class MessageOfTheDay
     {
         private string filePath;
-
+        
+        
         public MessageOfTheDay(string path)
         {
             filePath = path;
+
         }
+
+        public bool ShowMotd
+        {
+            get
+            {
+                XmlDocument resultXml = new XmlDocument();
+                resultXml = this.GetResourceXmlFile(filePath);
+                if (resultXml.DocumentElement.SelectSingleNode("show").InnerText.Trim().Equals("true"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            set {
+                XmlDocument xmlFile = new XmlDocument();
+                xmlFile = this.GetResourceXmlFile(filePath);
+                xmlFile.DocumentElement.SelectSingleNode("show").InnerText = value.ToString().ToLowerInvariant();
+                xmlFile.Save(filePath);
+            }
+        }
+ 
 
         public Panel GetMotdPanel()
         {
@@ -99,12 +125,6 @@ namespace CapstoneProject
 
         }
 
-        //public Tuple<string, int> GetMessage()
-        //{
-        //    return this.GetCurrentMessageFromFile();
-        //}
-
-
         private Tuple<string, int> GetCurrentMessageFromFile()
         {
             Tuple<string, int> msgObj = null; //null tuple for msg
@@ -115,7 +135,7 @@ namespace CapstoneProject
             XmlDocument resultXml = new XmlDocument();
             resultXml = this.GetResourceXmlFile(filePath);
 
-            XmlNodeList nodes = resultXml.DocumentElement.ChildNodes;
+            XmlNodeList nodes = resultXml.DocumentElement.LastChild.ChildNodes;
 
             foreach (XmlNode node in nodes)
             {

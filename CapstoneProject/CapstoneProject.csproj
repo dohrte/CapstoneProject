@@ -89,7 +89,6 @@
     <Content Include="images\iteration5.png" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
-    <Content Include="motd\motdFile.txt" />
     <Content Include="motd\motdFileX.xml" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />

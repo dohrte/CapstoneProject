@@ -21,9 +21,9 @@
         <div class="carousel-inner" role="listbox">
             <div class="item">	<img src="images/comp-server-1.jpg"  alt="comps1" class="img"/>	</div>
             <div class="item">  <img src="images/comp-server-2.jpg" alt="comps2" class="img"/>   </div>
-            <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
-	        <div class="item">	<img src="images/iteration1.png" alt="it1" class="img"/>	  </div>
-			<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
+            <div class="item active">   <img src="images/welcome_ou.jpg" alt="Main"  class="img"/>        </div>
+	        <div class="item">	<img src="images/Engineer_C.jpg" alt="EC" class="img"/>	  </div>
+			<div class="item">	<img src="images/computers.jpg" alt="comps" class="img"/>	  </div>
 			<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
             <div class="item">	<img src="images/iteration4.jpg" alt="it4" class="img"/>	  </div>
             <div class="item">  <img src="images/iteration5.png" alt="it5" class="img"/>      </div>
@@ -97,9 +97,10 @@
         </div>
     </div>
     <%--</asp:Panel>--%>
-    <asp:Panel ID="pnl3" runat="server" CssClass="panel color-black" HorizontalAlign="center">
+    <div class="panel color-black cent">
         <h4>About</h4>
         <h5>Made for Senior Capstone Project</h5>
         <h6>Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h6>
-    </asp:Panel>
+    </div>
+ 
 </asp:Content>

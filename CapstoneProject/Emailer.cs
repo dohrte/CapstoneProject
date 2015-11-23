@@ -30,7 +30,23 @@ namespace CapstoneProject
             //body: username that is requesting access to application.
 
 
-            this.SendMail("mldarga@oakland.edu", "requestAccess@capstone.edu", "", content);
+            foreach(string address in this.MailTo() )
+            {
+                this.SendMail(address, "requestAccess@capstone.edu", "", content);
+            }
+            
+        }
+
+        private List<string> MailTo()
+        {
+            List<string> mailList = new List<string>();
+            mailList.Add("mldarga@oakland.edu");
+            mailList.Add("ecdohert@oakland.edu");
+            mailList.Add("stwright@oakland.edu");
+            mailList.Add("njlaforg@oakland.edu");
+
+            return mailList;
+
         }
     }
 }

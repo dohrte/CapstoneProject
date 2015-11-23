@@ -82,13 +82,14 @@
     <Content Include="images\comp-server-1.jpg" />
     <Content Include="images\comp-server-2.jpg" />
     <Content Include="images\computers.jpg" />
-    <Content Include="images\Engineer_C.jpg" />
+    <Content Include="images\iteration1.png" />
+    <Content Include="images\Iteration2.png" />
     <Content Include="images\iteration3.png" />
     <Content Include="images\iteration4.JPG" />
     <Content Include="images\iteration5.png" />
-    <Content Include="images\welcome_ou.jpg" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
+    <Content Include="motd\motdFileX.xml" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />
     <Content Include="Service References\ServiceReference1\CapstoneProject.ServiceReference1.CompositeType.datasource">
@@ -117,6 +118,7 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Building.cs" />
     <Compile Include="CreateComp.aspx.cs">
       <DependentUpon>CreateComp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +133,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Department.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -164,6 +167,7 @@
     <Compile Include="MasterLayout.Master.designer.cs">
       <DependentUpon>MasterLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="MessageOfTheDay.cs" />
     <Compile Include="page1.aspx.cs">
       <DependentUpon>page1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

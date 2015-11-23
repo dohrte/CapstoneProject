@@ -40,33 +40,6 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.ListBox groupsListBox;
         
         /// <summary>
-        /// manageDetail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel manageDetail;
-        
-        /// <summary>
-        /// sharesAccesible control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label sharesAccesible;
-        
-        /// <summary>
-        /// memeberListBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox memeberListBox;
-        
-        /// <summary>
         /// addUser control.
         /// </summary>
         /// <remarks>
@@ -110,5 +83,32 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label addUser_Error;
+        
+        /// <summary>
+        /// manageDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel manageDetail;
+        
+        /// <summary>
+        /// sharesAccesible control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sharesAccesible;
+        
+        /// <summary>
+        /// memberListView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView memberListView;
     }
 }

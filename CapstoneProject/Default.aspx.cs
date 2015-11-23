@@ -11,10 +11,16 @@ namespace CapstoneProject
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string msg = "Hello, " + Context.User.Identity.Name + " you have been authenticated! You are now allowed to use this application.";
-
-        helloMsg.Text = msg;
-    }
+            //string msg = "Hello, " + Context.User.Identity.Name + " you have been authenticated! You are now allowed to use this application.";
+            MessageOfTheDay motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+            if (motd.ShowMotd)
+            {
+                msgOfTheDay.Controls.Clear();
+                motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+                msgOfTheDay.Controls.Add(motd.GetMotdPanel());
+            }
+            
+        }
 
     /// <summary>
     /// show buttons based on users roles

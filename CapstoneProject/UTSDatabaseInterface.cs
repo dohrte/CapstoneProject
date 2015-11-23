@@ -7,19 +7,16 @@ using System.Web;
 
 namespace CapstoneProject
 {
+    public struct GroupProperties
+    {
+        public List<string> users;
+        public List<Tuple<string, string>> shares;
+    }
+
     public class UTSDatabaseInterface
     {
-        SqlConnection sqlConnection = new SqlConnection("user id=swright;" +
-                                                           "password=Abc123!!;" +
-                                                           "server=SQLSERVER480;" +
-                                                           "Trusted_Connection=yes;" +
-                                                           "database=UTSDB; " +
-                                                           "connection timeout=10");
-        public struct GroupProperties
-        {
-            public List<string> users;
-            public List<Tuple<string, string>> shares;
-        }
+        SqlConnection sqlConnection = new SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["DBconnection"].ConnectionString);
+
 
         public GroupProperties GetUTSGroups(string groupName)
         {
@@ -119,7 +116,7 @@ namespace CapstoneProject
                                                         join Groups on GroupsID = Share_GroupGroupID
                                                         join Groups_User on GroupsIDGroups_User = GroupsID
                                                         join USERS on UsersID = UserIDGroups_User
-                                                        where UsersName = '" + userName + "')", sqlConnection);
+                                                        where UsersName = '" + userName + "'", sqlConnection);
 
                 sqlConnection.Open();
 

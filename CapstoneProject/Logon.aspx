@@ -54,14 +54,14 @@
                             <asp:Panel ID="logonInputPanel" runat="server" DefaultButton="btnLogin">
                                 <div class="form-group">
                                     <label class="control-label">User Name</label>
-                                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control input-md" placeholder="User Name"></asp:TextBox>
+                                    <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control input-md" placeholder="User Name" TabIndex="1"></asp:TextBox>
                                     <label class="control-label" for="passwordBox">Password</label>
-                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control input-md" placeholder="Password"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="form-control input-md" placeholder="Password" TabIndex="2"></asp:TextBox>
                                 </div>
                             </asp:Panel>
                         </div>
                         <div class="modal-footer modal-black">
-                            <asp:Button ID="btnLogin" OnClick="Login_Click" CssClass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server"></asp:Button>
+                            <asp:Button ID="btnLogin" OnClick="Login_Click" CssClass="btn btn-success" data-toggle="label" data-target="#errorLabel" Text="Login" runat="server" TabIndex="3"></asp:Button>
                             <asp:Label ID="errorLabel" CssClass="label" Text="" runat="server"></asp:Label>
                             <asp:Button ID="btnCloselogin" CssClass="btn btn-default" data-dismiss="modal" Text="close" runat="server"></asp:Button>
                         </div>

@@ -6,22 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <asp:Label ID="helloMsg" runat="server" />
+    <%--<asp:Label ID="helloMsg" runat="server" />--%>
 
-    <div class="container">
-        <div class="panel-group">
-            <div class="panel panel-default">
-                <div class="panel-heading grey-panel-heading">
-                    <h2 class="panel-title">Message of The Day</h2>
-                    <div class="panel-body white-pb">
-                        <p>Hello World! </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <asp:Panel ID="msgOfTheDay" runat="server" />
 
-
-    </div>
     <div class="container">
         <div class="panel-group">
             <div class="panel panel-default">

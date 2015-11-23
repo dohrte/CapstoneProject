@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,64 +9,102 @@ using System.Web.UI.WebControls;
 
 namespace CapstoneProject
 {
-  public partial class GroupManagment : System.Web.UI.Page
-  {
-    protected void Page_Load(object sender, EventArgs e)
+    struct MemberItem
     {
-            //populate groupmanaged list
-            //this will come from AD      
-            string x = "what";
-            //bind groupslistbox.selectindexchange to manageDetail updatePanel
-            //manageDetail.Triggers.Add(new AsyncPostBackTrigger()
-            //{
-            //    ControlID = groupsListBox.UniqueID,
-            //    EventName = "SelectedIndexChanged"
-            //});
+        public string name;
 
-            //bind submit button to manageDetail updatePanel
-
+        public string Name
+        {
+            get { return name; }
+            set { }
         }
 
-    protected void adUser_btn_Click(object sender, EventArgs e)
-    {
-            var ad = ActiveDirectoryAction.Instance;
-
-            //validate user
-            if (ad.UserExist(addUserID_textBox.Text))
-            {
-                //adduser
-                ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
-            }
-            else
-            {
-                addUser_Error.Text = "Invalid userID.";
-            }
+        public MemberItem(string n)
+        {
+            name = n;
+        }
+        
     }
+  public partial class GroupManagment : System.Web.UI.Page
+  {
+        private UTSDatabaseInterface IDatabase;
 
-    protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            IDatabase = new UTSDatabaseInterface();    
+            //populate groupmanaged list
+                //this will come from AD      
+                string x = "what";
+                //bind groupslistbox.selectindexchange to manageDetail updatePanel
+                //manageDetail.Triggers.Add(new AsyncPostBackTrigger()
+                //{
+                //    ControlID = groupsListBox.UniqueID,
+                //    EventName = "SelectedIndexChanged"
+                //});
+
+                //bind submit button to manageDetail updatePanel
+
+            }
+
+        protected void adUser_btn_Click(object sender, EventArgs e)
+        {
+                var ad = ActiveDirectoryAction.Instance;
+
+                //validate user
+                if (ad.UserExist(addUserID_textBox.Text))
+                {
+                    //adduser
+                    ad.AddUserToGroup(addUserID_textBox.Text, groupsListBox.SelectedValue);
+                    addUserID_textBox.Text = string.Empty;
+                }
+                else
+                {
+                    addUser_Error.Text = "Invalid userID.";
+                }
+
+                memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
+                memberListView.DataBind();
+            }
+
+        protected void groupsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
             //on selected item in groups managed list update the other displays
             ListBox input = (ListBox)sender;
 
-            //shares that the group has access to will come from DB
-
-            //clear list
-            memeberListBox.Items.Clear();
-
-            //members will come from AD
-            var ad = ActiveDirectoryAction.Instance;
-            string[] grpMems = ad.GetMemberList(input.SelectedItem.Text);
-
-            if(grpMems.Length > 0)
+            StringBuilder sharesText = new StringBuilder();
+            foreach(Tuple<string,string> share in IDatabase.GetUTSGroups(input.SelectedItem.Text).shares)
             {
-                memeberListBox.Items.AddRange(this.CreateListItems(grpMems).ToArray());
+                sharesText.Append(share.Item1);
+                sharesText.Append(":");
+                sharesText.Append(share.Item2);
+                sharesText.Append(", ");
             }
-            
+
+            sharesAccesible.Text = sharesText.ToString();
+
+            var ad = ActiveDirectoryAction.Instance;
+            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(input.SelectedItem.Text));
+            memberListView.DataBind();
+
+            addUserID_textBox.Text = string.Empty;
+
             //show groups that are members?
             //if user is memeber of other group that is not managed be viewing user remove functionality should be disabled
         }
 
-    protected void groupsListBox_Init(object sender, EventArgs e)
+        private List<MemberItem> GenerateListData(string[] mems)
+        {
+            List<MemberItem> list = new List<MemberItem>();
+
+            foreach (string mem in mems)
+            {
+                list.Add(new MemberItem(mem));
+            }
+
+            return list;
+        }
+
+        protected void groupsListBox_Init(object sender, EventArgs e)
     {
         groupsListBox.Items.Clear();
         List<ListItem> grpList = new List<ListItem>();
@@ -95,6 +134,19 @@ namespace CapstoneProject
 
             return list;
         }
-    
+
+        protected void btnRemoveUser_Click(object sender, EventArgs e)
+        {
+            var ad = ActiveDirectoryAction.Instance;
+            LinkButton s = (LinkButton) sender;
+            if (s.CommandName.Equals("Remove"))
+            {
+               ad.RemoveUserFromGroup(s.CommandArgument, groupsListBox.SelectedItem.Text);
+            }
+
+            memberListView.DataSource = this.GenerateListData(ad.GetMemberList(groupsListBox.SelectedItem.Text));
+            memberListView.DataBind();
+        }
+
   }
 }

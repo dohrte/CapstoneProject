@@ -29,7 +29,7 @@
                 </asp:Panel>
 
                 <label>New Message</label>
-                <asp:TextBox ID="Textbox1" mode="multiline" runat="server" placeholder="Type Message" />
+                <asp:TextBox CssClass="black-text" ID="Textbox1" mode="multiline" runat="server" placeholder="Type Message" />
                 <asp:Button ID="Button1" runat="server" CssClass="btn btn-default" OnClick="publishBtn_Click" Text="Publish Message"></asp:Button>
 
                 <asp:RadioButtonList ID="mTypeRadioButtonList" runat="server">
@@ -40,9 +40,11 @@
                 </asp:RadioButtonList>
                 <asp:UpdatePanel ID="cbPanel" runat="server">
                     <ContentTemplate>
-                        <asp:CheckBox ID="showMotdCheckBox" runat="server"  
+                        <asp:CheckBox ID="showMotdCheckBox" runat="server" 
+                            CausesValidation="false"
                             AutoPostBack="true"
                             OnCheckedChanged="showMotdCheckBox_CheckedChanged" />
+                        Show message of the day
                     </ContentTemplate>
                     <Triggers>
                         <asp:AsyncPostBackTrigger ControlID="showMotdCheckBox" />

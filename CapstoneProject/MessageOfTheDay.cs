@@ -87,7 +87,7 @@ namespace CapstoneProject
         {
             XmlDocument xmlFile = GetResourceXmlFile(filePath);
 
-            XmlNodeList nodes = xmlFile.DocumentElement.ChildNodes;
+            XmlNodeList nodes = xmlFile.DocumentElement.SelectSingleNode("messages").ChildNodes;
 
             foreach (XmlNode node in nodes)
             {
@@ -119,7 +119,7 @@ namespace CapstoneProject
             XmlText xmlmsgType = xmlFile.CreateTextNode(typeID.ToString());
             messageTypeNode.AppendChild(xmlmsgType);
             msgElem.AppendChild(messageTypeNode);
-            xmlFile.DocumentElement.AppendChild(msgElem);
+            xmlFile.DocumentElement.SelectSingleNode("messages").AppendChild(msgElem);
 
             xmlFile.Save(filePath);
 
@@ -135,7 +135,7 @@ namespace CapstoneProject
             XmlDocument resultXml = new XmlDocument();
             resultXml = this.GetResourceXmlFile(filePath);
 
-            XmlNodeList nodes = resultXml.DocumentElement.LastChild.ChildNodes;
+            XmlNodeList nodes = resultXml.DocumentElement.SelectSingleNode("messages").ChildNodes;
 
             foreach (XmlNode node in nodes)
             {

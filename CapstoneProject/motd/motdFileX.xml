@@ -54,9 +54,29 @@
       <msgType>2</msgType>
     </message>
     <message>
-      <current>true</current>
+      <current>false</current>
       <text>WElcome to the uts web application</text>
       <msgType>1</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>motd is working</text>
+      <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>Site will be down for maintenance</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>true</current>
+      <text>Site will be down for maintenance</text>
+      <msgType>4</msgType>
     </message>
   </messages>
 </motd>

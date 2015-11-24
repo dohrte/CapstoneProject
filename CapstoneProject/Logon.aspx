@@ -39,7 +39,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>--%>
-
+    
     <div id="loginPage" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <asp:UpdatePanel ID="logonUpdatePanel" runat="server">
@@ -97,9 +97,10 @@
         </div>
     </div>
     <%--</asp:Panel>--%>
-    <%--<asp:Panel ID="pnl3" runat="server" CssClass="panel color-black" HorizontalAlign="center">
+    
+    <div class="footer">
         <h4>About</h4>
-        <h5>Made for Senior Capstone Project</h5>
-        <h6>Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h6>
-    </asp:Panel>--%>
+        <p>Login to managed your shares and groups</p>
+        <h5>Made for Senior Capstone Project by Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h5>
+    </div>
 </asp:Content>

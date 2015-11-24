@@ -19,7 +19,7 @@
 <body  class="logon-body">
     <form id="form1" runat="server">
     <div class="container">
-            <div class="row color-black">
+            <div class="row">
                 <h1>UTS Web Application </h1>
 
                 <!-- begin navbar -->

@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="scrptManager1" runat="server"></asp:ScriptManager>
-    <h4>Welcome to the UTS Share Management Web Application</h4>
-    <h5>Please login or create an account to begin</h5>
+    <%--<h4>Welcome to the UTS Share Management Web Application</h4>
+    <h5>Please login or create an account to begin</h5>--%>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<%--    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -38,7 +38,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div>--%>
 
     <div id="loginPage" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -97,9 +97,9 @@
         </div>
     </div>
     <%--</asp:Panel>--%>
-    <asp:Panel ID="pnl3" runat="server" CssClass="panel color-black" HorizontalAlign="center">
+    <%--<asp:Panel ID="pnl3" runat="server" CssClass="panel color-black" HorizontalAlign="center">
         <h4>About</h4>
         <h5>Made for Senior Capstone Project</h5>
         <h6>Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h6>
-    </asp:Panel>
+    </asp:Panel>--%>
 </asp:Content>

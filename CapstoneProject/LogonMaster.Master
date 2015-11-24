@@ -16,7 +16,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body  class="logon-body">
     <form id="form1" runat="server">
     <div class="container">
             <div class="row color-black">

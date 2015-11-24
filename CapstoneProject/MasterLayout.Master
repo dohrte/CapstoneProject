@@ -12,28 +12,33 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/custom.css" />
     <link href="bootstrap/css/webAppStyles.css" rel="stylesheet" />
+    <link href="bootstrap/css/simple-sidebar.css" rel="stylesheet" />
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="master-body">
     <style>
-        h1{font-family: Dauphin;}
+        h1 {
+            font-family: Dauphin;
+        }
     </style>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="row">
-                <h1>UTS Web Application </h1>
-
                 <!-- begin navbar -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container-fluid">
-                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="navbar-header">
+                            <p>UTS Web Application</p>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            
                             <ul class="nav navbar-nav navbar-right">
-                                <li><asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
-                                <li><asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
-                                
+                                <li>
+                                    <asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -41,11 +46,73 @@
                     <!-- /.container-fluid -->
                 </nav>
                 <!-- end navbar -->
-            </div>
-            <div class="row">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+
+                <div id="wrapper">
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-brand">
+                                
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="Button1" runat="server" OnClick="btnGrpManagement_Click" Text="View Groups" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="ButtonFacWiki" runat="server" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="Button2" runat="server" OnClick="Button2_Click" Text="Manage Groups" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="ButtonTechWiki" runat="server" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="Button4" runat="server" Text="User Properties" OnClick="btnAcctDetail_Click" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="Button3" runat="server" Text="Page 1" OnClick="Button1_Click" />
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /#sidebar-wrapper -->
+
+                    <!-- Page Content -->
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /#page-content-wrapper -->
+
+                </div>
+                <!-- /#wrapper -->
+
+                <!-- jQuery -->
+                <script src="js/jquery.js"></script>
+
+                <!-- Bootstrap Core JavaScript -->
+                <script src="js/bootstrap.min.js"></script>
+
+                <!-- Menu Toggle Script -->
+                <script>
+                    $("#menu-toggle").click(function (e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+
+                    });
+    </script>
+                
+                
+            
         </div>
     </form>
 </body>

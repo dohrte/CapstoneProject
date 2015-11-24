@@ -24,38 +24,10 @@ namespace CapstoneProject
         {
                 btnLogout.Visible = true;
                 btnHome.Visible = true;
-                //MasterLayout site = this.Master as MasterLayout;
-                //if (site != null)
-                //{
-
-                //    LinkButton btnLogout = new LinkButton();
-                //    btnLogout.Click += btnLogout_Click;
-                //    btnLogout.CssClass = "btn webAppNavBtn";
-                //    btnLogout.Text = "Logout";
-
-                //    HtmlGenericControl liLogout = new HtmlGenericControl("li");
-                //    liLogout.Controls.Add(btnLogout);
-
-                //    LinkButton btnHome = new LinkButton();
-                //    btnHome.Click += btnHome_Click;
-                //    btnHome.CssClass = "btn webAppNavBtn";
-                //    btnHome.Text = "Home";
-                    
-
-                //    HtmlGenericControl liHome = new HtmlGenericControl("li");
-                //    liHome.Controls.Add(btnHome);
-
-                //    HtmlGenericControl ul = new HtmlGenericControl("ul");
-                //    ul.Attributes.Add("class", "nav navbar-nav navbar-right");
-                //    ul.Controls.Add(liLogout);
-                //    ul.Controls.Add(liHome);
-
-                //    Panel navPanel = site.FindControl("navBtns") as Panel;
-                //    navPanel.Controls.Add(ul);
-                //}
-
             }
-    }
+
+            this.ShowButtons();
+        }
 
     protected void btnLogout_Click(object sender, EventArgs e)
     {
@@ -72,5 +44,70 @@ namespace CapstoneProject
     {
         Response.Redirect("Default.aspx");
     }
-  }
+
+        protected void ShowButtons()
+        {
+            var ad = ActiveDirectoryAction.Instance;
+            string[] roles = ad.GetUsersWebAppRoles(Context.User.Identity.Name);
+
+            btnAdmin.Visible = false;
+            btnCreateComp.Visible = false;
+
+            //based on role show buttons
+            foreach (string role in roles)
+            {
+                switch (role)
+                {
+                    case "Admins":
+                        btnAdmin.Visible = true;
+                        break;
+                    case "Faculty":
+                        break;
+                    case "JoinToComputer":
+                        btnCreateComp.Visible = true;
+                        break;
+                    case "Lab Administrator":
+                        break;
+                    case "Staff":
+                        break;
+                    case "Student":
+                        break;
+                    case "Technician":
+                        break;
+                }
+            }
+
+        }
+
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("page1.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("page2.aspx");
+        }
+
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
+        }
+
+        protected void btnAcctDetail_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserDetail.aspx");
+        }
+
+        protected void btnCreateComp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateComp.aspx");
+        }
+
+        protected void btnGrpManagement_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("GroupManagment.aspx");
+        }
+    }
 }

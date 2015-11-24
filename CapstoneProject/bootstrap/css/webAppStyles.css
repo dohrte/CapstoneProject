@@ -5,16 +5,38 @@
     box-shadow: none;
 }
 
-body{
+body {
     background-color: black;
-    background-image: url(../../images/black_lozenge.png);
-    color:white;
+    /*background-image: url(../../images/black_lozenge.png);*/
+    color: white;
 }
 
+.master-body{
+    background-color: black;
+    /*background-image: url(../../images/black_lozenge.png);*/
+    color: white;
+    background-image: url("../../images/grizzBG3.jpg");
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+.logon-body{
+  background-color: white;  
+  background: url(../../images/grizzBG2.jpg) center center fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
+  color: white;
+  font-family: Arvo;
+  background-size: cover;
+  
+}     
+
 nav{
-    
     background-color:#B59A57;
 }
+
 .navbar-default{
     background-image:none;
     background-color:#B59A57;

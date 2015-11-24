@@ -26,19 +26,19 @@
     </style>
     <form id="form1" runat="server">
         <div class="container">
-
-                <h1>UTS Web Application </h1>
-
                 <!-- begin navbar -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container-fluid">
+                        <div class="navbar-header">
+                            <p>UTS Web Application</p>
+                        </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
                                 <li>
                                     <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
-
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -48,7 +48,6 @@
                 <!-- end navbar -->
 
                 <div id="wrapper">
-
                     <!-- Sidebar -->
                     <div id="sidebar-wrapper">
                         <ul class="sidebar-nav">
@@ -56,28 +55,28 @@
                                 
                             </li>
                             <li>
-                                <asp:Button ID="Button1" runat="server" CssClass="btn modal-gold" OnClick="btnGrpManagement_Click" Text="View Groups" />
+                                <asp:LinkButton ID="Button1" runat="server" OnClick="btnGrpManagement_Click" Text="View Groups" />
                             </li>
                             <li>
-                                <asp:Button ID="ButtonFacWiki" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
+                                <asp:LinkButton ID="ButtonFacWiki" runat="server" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
                             </li>
                             <li>
-                                <asp:Button ID="Button2" runat="server" CssClass="btn modal-gold" OnClick="Button2_Click" Text="Manage Groups" />
+                                <asp:LinkButton ID="Button2" runat="server" OnClick="Button2_Click" Text="Manage Groups" />
                             </li>
                             <li>
-                                <asp:Button ID="btnCreateComp" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Create Comp" />
+                                <asp:LinkButton ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" />
                             </li>
                             <li>
-                                <asp:Button ID="ButtonTechWiki" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
+                                <asp:LinkButton ID="ButtonTechWiki" runat="server" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
                             </li>
                             <li>
-                                <asp:Button ID="Button4" runat="server" CssClass="btn modal-gold" Text="User Properties" OnClick="btnAcctDetail_Click" />
+                                <asp:LinkButton ID="Button4" runat="server" Text="User Properties" OnClick="btnAcctDetail_Click" />
                             </li>
                             <li>
-                                <asp:Button ID="Button3" runat="server" CssClass="btn modal-gold" Text="Page 1" OnClick="Button1_Click" />
+                                <asp:LinkButton ID="Button3" runat="server" Text="Page 1" OnClick="Button1_Click" />
                             </li>
                             <li>
-                                <asp:Button ID="btnAdmin" runat="server" CssClass="btn modal-gold" OnClick="btnAdmin_Click" Text="Admin Page" />
+                                <asp:LinkButton ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" />
                             </li>
                         </ul>
                     </div>
@@ -88,7 +87,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
+                                </asp:ContentPlaceHolder>
                             </div>
                         </div>
                     </div>

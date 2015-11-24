@@ -55,7 +55,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.LinkButton Button1;
         
         /// <summary>
         /// ButtonFacWiki control.
@@ -64,7 +64,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFacWiki;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonFacWiki;
         
         /// <summary>
         /// Button2 control.
@@ -73,7 +73,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.LinkButton Button2;
         
         /// <summary>
         /// btnCreateComp control.
@@ -82,7 +82,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateComp;
+        protected global::System.Web.UI.WebControls.LinkButton btnCreateComp;
         
         /// <summary>
         /// ButtonTechWiki control.
@@ -91,7 +91,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonTechWiki;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonTechWiki;
         
         /// <summary>
         /// Button4 control.
@@ -100,7 +100,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button4;
+        protected global::System.Web.UI.WebControls.LinkButton Button4;
         
         /// <summary>
         /// Button3 control.
@@ -109,7 +109,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.LinkButton Button3;
         
         /// <summary>
         /// btnAdmin control.
@@ -118,7 +118,7 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdmin;
+        protected global::System.Web.UI.WebControls.LinkButton btnAdmin;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

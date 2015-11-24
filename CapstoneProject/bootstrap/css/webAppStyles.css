@@ -5,16 +5,23 @@
     box-shadow: none;
 }
 
-body{
+body {
     background-color: black;
-    background-image: url(../../images/black_lozenge.png);
-    color:white;
+    /*background-image: url(../../images/black_lozenge.png);*/
+    color: white;
+    background-image: url("../../images/grizzBG3.jpg");
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+
 }
+     
 
 nav{
-    
     background-color:#B59A57;
 }
+
 .navbar-default{
     background-image:none;
     background-color:#B59A57;

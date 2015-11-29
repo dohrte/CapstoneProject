@@ -36,9 +36,9 @@
                             
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
+                                    <asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false" data-toggle="tooltip" title="Return to the main portal"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
                                 <li>
-                                    <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
+                                    <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false" data-toggle="tooltip" title="Secure Logut"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -55,28 +55,28 @@
                                 
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button1" runat="server" OnClick="btnGrpManagement_Click" Text="View Groups" />
+                                <asp:LinkButton ID="Button1" runat="server" OnClick="btnGrpManagement_Click" Text="View Groups" data-toggle="tooltip" title="Manage groups and Shares" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="ButtonFacWiki" runat="server" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
+                                <asp:LinkButton ID="ButtonFacWiki" runat="server" OnClick="btnCreateComp_Click" Text="Faculty Wiki" data-toggle="tooltip" title="Go to Faculty Wiki" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button2" runat="server" OnClick="Button2_Click" Text="Manage Groups" />
+                                <asp:LinkButton ID="Button2" runat="server" OnClick="Button2_Click" Text="Manage Groups" data-toggle="tooltip" title="Manage groups and Shares"/>
                             </li>
                             <li>
-                                <asp:LinkButton ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" />
+                                <asp:LinkButton ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" data-toggle="tooltip" title="Manage buildings and computers"/>
                             </li>
                             <li>
-                                <asp:LinkButton ID="ButtonTechWiki" runat="server" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
+                                <asp:LinkButton ID="ButtonTechWiki" runat="server" OnClick="btnCreateComp_Click" Text="Technician Wiki" data-toggle="tooltip" title="Manage The wiki"/>
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button4" runat="server" Text="User Properties" OnClick="btnAcctDetail_Click" />
+                                <asp:LinkButton ID="Button4" runat="server" Text="User Properties" OnClick="btnAcctDetail_Click" data-toggle="tooltip" title="List of groups and account privleges"/>
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button3" runat="server" Text="Page 1" OnClick="Button1_Click" />
+                                <asp:LinkButton ID="Button3" runat="server" Text="Page 1" OnClick="Button1_Click" data-toggle="tooltip" title="Where does this go?" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" />
+                                <asp:LinkButton ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" data-toggle="tooltip" title="Go to admin modification page"/>
                             </li>
                         </ul>
                     </div>

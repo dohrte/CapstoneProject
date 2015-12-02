@@ -43,7 +43,7 @@ namespace CapstoneProject
 
         private ActiveDirectoryAction()
         {
-
+            
         }
 
         public static ActiveDirectoryAction Instance

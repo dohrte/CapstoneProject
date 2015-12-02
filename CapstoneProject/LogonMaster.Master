@@ -19,7 +19,7 @@
 <body  class="logon-body">
     <form id="form1" runat="server">
     <div class="container">
-            <div class="row color-black">
+            <div class="row">
                 <h1>UTS Web Application </h1>
 
                 <!-- begin navbar -->
@@ -30,8 +30,9 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><asp:Button ID="btnHome" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Home"/></li>
                                 <li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>--%>
-                                <li><a data-toggle='modal' data-target='#loginPage' >Login</a></li>
-                                <li><a data-toggle='modal' data-target='#forgotPage' >Forgot Password</a></li>
+                                <li><asp:LinkButton ID="BackToMain" runat="server" OnClick="BackToMain_Click" ><span class="glyphicon glyphicon-circle-arrow-left"></span></asp:LinkButton></li>
+                                <li><asp:LinkButton ID="ShowLoginModal" runat="server" data-toggle='modal' data-target='#loginPage' >Login</asp:LinkButton></li>
+                                <li><asp:LinkButton ID="ShowForgotModal" runat="server" data-toggle='modal' data-target='#forgotPage' >Forgot Password</asp:LinkButton></li>
                                 <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
                             </ul>
                         </div>

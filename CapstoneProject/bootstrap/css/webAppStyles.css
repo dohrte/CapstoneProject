@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: #0A0A0C;
     /*background-image: url(../../images/black_lozenge.png);*/
     color: white;
 }
@@ -15,22 +15,23 @@ body {
     background-color: black;
     /*background-image: url(../../images/black_lozenge.png);*/
     color: white;
-    background-image: url("../../images/grizzBG3.jpg");
+    /*background-image: url("../../images/grizzBG3.jpg");
     background-position: center center;
     background-size: auto;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
+    background-repeat: no-repeat;*/
+   background:url("../../images/bearFace.png") center center no-repeat fixed;
+  background-color: #0A0A0C;
+  background-size: cover;
 }
 
 .logon-body{
-  background-color: white;  
-  background: url(../../images/grizzBG2.jpg) center center fixed;
-  background-size: auto;
-  background-repeat: no-repeat;
+  
+  /*background: url(../../images/grizzBG2.jpg) center center fixed;*/
+  background:url("../../images/bearFace.png") center center no-repeat fixed;
+  background-color: #0A0A0C;
+  background-size: cover;
   color: white;
   font-family: Arvo;
-  background-size: cover;
-  
 }     
 
 nav{
@@ -109,4 +110,8 @@ nav{
 
 .black-text {
     color:black;
+}
+
+.transparent-background{
+    background-color:rgba(255, 255, 255, 0.45);
 }

@@ -80,7 +80,9 @@
     <Content Include="Global.asax" />
     <Content Include="GroupManagment.aspx" />
     <Content Include="images\860187_10152540042985084_1173781264_o.jpg" />
+    <Content Include="images\bearFace.png" />
     <Content Include="images\bell.jpg" />
+    <Content Include="images\blackDrop.png" />
     <Content Include="images\black_lozenge.png" />
     <Content Include="images\comp-server-1.jpg" />
     <Content Include="images\comp-server-2.jpg" />
@@ -98,6 +100,7 @@
     <Content Include="images\Oakland_p18-978021b4.jpeg" />
     <Content Include="images\oakland_university.jpg" />
     <Content Include="images\Oak_View_OU.jpg" />
+    <Content Include="images\tinyBlackDrop.png" />
     <Content Include="images\tower-sky.jpg" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />

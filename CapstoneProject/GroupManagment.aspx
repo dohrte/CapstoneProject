@@ -6,7 +6,7 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
     </asp:ScriptManager>
     <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-default transparent-background">
             <div class="panel-heading">
                 <h3 class="panel-title">Groups Managed</h3>
             </div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-default transparent-background">
             <div class="panel-heading">
                 <h3 class="panel-title">Group Details</h3>
             </div>

@@ -176,6 +176,7 @@
                             OnItemCommand="bldgListView_ItemCommand"
                             runat="server">
                             <LayoutTemplate>
+
                                 <table class="table">
                                     <tr>
                                         <th>Name</th>

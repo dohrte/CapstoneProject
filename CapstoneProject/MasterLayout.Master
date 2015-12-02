@@ -30,13 +30,27 @@
                 <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <p>UTS Web Application</p>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            <p class="navbar-brand">UTS Web Application</p>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
+                                    <asp:LinkButton 
+                                        ID="btnHome" 
+                                        CssClass="btn webAppBtn" 
+                                        runat="server" 
+                                        OnClick="btnHome_Click" 
+                                        CausesValidation="false">
+                                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton>
+
+                                </li>
                                 <li>
                                     <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
                             </ul>
@@ -46,37 +60,45 @@
                     <!-- /.container-fluid -->
                 </nav>
                 <!-- end navbar -->
-
+            <%--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>--%>
                 <div id="wrapper">
                     <!-- Sidebar -->
                     <div id="sidebar-wrapper">
-                        <ul class="sidebar-nav">
+                        <ul class="sidebar-nav" id="sideNav">
                             <li class="sidebar-brand">
-                                
+                                Services
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button1" runat="server" OnClick="btnGrpManagement_Click" Text="View Groups" />
+                                <asp:LinkButton 
+                                    ID="Button2"
+                                     runat="server"
+                                     OnClick="btnGrpManagement_Click"
+                                     Text="Manage Group"
+                                     CausesValidation="false" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="ButtonFacWiki" runat="server" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
+                                <asp:LinkButton 
+                                    ID="btnCreateComp" 
+                                    runat="server" 
+                                    OnClick="btnCreateComp_Click" 
+                                    Text="Create Comp" 
+                                    CausesValidation="false" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="Button2" runat="server" OnClick="Button2_Click" Text="Manage Groups" />
+                                <asp:LinkButton 
+                                    ID="Button4" 
+                                    runat="server"
+                                    OnClick="btnAcctDetail_Click" 
+                                    Text="User Properties" 
+                                     CausesValidation="false" />
                             </li>
                             <li>
-                                <asp:LinkButton ID="btnCreateComp" runat="server" OnClick="btnCreateComp_Click" Text="Create Comp" />
-                            </li>
-                            <li>
-                                <asp:LinkButton ID="ButtonTechWiki" runat="server" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
-                            </li>
-                            <li>
-                                <asp:LinkButton ID="Button4" runat="server" Text="User Properties" OnClick="btnAcctDetail_Click" />
-                            </li>
-                            <li>
-                                <asp:LinkButton ID="Button3" runat="server" Text="Page 1" OnClick="Button1_Click" />
-                            </li>
-                            <li>
-                                <asp:LinkButton ID="btnAdmin" runat="server" OnClick="btnAdmin_Click" Text="Admin Page" />
+                                <asp:LinkButton 
+                                    ID="btnAdmin"
+                                    runat="server" 
+                                    OnClick="btnAdmin_Click" 
+                                    Text="Admin Page" 
+                                    CausesValidation="false" />
                             </li>
                         </ul>
                     </div>

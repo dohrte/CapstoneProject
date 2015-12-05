@@ -40,13 +40,13 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.TextBox Textbox1;
         
         /// <summary>
-        /// Button1 control.
+        /// msgRequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator msgRequiredFieldValidator;
         
         /// <summary>
         /// mTypeRadioButtonList control.
@@ -56,6 +56,15 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList mTypeRadioButtonList;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// cbPanel control.

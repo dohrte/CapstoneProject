@@ -160,3 +160,13 @@ nav{
   /*background-color: #f5f5f5;*/
   color: black;
 }
+
+.radio-table label{
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.radio-table {
+    margin-left: 35px;
+}
+    

@@ -18,12 +18,16 @@
 
                             <asp:ListView ID="groupsListView" runat="server" OnItemCommand="groupsListView_ItemCommand">
                                 <LayoutTemplate>
-                                    <table class="table">
-                                        <tr>
-                                            <th>Group Name</th>
-                                            <th></th>
-                                        </tr>
-                                        <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Group Name</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                        </tbody>
                                     </table>
                                 </LayoutTemplate>
                                 <ItemTemplate>
@@ -109,17 +113,22 @@
                                         OnItemCommand="memberListView_ItemCommand">
                                         <LayoutTemplate>
 
-                                            <table class="table">
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th></th>
-                                                </tr>
-                                                <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                                </tbody>
+
                                             </table>
                                         </LayoutTemplate>
 
                                         <ItemTemplate>
-                                            <tr >
+                                            <tr>
                                                 <td><%#Eval("Name") %></td>
                                                 <td>
                                                     <%--<asp:LinkButton ID="btnRemoveUser" runat="server" CommandName="Remove" CommandArgument='<%#Eval("Name") %>' CausesValidation="false"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></asp:LinkButton></td>--%>

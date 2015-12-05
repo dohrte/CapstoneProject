@@ -30,29 +30,52 @@
                 <%--<asp:Label ID="currentMessageLabel" runat="server"></asp:Label>--%>
             </asp:Panel>
 
-            <label>New Message</label>
-            <asp:TextBox CssClass="black-text" ID="Textbox1" mode="multiline" runat="server" placeholder="Type Message" />
-            <asp:Button ID="Button1" runat="server" CssClass="web-btn btn btn-primary" OnClick="publishBtn_Click" Text="Publish Message"></asp:Button>
+            <div class="form-group">
+                <label for="Textbox1">New Message</label>
+                <asp:TextBox ID="Textbox1"
+                    runat="server"
+                    TextMode="MultiLine"
+                    CssClass="form-control"
+                    placeholder="Enter Message" />
+                <asp:RequiredFieldValidator ID="msgRequiredFieldValidator"
+                    runat="server"
+                    ControlToValidate="Textbox1"
+                    ErrorMessage="Please enter a message before publishing."
+                    ForeColor="Red"
+                    ValidationGroup="msgValidGroup" />
+            </div>
 
-            <asp:RadioButtonList ID="mTypeRadioButtonList" runat="server">
-                <asp:ListItem Value="1">Message (green)</asp:ListItem>
-                <asp:ListItem Selected="True" Value="2">Info (blue)</asp:ListItem>
-                <asp:ListItem Value="3">Warning (yellow)</asp:ListItem>
-                <asp:ListItem Value="4">Danger (red)</asp:ListItem>
-            </asp:RadioButtonList>
-            <asp:UpdatePanel ID="cbPanel" runat="server">
-                <ContentTemplate>
-                    <asp:CheckBox ID="showMotdCheckBox" runat="server"
-                        CausesValidation="false"
-                        AutoPostBack="true"
-                        OnCheckedChanged="showMotdCheckBox_CheckedChanged" />
-                    Show message
-                </ContentTemplate>
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="showMotdCheckBox" />
-                </Triggers>
-            </asp:UpdatePanel>
+            <div class="row">
+                <div class="col-md-6">
+                    <asp:RadioButtonList ID="mTypeRadioButtonList" CssClass="radio-table" runat="server">
+                        <asp:ListItem Value="1">Message (green)</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="2">Info (blue)</asp:ListItem>
+                        <asp:ListItem Value="3">Warning (yellow)</asp:ListItem>
+                        <asp:ListItem Value="4">Danger (red)</asp:ListItem>
+                    </asp:RadioButtonList>
 
+                    <asp:Button ID="Button1"
+                        runat="server"
+                        CssClass="web-btn btn btn-primary"
+                        OnClick="publishBtn_Click"
+                        Text="Publish Message"
+                        ValidationGroup="msgValidGroup" />
+                </div>
+                <div class="col-md-6">
+                    <asp:UpdatePanel ID="cbPanel" runat="server">
+                        <ContentTemplate>
+                            <asp:CheckBox ID="showMotdCheckBox" runat="server"
+                                CausesValidation="false"
+                                AutoPostBack="true"
+                                OnCheckedChanged="showMotdCheckBox_CheckedChanged" />
+                            Show message on Home Page
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="showMotdCheckBox" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
         </div>
         <div role="tabpanel" class="tab-pane blk-transparent-background" id="department">
 
@@ -103,12 +126,16 @@
                         runat="server">
                         <LayoutTemplate>
                             <table class="table table-hover">
-                                <tr>
+                                <thead>
+                                    <tr>
                                     <th>Name</th>
                                     <th>Abbr</th>
                                     <th></th>
                                 </tr>
-                                <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </thead>
+                                <tbody>
+                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </tbody>
                             </table>
                         </LayoutTemplate>
                         <ItemTemplate>
@@ -138,7 +165,7 @@
                                                 <div class="form-group">
                                                     <label class="black-text" for="updateDeptName">Department Name:</label>
                                                     <asp:TextBox ID="updateDeptName"
-                                                        runat="server" 
+                                                        runat="server"
                                                         CssClass="form-control"
                                                         Text='<%#Eval("DepartmentName") %>'
                                                         placeholder="New Name" />
@@ -153,7 +180,7 @@
                                                 <div class="form-group">
                                                     <label class="black-text" for="updateDeptAbbr">Department Addr:</label>
                                                     <asp:TextBox ID="updateDeptAbbr"
-                                                        runat="server" 
+                                                        runat="server"
                                                         CssClass="form-control"
                                                         Text='<%#Eval("DepartmentAbbreviation") %>'
                                                         placeholder="New Abbr" />
@@ -281,14 +308,17 @@
                         OnItemCommand="bldgListView_ItemCommand"
                         runat="server">
                         <LayoutTemplate>
-
                             <table class="table table-hover">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Abbr</th>
-                                    <th></th>
-                                </tr>
-                                <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Abbr</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                                </tbody>
                             </table>
                         </LayoutTemplate>
                         <ItemTemplate>

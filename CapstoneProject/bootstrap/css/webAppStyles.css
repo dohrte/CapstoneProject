@@ -112,6 +112,51 @@ nav{
     color:black;
 }
 
-.transparent-background{
+.wh-transparent-background{
     background-color:rgba(255, 255, 255, 0.45);
+}
+
+.blk-transparent-background{
+    background-color:rgba(0, 0, 0, 0.75);
+}
+
+.web-btn{
+    width:inherit;
+}
+
+.red-glyph{
+    color:#cc3333;
+}
+
+.green-glyph{
+     color:#33cc33;
+}
+
+.white-glyph{
+     color:#33cc33;
+}
+
+.table-hover > tbody > tr:hover .removeLink:hover > .glyphicon{
+    cursor:pointer;
+    color: red;
+}
+
+.table-hover > tbody > tr:hover .editLink:hover > .glyphicon{
+    cursor:pointer;
+    color: green;
+}
+
+.row-highlight :hover{
+    background-color:darkgrey;
+}
+
+/*tr .table-hover :hover{
+    color: black;
+}*/
+
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover .glyphicon
+ {
+  /*background-color: #f5f5f5;*/
+  color: black;
 }

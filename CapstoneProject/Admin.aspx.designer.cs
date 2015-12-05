@@ -109,7 +109,25 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addDept_btn;
+        protected global::System.Web.UI.WebControls.LinkButton addDept_btn;
+        
+        /// <summary>
+        /// deptNameRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator deptNameRequiredFieldValidator;
+        
+        /// <summary>
+        /// deptAbbrRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator deptAbbrRequiredFieldValidator;
         
         /// <summary>
         /// deptTab control.
@@ -139,6 +157,15 @@ namespace CapstoneProject {
         protected global::System.Web.UI.UpdatePanel bldgAddPanel;
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// addBldgName control.
         /// </summary>
         /// <remarks>
@@ -163,7 +190,25 @@ namespace CapstoneProject {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBldg_btn;
+        protected global::System.Web.UI.WebControls.LinkButton addBldg_btn;
+        
+        /// <summary>
+        /// addBldgNameValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator addBldgNameValidator;
+        
+        /// <summary>
+        /// addBldgAbbrValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator addBldgAbbrValidator;
         
         /// <summary>
         /// bldgTab control.

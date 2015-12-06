@@ -98,9 +98,9 @@
     </div>
     <%--</asp:Panel>--%>
     
-    <div class="footer">
+<%--    <div class="footer">
         <h4>About</h4>
         <p>Login to managed your shares and groups</p>
         <h5>Made for Senior Capstone Project by Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h5>
-    </div>
+    </div>--%>
 </asp:Content>

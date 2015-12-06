@@ -15,10 +15,16 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
-<body  class="logon-body">
+<body class="logon-body">
     <form id="form1" runat="server">
-    <div class="container">
+        <div class="container">
             <div class="row">
                 <h1>UTS Web Application </h1>
 
@@ -36,11 +42,43 @@
                                 <li><asp:LinkButton ID="btnRequest" data-toggle="tooltip" title="Register an account" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
                          
                                     
-                                    --%>
-                                <li><asp:LinkButton ID="BackToMain" runat="server" OnClick="BackToMain_Click" ><span class="glyphicon glyphicon-circle-arrow-left"></span></asp:LinkButton></li>
-                                <li><asp:LinkButton ID="ShowLoginModal" runat="server" data-toggle='modal' data-target='#loginPage' >Login</asp:LinkButton></li>
-                                <li><asp:LinkButton ID="ShowForgotModal" runat="server" data-toggle='modal' data-target='#forgotPage' >Forgot Password</asp:LinkButton></li>
-                                <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
+                                --%>
+                                <li>
+                                    <asp:LinkButton ID="BackToMain"
+                                        runat="server"
+                                        OnClick="BackToMain_Click"
+                                        data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Back to Main">
+                                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="ShowLoginModal"
+                                        runat="server"
+                                        data-toggle='modal'
+                                        data-target='#loginPage'>
+                                        Login
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="ShowForgotModal"
+                                        runat="server"
+                                        data-toggle='modal'
+                                        data-target='#forgotPage'>
+                                    Forgot Password
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnRequest"
+                                        runat="server"
+                                        OnClick="btnRequestAccount_Click"
+                                        data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Request Account">
+                                        New Account
+                                    </asp:LinkButton>
+                                </li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -48,7 +86,7 @@
                     <!-- /.container-fluid -->
                 </nav>
                 <!-- end navbar -->
-        </div>
+            </div>
             <div class="row">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

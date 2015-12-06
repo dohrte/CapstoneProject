@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="scrptManager1" runat="server"></asp:ScriptManager>
-    <h4>Welcome to the UTS Share Management Web Application</h4>
-    <h5>Please login or create an account to begin</h5>
+    <%--<h4>Welcome to the UTS Share Management Web Application</h4>
+    <h5>Please login or create an account to begin</h5>--%>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<%--    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -21,9 +21,9 @@
         <div class="carousel-inner" role="listbox">
             <div class="item">	<img src="images/comp-server-1.jpg"  alt="comps1" class="img"/>	</div>
             <div class="item">  <img src="images/comp-server-2.jpg" alt="comps2" class="img"/>   </div>
-            <div class="item active">   <img src="images/welcome_ou.jpg" alt="Main"  class="img"/>        </div>
-	        <div class="item">	<img src="images/Engineer_C.jpg" alt="EC" class="img"/>	  </div>
-			<div class="item">	<img src="images/computers.jpg" alt="comps" class="img"/>	  </div>
+            <div class="item active">   <img src="images/computers.jpg" alt="Main"  class="img"/>        </div>
+	        <div class="item">	<img src="images/iteration1.png" alt="it1" class="img"/>	  </div>
+			<div class="item">	<img src="images/iteration2.png" alt="it2" class="img"/>	  </div>
 			<div class="item">	<img src="images/iteration3.png" alt="it3" class="img"/>	  </div>
             <div class="item">	<img src="images/iteration4.jpg" alt="it4" class="img"/>	  </div>
             <div class="item">  <img src="images/iteration5.png" alt="it5" class="img"/>      </div>
@@ -38,8 +38,8 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
-
+    </div>--%>
+    
     <div id="loginPage" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <asp:UpdatePanel ID="logonUpdatePanel" runat="server">
@@ -97,10 +97,10 @@
         </div>
     </div>
     <%--</asp:Panel>--%>
-    <div class="panel color-black cent">
+    
+    <div class="footer">
         <h4>About</h4>
-        <h5>Made for Senior Capstone Project</h5>
-        <h6>Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h6>
+        <p>Login to managed your shares and groups</p>
+        <h5>Made for Senior Capstone Project by Eric Doherty, Sam Wright, Nick LaForge, Mark Darga</h5>
     </div>
- 
 </asp:Content>

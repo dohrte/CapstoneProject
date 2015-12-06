@@ -54,8 +54,8 @@
 
                 <asp:UpdatePanel ID="addDept" runat="server">
                     <ContentTemplate>
-                        Department Name<asp:TextBox ID="deptName" runat="server"></asp:TextBox>
-                        Department Abbreviation<asp:TextBox ID="deptAbbr" runat="server"></asp:TextBox>
+                        Department Name<asp:TextBox ID="deptName" class="txtbox-c" runat="server"></asp:TextBox>
+                        Department Abbreviation<asp:TextBox ID="deptAbbr" CssClass="txtbox-c" runat="server"></asp:TextBox>
                         <asp:Button CssClass="black-text" ID="addDept_btn" runat="server" Text="Add Dept" OnClick="addDept_btn_Click" />
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -162,8 +162,8 @@
             <div role="tabpanel" class="tab-pane adminSetting" id="building">
                 <asp:UpdatePanel ID="bldgAddPanel" runat="server">
                     <ContentTemplate>
-                        Department Name<asp:TextBox ID="addBldgName" runat="server"></asp:TextBox>
-                        Department Abbreviation<asp:TextBox ID="addBldgAbbr" runat="server"></asp:TextBox>
+                        Department Name<asp:TextBox ID="addBldgName" runat="server" CssClass="txtbox-c"></asp:TextBox>
+                        Department Abbreviation<asp:TextBox ID="addBldgAbbr" runat="server" CssClass="txtbox-c"></asp:TextBox>
                         <asp:Button CssClass="black-text" ID="addBldg_btn" runat="server" Text="Add Dept" OnClick="addBldg_btn_Click" />
                     </ContentTemplate>
                 </asp:UpdatePanel>

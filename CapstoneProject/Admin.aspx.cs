@@ -16,7 +16,7 @@ namespace CapstoneProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = getMessage();
+            //Label1.Text = getMessage();
         }
 
         protected void publishBtn_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace CapstoneProject
             str = theText + "\n" + split + "\n" + updateTxt;
             System.IO.File.WriteAllText(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"], str);
             updateTxt = str;
-            Label1.Text = updateTxt;
+            //Label1.Text = updateTxt;
 
 
         }

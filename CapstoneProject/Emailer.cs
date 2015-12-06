@@ -32,7 +32,7 @@ namespace CapstoneProject
 
             foreach(string address in this.MailTo() )
             {
-                this.SendMail(address, "requestAccess@capstone.edu", "", content);
+                this.SendMail(address, "requestAccess@capstone.edu", subject, content);
             }
             
         }

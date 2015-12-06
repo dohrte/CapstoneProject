@@ -91,9 +91,6 @@
     <Content Include="images\fallcolors.jpg" />
     <Content Include="images\grizzBG2.jpg" />
     <Content Include="images\grizzBG3.jpg" />
-    <Content Include="images\iteration1.png" />
-    <Content Include="images\Iteration2.png" />
-    <Content Include="images\iteration3.png" />
     <Content Include="images\iteration4.JPG" />
     <Content Include="images\iteration5.png" />
     <Content Include="images\Meadow-Brook-Hall.jpg" />

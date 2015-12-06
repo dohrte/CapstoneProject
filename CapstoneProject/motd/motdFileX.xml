@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <motd>
-  <show>true</show>
+  <show>false</show>
   <messages>
     <message>
       <current>false</current>
@@ -74,9 +74,53 @@
       <msgType>2</msgType>
     </message>
     <message>
-      <current>true</current>
+      <current>false</current>
       <text>Site will be down for maintenance</text>
       <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>asdfaaaaaaaaaaaaaaaaaaaaaaaafasdfasdfasdf asdfasdfasdfasdfasdfasdfasdfatgqerhg awalfjhaigl;akjgfo[iwaejfaklwenfgaowiejf a;oiwhegfpoahiga</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>asdfaaaaaaaaaaaaaaaaaaaaaaaafasdfasdfasdf asdfasdfasdfasdfasdfasdfasdfatgqerhg awalfjhaigl;akjgfo[iwaejfaklwenfgaowiejf a;oiwhegfpoahiga</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text><![CDATA[hello from xml<br/>
+      hello
+from the 
+motd]]></text>
+      <msgType>3</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>1
+2
+3
+4</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text><![CDATA[4
+3
+2
+1]]></text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>true</current>
+      <text><![CDATA[1<br />2<br />3<br />4]]></text>
+      <msgType>3</msgType>
     </message>
   </messages>
 </motd>

@@ -62,7 +62,9 @@ namespace CapstoneProject
                 group.shares = new List<Tuple<string, string>>();
                 foreach (DataRow row in dtShares.Rows)
                 {
-                    group.shares.Add(new Tuple<string, string>(row[0].ToString(), row[1].ToString()));
+                    string sName = row[0].ToString();
+                    sName = sName.Substring(sName.LastIndexOf(@"\") + 1);
+                    group.shares.Add(new Tuple<string, string>(sName, row[1].ToString()));
                 }
             }
 

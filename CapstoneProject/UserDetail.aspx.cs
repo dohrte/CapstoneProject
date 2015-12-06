@@ -13,12 +13,12 @@ namespace CapstoneProject
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            var ad = ActiveDirectoryAction.Instance;
+            //var ad = ActiveDirectoryAction.Instance;
 
-            foreach (string role in ad.GetUsersWebAppRoles(Context.User.Identity.Name))
-            {
-                display1.Text += role;
-            }
+            //foreach (string role in ad.GetUsersWebAppRoles(Context.User.Identity.Name))
+            //{
+            //    display1.Text += role;
+            //}
 
             //display2.Text = "show shares that user has access to";
             this.populateDetails();
@@ -69,7 +69,18 @@ namespace CapstoneProject
 
         protected void fillMembershipList(string[] memOfList)
         {
-            membershipList.DataSource = memOfList;
+            List<string> lst = new List<string>();
+
+            foreach (string grp in memOfList)
+            {
+                int start = grp.IndexOf(@"=") + 1;
+                int end = grp.IndexOf(@",") - start;
+
+                string dn = grp.Substring(start, end);
+                lst.Add(dn);
+            }
+
+            membershipList.DataSource = lst;
             membershipList.DataBind();
         }
     }

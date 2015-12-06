@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterLayout.Master" AutoEventWireup="true" CodeBehind="RequestAcct.aspx.cs" Inherits="CapstoneProject.RequestAcct" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LogonMaster.Master" AutoEventWireup="true" CodeBehind="RequestAcct.aspx.cs" Inherits="CapstoneProject.RequestAcct" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,7 +12,7 @@
         label{color:white;}
               
     </style>
-  <asp:Panel ID="requestForm" runat="server">
+  <asp:Panel ID="requestForm" runat="server" CssClass="blk-transparent-background">
   <fieldset>
              <legend>Capstone Domain Account Request</legend>
         <div>

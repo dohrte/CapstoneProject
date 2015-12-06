@@ -31,13 +31,49 @@ namespace CapstoneProject {
         protected global::System.Web.UI.UpdatePanel gUpdatePanel;
         
         /// <summary>
-        /// groupsListBox control.
+        /// groupsListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox groupsListBox;
+        protected global::System.Web.UI.WebControls.ListView groupsListView;
+        
+        /// <summary>
+        /// grpView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel grpView;
+        
+        /// <summary>
+        /// manageDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel manageDetail;
+        
+        /// <summary>
+        /// grpNameLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label grpNameLbl;
+        
+        /// <summary>
+        /// sharesListView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView sharesListView;
         
         /// <summary>
         /// addUser control.
@@ -58,6 +94,15 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.TextBox addUserID_textBox;
         
         /// <summary>
+        /// adUser_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton adUser_btn;
+        
+        /// <summary>
         /// txtUsernameValidator control.
         /// </summary>
         /// <remarks>
@@ -67,15 +112,6 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator txtUsernameValidator;
         
         /// <summary>
-        /// adUser_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button adUser_btn;
-        
-        /// <summary>
         /// addUser_Error control.
         /// </summary>
         /// <remarks>
@@ -83,24 +119,6 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label addUser_Error;
-        
-        /// <summary>
-        /// manageDetail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel manageDetail;
-        
-        /// <summary>
-        /// sharesAccesible control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label sharesAccesible;
         
         /// <summary>
         /// memberListView control.

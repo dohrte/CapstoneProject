@@ -109,8 +109,11 @@ namespace CapstoneProject
 
             //add text node to message node
             XmlElement messageTextNode = xmlFile.CreateElement("text");
-            XmlText xmlMsg = xmlFile.CreateTextNode(msg.Trim());
-            messageTextNode.AppendChild(xmlMsg);
+            //XmlText xmlMsg = xmlFile.CreateTextNode(msg.Trim());
+            //messageTextNode.AppendChild(xmlMsg);
+            msg = msg.Replace("\r\n", "<br />");
+            var cdata = xmlFile.CreateCDataSection(msg.Trim());
+            messageTextNode.AppendChild(cdata);
             msgElem.AppendChild(messageTextNode);
             xmlFile.DocumentElement.AppendChild(msgElem);
 

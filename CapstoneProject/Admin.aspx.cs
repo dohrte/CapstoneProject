@@ -10,48 +10,129 @@ namespace CapstoneProject
 {
     public partial class Admin : System.Web.UI.Page
     {
-        string split = "-----";
-        string str = "";
-        string updateTxt = "";
+        MessageOfTheDay motd;// = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+        Department dept;
+        Building bldg;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Label1.Text = getMessage();
+            this.SetCurrentMsg();
+
+
+            dept = new Department();
+            bldg = new Building();
+            if (!IsPostBack)
+            {
+                this.MakeDeptList();
+                this.MakeBldgList();
+            }
+
+            //this.SetCurrentMsg();
+            //currentMessageLabel.Text = motd.getMessage();
         }
 
         protected void publishBtn_Click(object sender, EventArgs e)
         {
-            string theText = Textbox1.Text;
-            int index = updateTxt.IndexOf(split);
+            //get input
+            string mText = Textbox1.Text;
+            Textbox1.Text = string.Empty;
 
-            if (index > 0)
-                updateTxt = updateTxt.Substring(0, index);
+            int mType = Convert.ToInt32(mTypeRadioButtonList.SelectedItem.Value);
+            //int mType = 2;
 
-            str = theText + "\n" + split + "\n" + updateTxt;
-            System.IO.File.WriteAllText(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"], str);
-            updateTxt = str;
-            //Label1.Text = updateTxt;
-
-
+            //write to motd file
+            motd.SetMessage(mText, mType);
+            this.SetCurrentMsg();
         }
-        public string getMessage() {
-            string txt = "";
 
-            using (var reader = new StreamReader(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]))
+        protected void SetCurrentMsg()
+        {
+            curMsgPanel.Controls.Clear();
+            motd = new MessageOfTheDay(Server.MapPath(System.Web.Configuration.WebConfigurationManager.AppSettings["messageOfTheDayPath"]));
+            curMsgPanel.Controls.Add(motd.GetMotdPanel());
+
+            if (motd.ShowMotd && !IsPostBack)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (reader.ReadLine() == "-----")
-                    {
-                        break;
-                    }
-                    txt += line + "\n";
-                }
-                reader.Close();
+                showMotdCheckBox.Checked = true;
             }
-            return txt;
+        }
 
+        protected void MakeDeptList()
+        {
+            deptListView.DataSource = dept.GetDepartment();
+            deptListView.DataBind();
+        }
+
+        protected void addDept_btn_Click(object sender, EventArgs e)
+        {
+            dept.SetDepartment(deptName.Text, deptAbbr.Text);
+            deptName.Text = string.Empty;
+            deptAbbr.Text = string.Empty;
+
+            this.MakeDeptList();
+        }
+
+        protected void deptListView_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+
+            switch (e.CommandName)
+            {
+                case "RemoveDept":
+                    dept.DeleteDepartment(Convert.ToInt32(e.CommandArgument));
+                    break;
+                case "UpdateDept":
+                    TextBox udn = e.Item.FindControl("updateDeptName") as TextBox;
+                    TextBox uda = e.Item.FindControl("updateDeptAbbr") as TextBox;
+                    dept.UpdateDepartment(Convert.ToInt32(e.CommandArgument), udn.Text, uda.Text);
+                    break;
+            }
+
+            this.MakeDeptList();
+        }
+
+        protected void MakeBldgList()
+        {
+            bldgListView.DataSource = bldg.GetBuilding();
+            bldgListView.DataBind();
+        }
+
+
+        protected void addBldg_btn_Click(object sender, EventArgs e)
+        {
+            bldg.SetBuilding(addBldgName.Text, addBldgAbbr.Text);
+            addBldgName.Text = string.Empty;
+            addBldgAbbr.Text = string.Empty;
+
+            this.MakeBldgList();
+        }
+
+        protected void bldgListView_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "RemoveBldg":
+                    bldg.DeleteBuilding(Convert.ToInt32(e.CommandArgument));
+                    break;
+                case "UpdateBldg":
+                    TextBox ubn = e.Item.FindControl("updateBldgName") as TextBox;
+                    TextBox uba = e.Item.FindControl("updateBldgAbbr") as TextBox;
+                    bldg.UpdateBuilding(Convert.ToInt32(e.CommandArgument), ubn.Text, uba.Text);
+                    break;
+            }
+
+            this.MakeBldgList();
+        }
+
+        protected void showMotdCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showMotdCheckBox.Checked)
+            {
+                motd.ShowMotd = true;
+            }
+            else
+            {
+                motd.ShowMotd = false;
+            }
         }
     }
 }

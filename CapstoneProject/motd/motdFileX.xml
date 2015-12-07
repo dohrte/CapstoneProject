@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<motd>
+  <show>false</show>
+  <messages>
+    <message>
+      <current>false</current>
+      <text><![CDATA["hello from xml"]]></text>
+      <msgType>1</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>new motd for everyone to see</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nothing now</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>motd is working</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>another test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>danger</text>
+      <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>warned bitch</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>
+      </text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>WElcome to the uts web application</text>
+      <msgType>1</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>nnew motd for test</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>motd is working</text>
+      <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>Site will be down for maintenance</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>Site will be down for maintenance</text>
+      <msgType>4</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>asdfaaaaaaaaaaaaaaaaaaaaaaaafasdfasdfasdf asdfasdfasdfasdfasdfasdfasdfatgqerhg awalfjhaigl;akjgfo[iwaejfaklwenfgaowiejf a;oiwhegfpoahiga</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>asdfaaaaaaaaaaaaaaaaaaaaaaaafasdfasdfasdf asdfasdfasdfasdfasdfasdfasdfatgqerhg awalfjhaigl;akjgfo[iwaejfaklwenfgaowiejf a;oiwhegfpoahiga</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text><![CDATA[hello from xml<br/>
+      hello
+from the 
+motd]]></text>
+      <msgType>3</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text>1
+2
+3
+4</text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>false</current>
+      <text><![CDATA[4
+3
+2
+1]]></text>
+      <msgType>2</msgType>
+    </message>
+    <message>
+      <current>true</current>
+      <text><![CDATA[1<br />2<br />3<br />4]]></text>
+      <msgType>3</msgType>
+    </message>
+  </messages>
+</motd>

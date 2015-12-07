@@ -68,6 +68,8 @@
     <Content Include="bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\css\custom.css" />
+    <Content Include="bootstrap\css\simple-sidebar.css" />
     <Content Include="bootstrap\css\webAppStyles.css" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="bootstrap\js\bootstrap.js" />
@@ -77,16 +79,29 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GroupManagment.aspx" />
+    <Content Include="images\860187_10152540042985084_1173781264_o.jpg" />
+    <Content Include="images\bearFace.png" />
+    <Content Include="images\bell.jpg" />
+    <Content Include="images\blackDrop.png" />
     <Content Include="images\black_lozenge.png" />
     <Content Include="images\comp-server-1.jpg" />
     <Content Include="images\comp-server-2.jpg" />
     <Content Include="images\computers.jpg" />
-    <Content Include="images\iteration1.png" />
-    <Content Include="images\Iteration2.png" />
-    <Content Include="images\iteration3.png" />
+    <Content Include="images\Elliott-Tower-full-800x600.jpg" />
+    <Content Include="images\fallcolors.jpg" />
+    <Content Include="images\grizzBG2.jpg" />
+    <Content Include="images\grizzBG3.jpg" />
     <Content Include="images\iteration4.JPG" />
+    <Content Include="images\iteration5.png" />
+    <Content Include="images\Meadow-Brook-Hall.jpg" />
+    <Content Include="images\Oakland_p18-978021b4.jpeg" />
+    <Content Include="images\oakland_university.jpg" />
+    <Content Include="images\Oak_View_OU.jpg" />
+    <Content Include="images\tinyBlackDrop.png" />
+    <Content Include="images\tower-sky.jpg" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
+    <Content Include="motd\motdFileX.xml" />
     <Content Include="page1.aspx" />
     <Content Include="RequestAcct.aspx" />
     <Content Include="Service References\ServiceReference1\CapstoneProject.ServiceReference1.CompositeType.datasource">
@@ -115,6 +130,7 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Building.cs" />
     <Compile Include="CreateComp.aspx.cs">
       <DependentUpon>CreateComp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,6 +145,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Department.cs" />
     <Compile Include="Emailer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -162,6 +179,7 @@
     <Compile Include="MasterLayout.Master.designer.cs">
       <DependentUpon>MasterLayout.Master</DependentUpon>
     </Compile>
+    <Compile Include="MessageOfTheDay.cs" />
     <Compile Include="page1.aspx.cs">
       <DependentUpon>page1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

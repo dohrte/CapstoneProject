@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterLayout.master.cs" Inherits="CapstoneProject.MasterLayout" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
@@ -10,28 +9,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script  type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/custom.css" />
     <link href="bootstrap/css/webAppStyles.css" rel="stylesheet" />
+    <link href="bootstrap/css/simple-sidebar.css" rel="stylesheet" />
 
-
+                    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
-<body>
+<body class="master-body">
+    <style>
+        h1 {
+            font-family: Dauphin;
+        }
+    </style>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="row">
-                <h1>UTS Web Application </h1>
-
                 <!-- begin navbar -->
-                <nav class="navbar navbar-default">
+                <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container-fluid">
-                       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            <p class="navbar-brand">UTS Web Application</p>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            
                             <ul class="nav navbar-nav navbar-right">
-                                <li><asp:LinkButton ID="btnHome" CssClass="btn webAppBtn" runat="server" OnClick="btnHome_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton></li>
-                                <li><asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
-                                
+                                <li>
+                                    <asp:LinkButton 
+                                        ID="btnHome" 
+                                        CssClass="btn webAppBtn" 
+                                        runat="server" 
+                                        OnClick="btnHome_Click" 
+                                        CausesValidation="false">
+                                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span> Home</asp:LinkButton>
+
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnLogout" CssClass="btn webAppBtn" runat="server" OnClick="btnLogout_Click" CausesValidation="false"><span aria-hidden="true" class="glyphicon glyphicon-log-out"></span> Logout</asp:LinkButton></li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -39,11 +66,90 @@
                     <!-- /.container-fluid -->
                 </nav>
                 <!-- end navbar -->
-            </div>
-            <div class="row">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+            <%--<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>--%>
+                <div id="wrapper">
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav" id="sideNav">
+                            <li class="sidebar-brand">
+                                Services
+                            </li>
+                            <li>
+                                <asp:LinkButton 
+                                    ID="Button2"
+                                     runat="server"
+                                     OnClick="btnGrpManagement_Click"
+                                     Text="Manage Group"
+                                     CausesValidation="false" />
+                            </li>
+                            <li>
+                                <asp:LinkButton 
+                                    ID="btnCreateComp" 
+                                    runat="server" 
+                                    OnClick="btnCreateComp_Click" 
+                                    Text="Create Comp" 
+                                    CausesValidation="false" />
+                            </li>
+                            <li>
+                                <asp:LinkButton 
+                                    ID="Button4" 
+                                    runat="server"
+                                    OnClick="btnAcctDetail_Click" 
+                                    Text="User Properties" 
+                                     CausesValidation="false" />
+                            </li>
+                            <li>
+                                <asp:LinkButton 
+                                    ID="btnAdmin"
+                                    runat="server" 
+                                    OnClick="btnAdmin_Click" 
+                                    Text="Admin Page" 
+                                    CausesValidation="false" />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /#sidebar-wrapper -->
+
+                    <!-- Page Content -->
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /#page-content-wrapper -->
+
+                </div>
+                <!-- /#wrapper -->
+
+                <!-- jQuery -->
+                <%--<script src="js/jquery.js"></script>--%>
+
+                <!-- Bootstrap Core JavaScript -->
+                <%--<script src="js/bootstrap.min.js"></script>--%>
+
+                <!-- Menu Toggle Script -->
+                <script>
+                    $("#menu-toggle").click(function (e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+
+                    });
+    </script>
+            <script type="text/javascript">
+                function CloseModal() {
+                    jQuery.noConflict();
+            $('.modal').modal('hide');
+            //$('body').removeClass('modal-open');
+            //$('modal-backdrop').remove();
+            return true;
+        }
+    </script>
+
+                
+            
         </div>
     </form>
 </body>

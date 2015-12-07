@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="col-md-7">
-        <div class="panel panel-default">
+        <div class="panel panel-default wh-transparent-background">
             <div class="panel-heading">
                 <h3 class="panel-title">Complete to create a new computer object.</h3>
             </div>
@@ -28,7 +28,7 @@
         </div>
         
         <!-- Custom name panel -->
-        <div class="panel panel-default">
+        <div class="panel panel-default wh-transparent-background">
             <div class="panel-heading">
                 <h3 class="panel-title">Create a new computer object with custom name.</h3>
             </div>
@@ -49,7 +49,7 @@
         
     </div>
     <div class="col-md-5">
-        <div class="panel panel-default">
+        <div class="panel panel-default wh-transparent-background">
             <div class="panel-heading">
                 <h3 class="panel-title">Completed Actions</h3>
             </div>

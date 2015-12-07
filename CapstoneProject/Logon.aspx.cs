@@ -13,10 +13,26 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (User.Identity.IsAuthenticated)
+            try
             {
-                Response.Redirect("Default.aspx");
+                if (User.Identity.IsAuthenticated)
+                {
+                    Response.Redirect("Default.aspx");
+                }
             }
+            catch(Exception ex)
+            {
+
+                Session.Abandon();
+                string cookieName = System.Web.Security.FormsAuthentication.FormsCookieName;
+                HttpCookie authCookie = Context.Request.Cookies[cookieName];
+                authCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(authCookie);
+
+                Response.Redirect("Logon.aspx");
+            }
+                
+            
 
             //MasterLayout site = this.Master as MasterLayout;
             //if (site != null)

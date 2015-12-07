@@ -15,11 +15,17 @@
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
-<body>
+<body class="logon-body">
     <form id="form1" runat="server">
-    <div class="container">
-            <div class="row color-black">
+        <div class="container">
+            <div class="row">
                 <h1>UTS Web Application </h1>
 
                 <!-- begin navbar -->
@@ -29,10 +35,50 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><asp:Button ID="btnHome" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Home"/></li>
-                                <li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>--%>
-                                <li><a data-toggle='modal' data-target='#loginPage' >Login</a></li>
-                                <li><a data-toggle='modal' data-target='#forgotPage' >Forgot Password</a></li>
-                                <li><asp:LinkButton ID="btnRequest" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
+                                <li><asp:Button ID="Button1" CssClass="btn btn-default" runat="server" OnClick="btnLogout_Click" Text="Logout" /></li>
+                                    
+                                    <li><a data-toggle='modal tooltip' data-placement="bottom" title="Enter The share Portal"  data-target='#loginPage' >Login</a></li>
+                                <li><a data-toggle='modal tooltip' data-placement="bottom" title="Request a new password"  data-target='#forgotPage' >Forgot Password</a></li>
+                                <li><asp:LinkButton ID="btnRequest" data-toggle="tooltip" title="Register an account" runat="server" OnClick="btnRequestAccount_Click" >New Account</asp:LinkButton></li>
+                         
+                                    
+                                --%>
+                                <li>
+                                    <asp:LinkButton ID="BackToMain"
+                                        runat="server"
+                                        OnClick="BackToMain_Click"
+                                        data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Back to Main">
+                                        <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="ShowLoginModal"
+                                        runat="server"
+                                        data-toggle='modal'
+                                        data-target='#loginPage'>
+                                        Login
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="ShowForgotModal"
+                                        runat="server"
+                                        data-toggle='modal'
+                                        data-target='#forgotPage'>
+                                    Forgot Password
+                                    </asp:LinkButton>
+                                </li>
+                                <li>
+                                    <asp:LinkButton ID="btnRequest"
+                                        runat="server"
+                                        OnClick="btnRequestAccount_Click"
+                                        data-toggle="tooltip"
+                                        data-placement="bottom"
+                                        title="Request Account">
+                                        New Account
+                                    </asp:LinkButton>
+                                </li>
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -40,7 +86,7 @@
                     <!-- /.container-fluid -->
                 </nav>
                 <!-- end navbar -->
-        </div>
+            </div>
             <div class="row">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>

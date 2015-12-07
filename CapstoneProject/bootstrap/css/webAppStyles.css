@@ -5,16 +5,39 @@
     box-shadow: none;
 }
 
-body{
-    background-color: black;
-    background-image: url(../../images/black_lozenge.png);
-    color:white;
+body {
+    background-color: #0A0A0C;
+    /*background-image: url(../../images/black_lozenge.png);*/
+    color: white;
 }
 
+.master-body{
+    background-color: black;
+    /*background-image: url(../../images/black_lozenge.png);*/
+    color: white;
+    /*background-image: url("../../images/grizzBG3.jpg");
+    background-position: center center;
+    background-size: auto;
+    background-repeat: no-repeat;*/
+   background:url("../../images/bearFace.png") center center no-repeat fixed;
+  background-color: #0A0A0C;
+  background-size: cover;
+}
+
+.logon-body{
+  
+  /*background: url(../../images/grizzBG2.jpg) center center fixed;*/
+  background:url("../../images/bearFace.png") center center no-repeat fixed;
+  background-color: #0A0A0C;
+  background-size: cover;
+  color: white;
+  font-family: Arvo;
+}     
+
 nav{
-    
     background-color:#B59A57;
 }
+
 .navbar-default{
     background-image:none;
     background-color:#B59A57;
@@ -84,3 +107,71 @@ nav{
     font-size: xx-large;
     font-family: DaunPenh;
 }
+
+.black-text {
+    color:black;
+}
+
+.wh-transparent-background{
+    background-color:rgba(255, 255, 255, 0.45);
+}
+
+.blk-transparent-background{
+    background-color:rgba(0, 0, 0, 0.75);
+}
+
+.web-btn{
+    width:inherit;
+}
+
+.red-glyph{
+    color:#cc3333;
+}
+
+.green-glyph{
+     color:#33cc33;
+}
+
+.white-glyph{
+     color:#33cc33;
+}
+
+.table-hover > tbody > tr:hover .removeLink:hover > .glyphicon{
+    cursor:pointer;
+    color: red;
+}
+
+.table-hover > tbody > tr:hover .editLink:hover > .glyphicon{
+    cursor:pointer;
+    color: green;
+}
+
+.row-highlight :hover{
+    background-color:darkgrey;
+}
+
+/*tr .table-hover :hover{
+    color: black;
+}*/
+
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover .glyphicon
+ {
+  /*background-color: #f5f5f5;*/
+  color: black;
+}
+
+.radio-table label{
+    padding-left: 10px;
+    vertical-align: top;
+}
+
+.radio-table {
+    margin-left: 35px;
+}
+    
+/*.tooltip-inner,
+.tooltip-arrow{
+    background-color: white;
+    color: black;
+}*/

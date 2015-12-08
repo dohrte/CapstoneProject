@@ -22,6 +22,17 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                html: true,
+                content: function () {
+                    return $('#popover-content').html();
+                }
+            });
+        })
+
+       
     </script>
 </head>
 <body class="master-body">
@@ -106,6 +117,18 @@
                                     Text="Admin Page" 
                                     CausesValidation="false" />
                             </li>
+                            <%--<li>
+                                <a tabindex="0" 
+                                   id="formlink-popout
+                                    data-toggle="popover" 
+                                    data-trigger="focus"
+                                    data-container="body" 
+                                    title="Select a Form"
+                                    data-html="true" 
+                                    <%--data-content="And here's some amazing content. It's very engaging. Right
+                                    >Forms</a>
+                                
+                            </li>--%>
                         </ul>
                     </div>
                     <!-- /#sidebar-wrapper -->
@@ -137,6 +160,17 @@
                         $("#wrapper").toggleClass("toggled");
 
                     });
+
+                    $("#formlink-popout").hover(
+                        function () {
+                            $("#formlink-popout").focus();
+                        },
+                        function () {
+                            $("#formlink-popout").blur();
+                        }
+                    )
+
+                    
     </script>
             <script type="text/javascript">
                 function CloseModal() {

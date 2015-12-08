@@ -15,7 +15,11 @@ namespace CapstoneProject
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.InitLists();
+            if (!IsPostBack)
+            {
+                this.InitLists();
+            }
+            
         }
 
         //private void InitLists()
@@ -87,12 +91,12 @@ namespace CapstoneProject
                 //send eamil??
                 //log write
                 
-                listItems.Text = "<li class=\"alertListItems\"><span class=\"alert alert-danger\">" + resultMessage + "</span></li>" + ulContent;
+                listItems.Text = "<li class=\"alertListItems\"><div class=\"alert alert-danger\">" + resultMessage + "</div></li>" + ulContent;
             }
             else
             {
                 //show success message
-                listItems.Text = "<li class=\"alertListItems\"><span class=\"alert alert-success\">Computer " + resultMessage + " created. In OU: " + deptName + "</span></li>" + ulContent;
+                listItems.Text = "<li class=\"alertListItems\"><div class=\"alert alert-success\">Computer " + resultMessage + " created. In OU: " + deptName + "</div></li>" + ulContent;
                 //reset form
                 this.resetForm();
             }

@@ -34,7 +34,13 @@
                                     <tr>
                                         <td><%#Eval("groupName") %></td>
                                         <td>
-                                            <asp:LinkButton ID="btnShowGrp" runat="server" CommandName="Show" CommandArgument='<%#Eval("groupName") %>' CausesValidation="false"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></asp:LinkButton>
+                                            <asp:LinkButton ID="btnShowGrp" 
+                                                runat="server" 
+                                                CommandName="Show"
+                                                 CommandArgument='<%#Eval("groupName") %>'
+                                                 CausesValidation="false" ToolTip="Show Details">
+                                               <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                                            </asp:LinkButton>
                                         </td>
 
                                     </tr>
@@ -90,7 +96,11 @@
                                                 <div class="form-group">
                                                     <asp:TextBox ID="addUserID_textBox" runat="server" CssClass="form-control" placeholder="Userid to Add" Width="208px" />
                                                 </div>
-                                                <asp:LinkButton ID="adUser_btn" runat="server" CssClass="btn btn-success" OnClick="adUser_btn_Click">
+                                                <asp:LinkButton ID="adUser_btn" 
+                                                    runat="server" 
+                                                    CssClass="btn btn-success"
+                                                     OnClick="adUser_btn_Click"
+                                                    Tooltip="Add User">
                                                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                                                 </asp:LinkButton>
                                             </div>
@@ -132,7 +142,7 @@
                                                 <td><%#Eval("Name") %></td>
                                                 <td>
                                                     <%--<asp:LinkButton ID="btnRemoveUser" runat="server" CommandName="Remove" CommandArgument='<%#Eval("Name") %>' CausesValidation="false"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></asp:LinkButton></td>--%>
-                                                    <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("Name").ToString().Replace(" ","") %>">
+                                                    <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("Name").ToString().Replace(" ","") %>" title="Remove User">
                                                         <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
                                                     </a>
                                             </tr>

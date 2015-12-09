@@ -477,37 +477,36 @@ namespace CapstoneProject
             //Lock the check if exists and create function to confirm that duplicate entries will not happen.
             lock (lockObj)
             {
-
-                if (this.DoesComputerNameExist(compName, deptName))
+                if (isCustom)
                 {
-                     if (isCustom)
+                    if (this.DoesComputerNameExist(compName, deptName))
+                    {
+                        //return already exists message
+                        errFlag = true;
+                        errMsg = "The computer name already exists.";
+                    }
+                    else
                     {
                         //use custom name
                         fullCompName = compName;
                     }
-                    else
-                    {
-                        //create computer name
-                        //check current names
-                        int compNum = this.GetComputerNumber(compName);
-
-                        if (compNum.Equals(-1))
-                        {
-                            //report not successful
-                            errFlag = true;
-                            errMsg = "There was an error in creation of new computer object.";
-                        }
-                        else
-                        {
-                            fullCompName = compName + compNum;
-                        }
-                    }
                 }
                 else
                 {
-                   //return already exists message
-                    errFlag = true;
-                    errMsg = "The computer name already exists.";
+                    //create computer name
+                    //check current names
+                    int compNum = this.GetComputerNumber(compName);
+
+                    if (compNum.Equals(-1))
+                    {
+                        //report not successful
+                        errFlag = true;
+                        errMsg = "There was an error in creation of new computer object.";
+                    }
+                    else
+                    {
+                        fullCompName = compName + compNum;
+                    }
                 }
 
                 if (errFlag)

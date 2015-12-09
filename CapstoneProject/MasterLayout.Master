@@ -118,15 +118,36 @@
                                     CausesValidation="false" />
                             </li>
                             <%--<li>
-                                <a tabindex="0" 
-                                   id="formlink-popout
-                                    data-toggle="popover" 
-                                    data-trigger="focus"
-                                    data-container="body" 
-                                    title="Select a Form"
-                                    data-html="true" 
-                                    <%--data-content="And here's some amazing content. It's very engaging. Right
-                                    >Forms</a>
+                                <div id="popover-content" class="hide">
+                                    <ul>
+                                        <li>list of forms</li>
+                                    </ul>
+                                    <script>
+                                        $('#test').hover(
+                                    function () {
+                                        $('#test').focus();
+                                    },
+                                    function (e) {
+                                        //e.preventDefault();
+                                        //console.log(e.toElement);
+                                        if ($(e.toElement.parentElement).hasClass("in")) {
+                                            $(".in").hover(
+                                                //hover
+                                                function(){},
+                                                //hover out
+                                                function () { $('#test').blur(); }
+                                                );
+                                        }
+                                        else {
+                                            //console.log("blur");
+                                            $('#test').blur();
+                                        }
+                                    }
+                                    );
+
+                                       // $('.popover').hover(function () { console.log("hovering") })
+                                    </script>
+                                </div>
                                 
                             </li>--%>
                         </ul>

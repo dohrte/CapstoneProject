@@ -99,14 +99,13 @@
     background: none;
 }
 
-@media(min-width:768px) {
+/*@media(min-width:768px) {*/
     #wrapper {
         padding-left: 250px;
     }
 
     #wrapper.toggled {
         padding-left: 0;
-       
     }
 
     #sidebar-wrapper {
@@ -126,4 +125,4 @@
         position: relative;
         margin-right: 0;
     }
-}
+/*}*/

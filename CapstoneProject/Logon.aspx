@@ -39,6 +39,15 @@
             <span class="sr-only">Next</span>
         </a>
     </div>--%>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome to the UTS Web App</h1>
+                <p>This web portal is for users on the Capstone Domain, sign with your domain account to request service or manage your Active Directory groups.</p>
+        </div>
+    </div>
+   
+    <%--<h4>Welcome to the UTS Share Management Web Application</h4>
+    <h5>Please login or create an account to begin</h5>--%>
     
     <div id="loginPage" class="modal fade" role="dialog">
         <div class="modal-dialog">

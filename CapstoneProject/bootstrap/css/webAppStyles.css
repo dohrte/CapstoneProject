@@ -177,6 +177,12 @@ white-text{
 .radio-table {
     margin-left: 35px;
 }
+
+.jumbotron{
+    background-color: transparent;
+    font-family: arvo;
+    text-align: center;
+}
     
 /*.tooltip-inner,
 .tooltip-arrow{

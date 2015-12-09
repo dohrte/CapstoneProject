@@ -47,9 +47,7 @@
                                     <asp:LinkButton ID="BackToMain"
                                         runat="server"
                                         OnClick="BackToMain_Click"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom"
-                                        title="Back to Main">
+                                        Tooltip="Back to Main">
                                         <span class="glyphicon glyphicon-circle-arrow-left"></span>
                                     </asp:LinkButton>
                                 </li>
@@ -57,7 +55,8 @@
                                     <asp:LinkButton ID="ShowLoginModal"
                                         runat="server"
                                         data-toggle='modal'
-                                        data-target='#loginPage'>
+                                        data-target='#loginPage'
+                                        >
                                         Login
                                     </asp:LinkButton>
                                 </li>
@@ -72,10 +71,7 @@
                                 <li>
                                     <asp:LinkButton ID="btnRequest"
                                         runat="server"
-                                        OnClick="btnRequestAccount_Click"
-                                        data-toggle="tooltip"
-                                        data-placement="bottom"
-                                        title="Request Account">
+                                        OnClick="btnRequestAccount_Click" >
                                         New Account
                                     </asp:LinkButton>
                                 </li>

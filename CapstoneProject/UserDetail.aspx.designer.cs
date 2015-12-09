@@ -22,15 +22,6 @@ namespace CapstoneProject {
         protected global::System.Web.UI.WebControls.BulletedList roleList;
         
         /// <summary>
-        /// shareTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table shareTable;
-        
-        /// <summary>
         /// membershipList control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,23 @@ namespace CapstoneProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.BulletedList membershipList;
+        
+        /// <summary>
+        /// shareListView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView shareListView;
+        
+        /// <summary>
+        /// noSharesMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label noSharesMsg;
     }
 }

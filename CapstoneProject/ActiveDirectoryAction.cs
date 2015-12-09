@@ -480,13 +480,7 @@ namespace CapstoneProject
 
                 if (this.DoesComputerNameExist(compName, deptName))
                 {
-                    //return already exists message
-                    errFlag = true;
-                    errMsg = "The computer name already exists.";
-                }
-                else
-                {
-                    if (isCustom)
+                     if (isCustom)
                     {
                         //use custom name
                         fullCompName = compName;
@@ -508,6 +502,12 @@ namespace CapstoneProject
                             fullCompName = compName + compNum;
                         }
                     }
+                }
+                else
+                {
+                   //return already exists message
+                    errFlag = true;
+                    errMsg = "The computer name already exists.";
                 }
 
                 if (errFlag)

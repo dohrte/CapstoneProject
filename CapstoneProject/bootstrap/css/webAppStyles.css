@@ -63,6 +63,10 @@ nav{
     color: black;
 }
 
+.panel > .panel-body > .white-text{
+    color: white;
+}
+
 .white-pb{
     background-color: white;
     color: #282828;
@@ -110,6 +114,10 @@ nav{
 
 .black-text {
     color:black;
+}
+
+white-text{
+    color:white;
 }
 
 .wh-transparent-background{
@@ -175,3 +183,7 @@ nav{
     background-color: white;
     color: black;
 }*/
+
+.forms-link:hover {
+    
+}

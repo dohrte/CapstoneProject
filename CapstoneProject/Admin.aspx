@@ -143,11 +143,11 @@
                                 <td><%#Eval("DepartmentName") %></td>
                                 <td><%#Eval("DepartmentAbbreviation") %></td>
                                 <td>
-                                    <a class="editLink" data-toggle="modal" data-target="#updateModal_<%#Eval("DepartmentName").ToString().Replace(" ","") %>">
+                                    <a class="editLink" data-toggle="modal" data-target="#updateModal_<%#Eval("DepartmentName").ToString().Replace(" ","") %>" title="Edit Department">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     </a>
                                     &nbsp
-                                    <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("DepartmentName").ToString().Replace(" ","") %>">
+                                    <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("DepartmentName").ToString().Replace(" ","") %>" title="Remove Department">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </a>
                                 </td>
@@ -326,11 +326,11 @@
                                 <td><%#Eval("BuildingName") %></td>
                                 <td><%#Eval("BuildingAbbreviation") %></td>
                                 <td>
-                                    <a class="editLink" data-toggle="modal" data-target="#updateModal_<%#Eval("BuildingName").ToString().Replace(" ","") %>">
+                                    <a class="editLink" data-toggle="modal" data-target="#updateModal_<%#Eval("BuildingName").ToString().Replace(" ","") %>" title="Edit Building">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                     </a>
                                     &nbsp
-                                        <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("BuildingName").ToString().Replace(" ","") %>">
+                                        <a class="removeLink" data-toggle="modal" data-target="#removeModal_<%#Eval("BuildingName").ToString().Replace(" ","") %>" title="Remove Building">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                         </a>
                                 </td>
@@ -436,6 +436,4 @@
         </div>
         <%--<div role="tabpanel" class="tab-pane" id="settings">...</div>--%>
     </div>
-    </div>
-
 </asp:Content>

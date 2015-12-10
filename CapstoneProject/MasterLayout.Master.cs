@@ -110,7 +110,7 @@ namespace CapstoneProject
             Response.Redirect("GroupManagment.aspx");
         }
 
-        protected void FormLinkButton1_Click1(object sender, EventArgs e)
+        protected void FormLinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("JoinCompForm.aspx");
         }

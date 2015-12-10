@@ -164,6 +164,7 @@
                                                                 CssClass="btn btn-danger"
                                                                 CommandName="Remove"
                                                                 CommandArgument='<%#Eval("Name") %>'
+                                                                OnClientClick="CloseModal()"
                                                                 CausesValidation="false">
                                                     Confirm
                                                             </asp:LinkButton>

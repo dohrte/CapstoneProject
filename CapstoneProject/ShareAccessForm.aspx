@@ -3,67 +3,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <fieldset>
-
-
-        <legend>File Shaer Request</legend>
-
-
-        <div>
-            <label>First Name</label>
-            <div>
-                <input name="firstNameBox" type="text">
+    <fieldset class="blk-transparent-background">
+      <legend class="white-text">File Share Request</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="firstNameBox">First Name</label>
+                                      <input class="form-control" name="firstNameBox" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="lastnamebox">Last Name</label>
+                        <input class="form-control" name="lastnamebox" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="emailBox">Email Address</label>
+                        <input class="form-control" name="emailBox" type="text" /> 
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="form-group">
+                    <label for="emailBox">Share Name</label>
+                        <input class="form-control" name="emailBox" type="text" />
+                </div>
+                <div class="form-group">
+                    <label for="shareSize">Gb</label>
+                        <input class="form-control" name="shareSize" type="text" />
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" name="checkboxes" value="2" />
+                            Bitlocker Encryption?
+                        </label>
+                    </div>
+                <div>
+                    <label>Complete Form</label>
+                    <div>
+                        <button class="btn btn-success" name="submitButton">Submit</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-        <div>
-            <label>Last Name</label>
-            <div>
-                <input name="lastnamebox" type="text">
-            </div>
-        </div>
-
-
-        <div>
-            <label>Email Address</label>
-            <div>
-                <input name="emailBox" type="text">
-            </div>
-        </div>
-
-        <div>
-            <label>Share Name</label>
-            <div>
-                <input name="emailBox" type="text">
-            </div>
-        </div>
-
-
-        <div>
-            <label>Gb</label>
-            <div>
-                <input name="shareSize" type="text">
-            </div>
-            <div>
-                <label>
-                    <input type="checkbox" name="checkboxes" value="2">
-                    Bitlocker Encryption?
-                </label>
-            </div>
-
-        </div>
-
-
-
-
-
-        <div>
-            <label>Complete Form</label>
-            <div>
-                <button name="submitButton">Submit</button>
-            </div>
-        </div>
-
     </fieldset>
 </asp:Content>

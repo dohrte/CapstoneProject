@@ -118,9 +118,14 @@ motd]]></text>
       <msgType>2</msgType>
     </message>
     <message>
-      <current>true</current>
+      <current>false</current>
       <text><![CDATA[1<br />2<br />3<br />4]]></text>
       <msgType>3</msgType>
+    </message>
+    <message>
+      <current>true</current>
+      <text><![CDATA[This is the new way to manage your share permissions!!!]]></text>
+      <msgType>2</msgType>
     </message>
   </messages>
 </motd>

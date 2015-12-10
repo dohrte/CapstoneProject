@@ -200,3 +200,15 @@ a:focus {
     background-color: white;
     color: black;
 }*/
+
+.well-transparent-background{
+    background-color:rgba(0, 0, 0, 0.75);
+    background-image:none;
+    box-shadow:none;
+    border:none;
+
+}
+
+legend {
+    color:white;
+}

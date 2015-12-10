@@ -124,30 +124,34 @@
                                     id="forms-popout"
                                     data-toggle="popover"
                                     data-trigger="focus"
-                                    <%--data-title="<div class='black-text'>Form List</div>"--%>
+                                    data-title="<div class='black-text'>Select Form</div>"
                                     data-placement="right"
                                     data-container="body"
                                     data-html="true">Forms</a>
                                 <div id="popover-content" class="hide">
-                                    <ul>
-                                        <li>
-                                            <asp:LinkButton
-                                                ID="FormLinkButton1"
-                                                runat="server"
-                                                OnClick="FormLinkButton1_Click1"
-                                                Text="Create Computer"
-                                                CausesValidation="false" />
-                                        </li>
-                                        <li>
-                                            <asp:LinkButton
-                                                ID="FormLinkButton2"
-                                                runat="server"
-                                                OnClick="FormLinkButton2_Click"
-                                                Text="Share Access"
-                                                CausesValidation="false" />
-                                        </li>                                                                                
-                                    </ul>
-                                    <script>
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td>
+                                                <asp:LinkButton
+                                                    ID="FormLinkButton1"
+                                                    runat="server"
+                                                    OnClick="FormLinkButton1_Click"
+                                                    Text="Create Computer"
+                                                    CausesValidation="false" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <asp:LinkButton
+                                                    ID="FormLinkButton2"
+                                                    runat="server"
+                                                    OnClick="FormLinkButton2_Click"
+                                                    Text="Share Request" 
+                                                    CausesValidation="false" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                     <script>
                                         $('#forms-popout').hover(
                                     function () {
                                         $('#forms-popout').focus();
@@ -173,8 +177,7 @@
 
                                        // $('.popover').hover(function () { console.log("hovering") })
                                     </script>
-                                </div>
-                                
+                                </div>                                
                             </li>
                         </ul>
                     </div>

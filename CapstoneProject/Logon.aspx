@@ -40,9 +40,9 @@
         </a>
     </div>--%>
     <div class="container">
-        <div class="jumbotron">
-            <h1>Welcome to the UTS Web App</h1>
-                <p>This web portal is for users on the Capstone Domain, sign with your domain account to request service or manage your Active Directory groups.</p>
+        <div class="jumbotron ">
+            <div class="well well-sm well-transparent-background"><h1>Welcome to the UTS Web App</h1></div>
+                <div class="well well-sm well-transparent-background"><p>This web portal is for users on the Capstone Domain, sign with your domain account to request service or manage your Active Directory groups.</p></div>
         </div>
     </div>
    

@@ -15,40 +15,45 @@
   <asp:Panel ID="requestForm" runat="server" CssClass="blk-transparent-background">
   <fieldset>
              <legend>Capstone Domain Account Request</legend>
-        <div>
-            <label>First Name</label>
+      <div class="row">
+ <div class="col-md-6">
+      
+      
+      <div class="form-group">
+            <label for="fNameBox">First Name</label>
             <div>
-                <asp:TextBox ID="fNameBox" CssClass="txtbox-c" runat="server" /> 
+                <asp:TextBox ID="fNameBox" CssClass="txtbox-c form-control" runat="server" /> 
             </div>
         </div>
 
 
-        <div>
-            <label>Last Name</label>
+        <div class="form-group">
+            <label for="lNamebox">Last Name</label>
             <div>
-                <asp:textbox runat="server" CssClass="txtbox-c" ID="lNamebox" />
+                <asp:textbox runat="server" CssClass="txtbox-c form-control" ID="lNamebox" />
             </div>
         </div>
 
 
-        <div>
+        <div class="form-group">
             <label>Email Address</label>
-            <div>
-                <asp:TextBox runat="server" CssClass="txtbox-c" ID="emailBox"/>
+            <div onformchange="emailBox">
+                <asp:TextBox runat="server" CssClass="txtbox-c form-control" ID="emailBox"/>
             </div>
         </div>
 
 
-        <div>
-            <label>Supervisor</label>
+        <div class="form-group">
+            <label for="supervisorBox">Supervisor</label>
             <div>
                 <div>
-                    <asp:TextBox runat="server" CssClass="txtbox-c" ID="supervisorBox" />
+                    <asp:TextBox runat="server" CssClass="txtbox-c form-control" ID="supervisorBox" />
                 </div>
-                <p>help</p>
+                
             </div>
         </div>
-
+      </div>
+       <div class="col-md-6">
 
         <div>
             <label>Account Type</label>
@@ -109,8 +114,7 @@
                 </div>
             </div>
         </div>
-
-
+           
         <%--<div>
             <label>Additional Group Memberships</label>
             <div>
@@ -128,10 +132,10 @@
         </div>--%>
 
 
-        <div>
-            <label>Nature of Request</label>
+        <div class="form-group">
+            <label for="reasonBox">Nature of Request</label>
             <div>
-                <asp:TextBox TextMode="MultiLine" ID="reasonBox" CssClass="txtbox-c" runat="server" placeholder="Please enter the reason for and nature of the account you are requesting."></asp:TextBox>
+                <asp:TextBox TextMode="MultiLine" ID="reasonBox" CssClass="txtbox-c form-control" runat="server" placeholder="Please enter the reason for and nature of the account you are requesting."></asp:TextBox>
             </div>
         </div>
 
@@ -139,10 +143,12 @@
         <div>
             <label>Complete Form</label>
             <div>
-                <asp:button ID="requestSubmit" runat="server" CssClass="modal-gold" Text="Submit" OnClick="requestSubmit_Click"></asp:button>
+                <asp:button ID="requestSubmit" runat="server" CssClass="btn btn-success" Text="Submit" OnClick="requestSubmit_Click"></asp:button>
             </div>
         </div>
-
+      </div>
+      
+      </div> 
     </fieldset>
     </asp:Panel>  
   <asp:Panel ID="messagePanel" runat="server">

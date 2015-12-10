@@ -117,15 +117,40 @@
                                     Text="Admin Page" 
                                     CausesValidation="false" />
                             </li>
-                            <%--<li>
+                            <li>
+                                <a
+                                    class="formLink"
+                                    tabindex="0"
+                                    id="forms-popout"
+                                    data-toggle="popover"
+                                    data-trigger="focus"
+                                    <%--data-title="<div class='black-text'>Form List</div>"--%>
+                                    data-placement="right"
+                                    data-container="body"
+                                    data-html="true">Forms</a>
                                 <div id="popover-content" class="hide">
                                     <ul>
-                                        <li>list of forms</li>
+                                        <li>
+                                            <asp:LinkButton
+                                                ID="FormLinkButton1"
+                                                runat="server"
+                                                OnClick="FormLinkButton1_Click1"
+                                                Text="Create Computer"
+                                                CausesValidation="false" />
+                                        </li>
+                                        <li>
+                                            <asp:LinkButton
+                                                ID="FormLinkButton2"
+                                                runat="server"
+                                                OnClick="FormLinkButton2_Click"
+                                                Text="Share Access"
+                                                CausesValidation="false" />
+                                        </li>                                                                                
                                     </ul>
                                     <script>
-                                        $('#test').hover(
+                                        $('#forms-popout').hover(
                                     function () {
-                                        $('#test').focus();
+                                        $('#forms-popout').focus();
                                     },
                                     function (e) {
                                         //e.preventDefault();
@@ -135,21 +160,22 @@
                                                 //hover
                                                 function(){},
                                                 //hover out
-                                                function () { $('#test').blur(); }
+                                                function () { $('#forms-popout').blur(); }
                                                 );
                                         }
                                         else {
                                             //console.log("blur");
-                                            $('#test').blur();
+                                            $('#forms-popout').blur();
                                         }
                                     }
                                     );
+                                        $('#popover-content').click(function (e) { e.preventDefault(); });
 
                                        // $('.popover').hover(function () { console.log("hovering") })
                                     </script>
                                 </div>
                                 
-                            </li>--%>
+                            </li>
                         </ul>
                     </div>
                     <!-- /#sidebar-wrapper -->
@@ -182,14 +208,21 @@
 
                     });
 
-                    $("#formlink-popout").hover(
-                        function () {
-                            $("#formlink-popout").focus();
-                        },
-                        function () {
-                            $("#formlink-popout").blur();
+                    $("[data-toggle=popover]").popover({
+                        html: true,
+                        content: function () {
+                            return $('#popover-content').html();
                         }
-                    )
+                    });
+
+                    //$("#formlink-popout").hover(
+                    //    function () {
+                    //        $("#formlink-popout").focus();
+                    //    },
+                    //    function () {
+                    //        $("#formlink-popout").blur();
+                    //    }
+                    //)
 
                     
     </script>

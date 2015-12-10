@@ -9,18 +9,13 @@
     <%--<asp:Label ID="helloMsg" runat="server" />--%>
 
     <asp:Panel ID="msgOfTheDay" runat="server" />
-
-    <%-- <asp:Button ID="Button1" runat="server" CssClass="btn modal-gold" OnClick="btnGrpManagement_Click" Text="View Groups" />
-    <asp:Button ID="ButtonFacWiki" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Faculty Wiki" />
-    <asp:Button ID="Button2" runat="server" CssClass="btn modal-gold" OnClick="Button2_Click" Text="Manage Groups" />
-    <asp:Button ID="btnCreateComp" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Create Comp" />
-    <asp:Button ID="ButtonTechWiki" runat="server" CssClass="btn modal-gold" OnClick="btnCreateComp_Click" Text="Technician Wiki" />
-    <asp:Button ID="Button4" runat="server" CssClass="btn modal-gold" Text="User Properties" OnClick="btnAcctDetail_Click" />
-    <asp:Button ID="Button3" runat="server" CssClass="btn modal-gold" Text="Page 1" OnClick="Button1_Click" />
-    <asp:Button ID="btnAdmin" runat="server" CssClass="btn modal-gold" OnClick="btnAdmin_Click" Text="Admin Page" />
-    --%>
-
-
+    
+    <div class="jumbotron main wh-transparent-background">
+        <h2>You're In!</h2>
+            <p>You have successfully signed into the application. You may select services on the left. Your user account can only see services you are authorized to utilize.</p>
+            <p>Account permissions are granted by submiting an approved web form.</p>
+    </div>
+    
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -63,7 +58,9 @@
     </div>
 
 
-
+    <script>
+        $('body').removeClass("master-body");
+    </script>
 
 
 </asp:Content>

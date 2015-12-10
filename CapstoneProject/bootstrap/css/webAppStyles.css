@@ -24,6 +24,8 @@ body {
   background-size: cover;
 }
 
+
+
 .logon-body{
   
   /*background: url(../../images/grizzBG2.jpg) center center fixed;*/
@@ -182,6 +184,15 @@ white-text{
     background-color: transparent;
     font-family: arvo;
     text-align: center;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+a:focus {
+   
+    outline:none;
 }
     
 /*.tooltip-inner,

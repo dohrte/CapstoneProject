@@ -99,6 +99,7 @@
     <Content Include="images\Oak_View_OU.jpg" />
     <Content Include="images\tinyBlackDrop.png" />
     <Content Include="images\tower-sky.jpg" />
+    <Content Include="JoinCompForm.aspx" />
     <Content Include="Logon.aspx" />
     <Content Include="databaseSetup.sql" />
     <Content Include="motd\motdFileX.xml" />
@@ -114,6 +115,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="ShareAccessForm.aspx" />
     <Content Include="UserDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -157,6 +159,13 @@
     <Compile Include="GroupManagment.aspx.designer.cs">
       <DependentUpon>GroupManagment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JoinCompForm.aspx.cs">
+      <DependentUpon>JoinCompForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JoinCompForm.aspx.designer.cs">
+      <DependentUpon>JoinCompForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LdapAuthentication.cs" />
     <Compile Include="Logon.aspx.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
@@ -199,6 +208,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ShareAccessForm.aspx.cs">
+      <DependentUpon>ShareAccessForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShareAccessForm.aspx.designer.cs">
+      <DependentUpon>ShareAccessForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>

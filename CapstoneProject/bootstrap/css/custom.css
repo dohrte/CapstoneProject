@@ -44,7 +44,7 @@ margin: 0;
 .carousel .item {
   max-height: 100%;
   max-height: 350px;
-  background-color: #DFD3B5;
+  background-color: #0A0A0C;
 }
 .carousel-inner > .item > img {
  /*  position: absolute;*/
@@ -53,7 +53,7 @@ margin: 0;
   min-width: 40%;
   max-width: 100%;
   max-height: 350px;
-  width: auto;
+  width: 100%;
   margin-right:auto;
   margin-left:auto;
   height:auto;
